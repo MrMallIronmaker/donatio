@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>List Causes</title>
+</head>
+<body>
+
+<ul id="causelist">
+</ul>
+
+<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDKqiw0u_YjJno4mYuR3iop31Mv3D4vjmo",
+    authDomain: "donatio-de19b.firebaseapp.com",
+    databaseURL: "https://donatio-de19b.firebaseio.com",
+    storageBucket: "donatio-de19b.appspot.com",
+    messagingSenderId: "493515279894"
+  };
+  firebase.initializeApp(config);
+</script>
+
+<script type="text/javascript">
+	firebase.database().ref('/Charities/').once('value').then( function(snapshot) { 
+	    var value = snapshot.val();
+	    var keys = Object.keys(value);
+	    for (i = 0; i < keys.length; i++) {
+		    var node = document.createElement("LI");                 // Create a <li> node
+		    var textnode = document.createTextNode(keys[i]);         // Create a text node
+		    node.appendChild(textnode);                              // Append the text to <li>
+		    document.getElementById("causelist").appendChild(node);     // Append <li> to <ul> with id="myList"
+		}
+	});
+
+</script>
+
+</body>
+</html>
