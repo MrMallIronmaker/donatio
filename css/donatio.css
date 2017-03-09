@@ -1,0 +1,19 @@
+html, body {
+  font-family: Lato;
+}
+
+.titlebar {
+	background-color: #00786C;
+}
+
+.titlebar h1, .titlebar h3 {
+	color: #ffffff;
+}
+
+.topbar {
+	background-color: #00C4B1;
+}
+
+.search-sidebar {
+	background-color: #e7e6e6;
+}
