@@ -14,6 +14,20 @@ html, body {
 	background-color: #00C4B1;
 }
 
+.topbar-text{
+  color:#4F4F4F;
+}
+
+.topbar-text-highlighted, .topbar-text-highlighted:hover, .topbar-text:hover{
+  color: #FFFFFF;
+  text-decoration:none;
+}
+
 .search-sidebar {
 	background-color: #e7e6e6;
+}
+
+.vertical-align {
+  display: flex;
+  align-items: center;
 }
