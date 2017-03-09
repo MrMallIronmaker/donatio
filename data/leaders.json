@@ -1,0 +1,7 @@
+[
+  {"id":1, "name":"Bill Gates"},
+  {"id":2, "name":"Melinda Gates"},
+  {"id":3, "name":"Susan Desmond-Hellmann", "position":"CEO", "tenure":"May 2014-present"},
+  {"id":4, "name":"Jim Bromley", "position":"CFO", "tenure":"Sept. 2008 - present"},
+  {"id":5, "name": "Leigh Morgan", "position":"COO", "tenure":"Sept. 2014 - present"}
+]

@@ -1,0 +1,18 @@
+[{
+    "id" : 1,
+    "name":"Bill and Melinda Gates Foundation",
+    "mainPhoto":"",
+    "website":"http://www.gatesfoundation.org/",
+    "rating":5,
+    "Org Type":"Private Foundation",
+    "Founded":"Jan 1, 1997",
+    "Headquarters":"Seattle, Washington",
+    "Region of Operation":"Worldwide",
+    "Type of Work":"Philanthropy",
+    "Charitable Commitment":"$2.19B",
+    "mission":"Our friend and co-trustee Warren Buffett once gave us some great advice about philanthropy: \u201CDon\u2019t just go for safe projects,\u201D he said. \u201CTake on the really tough problems.\u201D\r\n\r\nWe couldn\u2019t agree more. Our foundation is teaming up with partners around the world to take on some tough challenges: extreme poverty and poor health in developing countries, and the failures of America\u2019s education system. We focus on only a few issues because we think that\u2019s the best way to have great impact, and we focus on these issues in particular because we think they are the biggest barriers that prevent people from making the most of their lives.",
+    "leadershipTeam":[3,4,5],
+    "founders":[1,2],
+    "news":[1,2,3]
+  }
+]
