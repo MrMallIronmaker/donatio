@@ -21,7 +21,7 @@
     <link href="css/donatio.css" rel="stylesheet">
     <link href="css/comparison.css" rel="stylesheet">
     <script src="js/donatio.js"></script>
-
+    <script src="js/compare.js"></script>
 
   </head>
   <body>
@@ -38,13 +38,12 @@
             <input type="submit" value="Filter">
           </form>
 
-          <div id="myCharitiesList">
-
-          </div>
+          <div id="myCharitiesList"></div>
 
         </div>
         <div class="col-md-9">
           <h3>Comparison Chart</h3>
+          <div id="comparisonList"></div>
         </div>
       </div>
 
@@ -52,6 +51,8 @@
     <!--Load menu bar separately-->
     <script>
       loadMenu("compare");
+      loadSelectionMenu();
+      updateComparison([1,2,3,4]);
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

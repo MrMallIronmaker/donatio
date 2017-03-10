@@ -30,6 +30,48 @@ function highlightNavItem(itemName){
   }
 }
 
+function getSessionObject(){
+  /**
+   * Return session object if it exists - otherwise return an empty initialized object
+   */
+  var obj = JSON.parse(sessionStorage.getItem("state"));
+  if (obj == null){
+    obj = {
+      "searchString":"",
+      "searchFilters":{},
+      "savedCharities":[],
+      "comparisonMetrics":["BBB Rating", "Years of Operation", "Score of Impact", "Fundraising Efficiency"],
+      "allocationAmounts":{}
+    }
+  }
+  return obj;
+}
+
+function setSessionObject(object){
+  /**
+   * Set session object to the given object
+   */
+  sessionStorage.setItem("state", JSON.stringify(object));
+}
+
+function getCharityDetails(){
+  /**
+   * Returns a flattened version of all charities details as a list
+   */
+  var allDetailsData = generateRandomCharityDetails(100);
+
+  for (var i = 0; i < allDetailsData.length; i++){
+    var detail = allDetailsData[i]
+    detail["founders"] = getPeopleDetail(detail["founders"]);
+    detail["news"] = getNewsDetail(detail["news"]);
+    allDetailsData[i] = detail;
+  }
+  return allDetailsData;
+}
+
+/** ------------------ Helper Functions ---------------------------- 
+ * Should not be called outside of this file*/
+
 function searchCharities(searchText, filters){
   /**
    * Redirect user to search charities page with results given by query
@@ -38,39 +80,59 @@ function searchCharities(searchText, filters){
    */
 }
 
-function getCharityDetail(charityId){
-/**
- * Returns json like object of details of associate charityId
- * @param {Number} charityId - charity id
- */
+function randomChoice(arr){
+  var index = Math.floor(Math.random()*arr.length);
+  return arr[index];
 }
 
-function getPersonDetail(leadershipId){
+function generateRandomCharityDetails(numCharities){
+  var detailsList = [];
+  for (i = 0; i < numCharities; i++){
+    detailsList.push(generateRandomCharity(i, "Charity_" + i));
+  }
+  return detailsList;
+}
+
+function generateRandomCharity(charityId, charityName){
+  var charityDetail = {"id":charityId, "name":charityName};
+  charityDetail["website"] = "www.google.com";
+  charityDetail["rating"] = Math.floor((Math.random()*6));
+  charityDetail["headquarters"] = "Seattle, Washington";
+  charityDetail["regionOfOperation"] = "Worldwide";
+  charityDetail["typeOfWork"] = "Philanthropy";
+  charityDetail["charitableCommitment"] = "$2.19B";
+  charityDetail["mission"] = "Fillter mission text";
+  charityDetail["leadershipTeam"] = [3,4,5];
+  charityDetail["founders"] = [1,2];
+  charityDetail["news"] = [1,2,3];
+
+  // Comparison metrics
+  charityDetail["BBB Rating"] = randomChoice(["A","B","C"]) + randomChoice(["+","","-"]);
+  charityDetail["Years of Operation"] = Math.floor(Math.random()*100);
+  charityDetail["Score of Impact"] = randomChoice(["International", "National", "Local"]);
+  charityDetail["Fundraising Efficiency"] = Math.floor(Math.random()*100) + "%";
+  return charityDetail;
+}
+
+function getPeopleDetail(idList){
 /**
- * Returns json like object associated with leader for
+ * Returns list of json like object associated with leader for
  * leadership tab in details page.
- * @param {Number} leadershipId - id of leader to look for
+ * @param {Array} idList - list of leaderIds
  */
 }
 
-function getNewsDetail(newsId){
+function getNewsDetail(idList){
   /**
-   * Return news detail given input id
-   * @param {Number} newsId
+   * Return news detail given list of input ids
+   * @param {Array} isList list of newsIds
    */
 }
 
-function getCurrentUserDetail(){
+function getUserDetail(idList){
 /**
- * Return the details of the current user
- * Used to get the ids of fmily members to be displayed in the family sections
- */
-}
-
-function getUserDetail(userId){
-/**
- * Return the details of a given user
+ * Return the details of a list of given users
  * Used to get the details of family members
- * @param {Number} userId
+ * @param {Array} userId list of userIds
  */
 }

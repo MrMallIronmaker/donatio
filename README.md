@@ -12,6 +12,7 @@ The following variables will be stored in the user session through javascript
 * searchString : String - represents the string that the user places in the main charity search bar
 * searchFilters : Dictionary - mapping between filter category and user selected filters
 * savedCharities : Array - list of charityIds that the user has in their cart at the current moment
+* comparisonMetrics : Array - list of strings that correspond to comparison metrics selected
 * allocationAmounts : Dictionary - mappng between charityIds that have nonzero allocation and percent allocation
 
 The following variables will be stored statically for this demo
