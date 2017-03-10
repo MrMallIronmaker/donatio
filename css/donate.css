@@ -1,0 +1,66 @@
+.alloc_search_bar{
+    width: 100%;
+}
+.stylish-input-group .input-group-addon{
+    background: white !important; 
+}
+.stylish-input-group .form-control{
+	border-right:0; 
+	box-shadow:0 0 0; 
+	border-color:#ccc;
+}
+.stylish-input-group button{
+    border:0;
+    background:transparent;
+}
+
+.progress-bar{
+	background-color: #C43E00
+}
+
+.char_band{
+	 border-radius:10px 10px 10px 10px;  //rounds corners for other browsers
+     border:solid 1px #000;
+     background-color:#EAEAEA;
+     margin-top: 5px;
+     padding:5px;
+     
+}
+
+.char_name{
+	/*margin-right: 100px;*/
+}
+
+.trash{
+    border:0;
+    background:transparent;
+    float: right;
+}
+
+.bar {
+	width: 10px;
+}
+#slider .highlight {
+	height: 2px;
+	position: absolute;
+	width: 388px;
+	top: 6px;
+	left: 6px;
+}
+
+.submit{
+	margin-top: 20px;
+	float: right;
+	padding: 0;
+	width: 20%;
+	height: 40px;
+	background-color: #00C4B1;
+	color: #ffffff;
+	border: 0;
+}
+
+/*.sliders{
+	position: relative;
+	float: right;
+	width: 100%;
+}*/

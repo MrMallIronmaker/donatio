@@ -9,6 +9,8 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-slider.css" rel="stylesheet">
+    <link href="css/donate.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -22,50 +24,32 @@
     <script src="js/donatio.js"></script>
 
 
-  </head>
-  <body>
-    <div class="container-fluid">
-
-        <div id='menu'></div>
-
-    <div class="row">
-        <div class="col-md-2 search-sidebar">
-            <h3>Filters</h3>
-            <p id="filters"> 
-            </p>
-            <h3>Scope of Work</h3>
-            <p id="scopes"> 
-            	Local<br>
-            	Regional<br>
-            	State<br>
-            	National<br>
-            	International
-            </p>
-            <h3>Category</h3>
-            <p id="category">
-            	Health<br>
-            	Disease Research<br>
-            	Vaccinations<br>
-            	Human Services
-            	</p>
-            <h3>Rating</h3>
-            <p> starzzz... </p>
-            <h3>Type of Work</h3>
-            <p id="types">
-            	Direct Service <br>
-            	Philanthropy <br>
-            	Policy<br>
-            	</p>
-            <h3>Organization</h3>
-            	<p id="organization">
-            		Foundations
-            	</p>
-
-            <h3>Past Donations</h3>
-            	Past Donations
+    </head>
+    <body>
+     <div class = "col-md-6 col-sm-6 col-lg-6">
+        <h4>My Funds Allocated</h4>
+        <div class = "progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"> 70%</div>
         </div>
-        <div class="col-md-10">RESULTs</div>
+        <h4 id= 'My_Charities'></h4>
+        <div class="alloc_search_bar">
+            <div id="imaginary_container"> 
+                <div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Search your charities" >
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="charity_list"></div>
+        <div>
+          <button type='submit' class='submit'>SUBMIT</button>
+        </div>
       </div>
+      <div id = 'pie_charts'></div>
 
 
     <!--Load menu bar separately-->
@@ -77,5 +61,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/bootstrap-slider.js"></script>
+    <script src="js/donate.js"></script>
   </body>
 </html>
