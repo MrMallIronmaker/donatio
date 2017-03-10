@@ -31,3 +31,28 @@ html, body {
   display: flex;
   align-items: center;
 }
+
+.cause-category {
+  background-color: #003833;
+  color: white;
+  padding: 5px 0 5px 10px;
+  font-size: 1.7em;
+}
+
+.cause-subcategory {
+  background-color: #C43E00;
+  color: white;
+  text-align: center;
+  padding: 5px 0 5px 0;
+  font-size: 1.2em;
+  position: absolute;
+  margin-top: 40%;
+}
+
+.cause-img {
+  margin-bottom: 10px;
+}
+
+.long-caption {
+  margin-top: 80%;
+}
