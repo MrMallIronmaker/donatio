@@ -27,7 +27,7 @@
     </head>
     <body>
      <div id='menu'></div>
-     <div class = "col-md-5 col-sm-5 col-lg-5">
+     <div class = "container col-sm-5">
         <h4>My Funds Allocated</h4>
         <div class = "progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"> 70%</div>
@@ -50,9 +50,18 @@
           <button type='submit' class='submit'>SUBMIT</button>
         </div>
       </div>
-      <div id = 'family_allocs'>
-          <div class = 'pies'></div>
-          <div class = 'icons'></div>
+      <div class = 'container col-sm-6 col-sm-offset-1'>
+        <div class = 'row family_allocs'>
+            <div id ='pie'></div>
+        </div>
+        <div class = 'row family_icons'>
+            <div class = 'icons'>
+              <div class="icon col-sm-2" onclick='change_pie(0)'><img src="imgs/user.png"/><span class="caption">Family</span></div>
+              <div class="icon col-sm-2" onclick='change_pie(1)'><img src="imgs/user.png"/><span class="caption">Family</span></div>
+              <div class="icon col-sm-2" onclick='change_pie(2)'><img src="imgs/user.png"/><span class="caption">Family</span></div>
+              <div class="icon col-sm-2" onclick='change_pie(3)'><img src="imgs/user.png"/><span class="caption">Family</span></div>
+              <div class="icon col-sm-2" onclick='change_pie(4)'><img src="imgs/user.png"/><span class="caption">Family</span></div>
+            </div>
       </div>
 
     <!--Load menu bar separately-->
@@ -66,5 +75,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-slider.js"></script>
     <script src="js/donate.js"></script>
+    <script src="js/d3.min.js"></script>
+    <script src="js/pie_charts.js"></script>
   </body>
 </html>

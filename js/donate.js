@@ -5,6 +5,15 @@ var family_charities = {'Barak': {'Friends of Earth': 60, 'David Thomas Foundati
 var max_alloc = 60
 var total_alloc = 0
 
+/*$('char-search').on('change keydown paste input', function(){
+    search=document.getElementById('char-search').value()
+    if (search == ''){
+        charities = Object.keys(my_charities)
+        for(var i = 0; i < charities.length; i++) {
+    }
+
+})*/
+
 
 function makeCharList(my_charities) {
     // Create the list element:
@@ -29,7 +38,7 @@ function makeCharList(my_charities) {
 
         var slider_input = document.createElement('input');
 
-        slider_input.setAttribute('class', 'col-lg-12 col-lg-offset-12 col-md-offset-12 col-sm-offset-12 sliders slider_'+i)
+        slider_input.setAttribute('class', 'col-sm-10 col-sm-offset-1 sliders slider_'+i)
         slider_input.setAttribute('type', 'text')
         slider_input.setAttribute('data-slider-id', 'alloc_slider_'+i);
         slider_input.setAttribute('data-slider-min', 0)
@@ -63,6 +72,7 @@ function makeCharList(my_charities) {
                 prog_bar.setAttribute('style', "width:"+total_alloc+"%")
                 prog_bar.innerHTML = total_alloc+'%'
             }
+            document.getElementById('#pie')
         });
 
 
@@ -100,7 +110,11 @@ function makeCharList(my_charities) {
     return list;
 }
 
+function makePieChart(my_charities) {
 
-makeCharList(my_charities)
+}
+
+makeCharList(my_charities);
+//makePieChart();
 // Add the contents of options[0] to #foo:
 //document.getElementById('charity_list').appendChild(makeCharList(my_charities));
