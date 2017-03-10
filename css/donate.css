@@ -75,19 +75,19 @@
 	vertical-align: top;
     display: inline-block;
     text-align: center;
-	height: 100px;
-    width: 100px;
-    margin: 25px;
+	height: 40px;
+    width: 40px;
+    margin: 30px;
 	-webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
 }
 
 .icon :hover{
-	height: 125px;
-	width: 125px;
-	margin-top: -25px;
-	margin-left: -25px;
+	height: 100px;
+	width: 100px;
+	margin-top: -10px;
+	margin-left: -10px;
 
 }
 
