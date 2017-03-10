@@ -19,6 +19,7 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="css/donatio.css" rel="stylesheet">
+    <link href="css/comparison.css" rel="stylesheet">
     <script src="js/donatio.js"></script>
 
 
@@ -26,45 +27,25 @@
   <body>
     <div class="container-fluid">
 
-        <div id='menu'></div>
+    <div id='menu'></div>
 
-    <div class="row">
-        <div class="col-md-2 search-sidebar">
-            <h3>Filters</h3>
-            <p id="filters"> 
-            </p>
-            <h3>Scope of Work</h3>
-            <p id="scopes"> 
-            	Local<br>
-            	Regional<br>
-            	State<br>
-            	National<br>
-            	International
-            </p>
-            <h3>Category</h3>
-            <p id="category">
-            	Health<br>
-            	Disease Research<br>
-            	Vaccinations<br>
-            	Human Services
-            	</p>
-            <h3>Rating</h3>
-            <p> starzzz... </p>
-            <h3>Type of Work</h3>
-            <p id="types">
-            	Direct Service <br>
-            	Philanthropy <br>
-            	Policy<br>
-            	</p>
-            <h3>Organization</h3>
-            	<p id="organization">
-            		Foundations
-            	</p>
+    <div class="row" style="padding-top:10px">
+        <div class="col-md-3">
+          <h3>My Charities</h3>
+          <hr>
+          <form action="#">
+            <input type="text" name="lname">
+            <input type="submit" value="Filter">
+          </form>
 
-            <h3>Past Donations</h3>
-            	Past Donations
+          <div id="myCharitiesList">
+
+          </div>
+
         </div>
-        <div class="col-md-10">RESULTs</div>
+        <div class="col-md-9">
+          <h3>Comparison Chart</h3>
+        </div>
       </div>
 
 
