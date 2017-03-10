@@ -16,7 +16,31 @@ hr{
     background-color: #E2E2E2;
     border-radius:10px;
 }
+
 .charity-element:hover{
+  color: white;
+  background-color: #CD6F43;
+}
+
+.charity-element-selected, .charity-element-selected:hover{
     color: white;
     background-color: #C43E00;
+}
+
+.comparison-row-even{
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  height:70px;
+}
+
+.comparison-row-odd{
+  display: flex;
+  align-items: center;
+  background-color: #E0E0E0;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  height:70px;
 }

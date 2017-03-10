@@ -38,13 +38,12 @@
             <input type="submit" value="Filter">
           </form>
 
-          <div id="myCharitiesList">
-
-          </div>
+          <div id="myCharitiesList"></div>
 
         </div>
         <div class="col-md-9">
           <h3>Comparison Chart</h3>
+          <div id="comparisonList"></div>
         </div>
       </div>
 
@@ -53,6 +52,7 @@
     <script>
       loadMenu("compare");
       loadSelectionMenu();
+      updateComparison([1,2,3,4]);
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
