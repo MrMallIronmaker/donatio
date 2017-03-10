@@ -30,6 +30,46 @@ function highlightNavItem(itemName){
   }
 }
 
+function getSessionObject(){
+  /**
+   * Return session object if it exists - otherwise return an empty initialized object
+   */
+  var obj = JSON.parse(sessionStorage.getItem("state"));
+  if (obj == null){
+    obj = {
+      "searchString":"",
+      "searchFilters":{},
+      "savedCharities":[],
+      "allocationAmounts":{}
+    }
+  }
+  return obj;
+}
+
+function setSessionObject(object){
+  /**
+   * Set session object to the given object
+   */
+  sessionStorage.setItem("state", JSON.stringify(object));
+}
+
+function getCharityDetails(){
+  /**
+   * Returns a flattened version of all charities details as a list
+   */
+  var allDetailsData = 0;
+
+  for (i = 0; i < allDetailsData.length; i++){
+    var detail = allDetailsData[i]
+    detail["founders"] = getPeopleDetail(detail["founders"]);
+    detail["news"] = getNewsDetail(detail["news"]);
+    allDetailsData[i] = detail;
+  }
+  return allDetailsData;
+}
+
+/** Helper Functions */
+
 function searchCharities(searchText, filters){
   /**
    * Redirect user to search charities page with results given by query
@@ -38,39 +78,25 @@ function searchCharities(searchText, filters){
    */
 }
 
-function getCharityDetail(charityId){
+function getPeopleDetail(idList){
 /**
- * Returns json like object of details of associate charityId
- * @param {Number} charityId - charity id
- */
-}
-
-function getPersonDetail(leadershipId){
-/**
- * Returns json like object associated with leader for
+ * Returns list of json like object associated with leader for
  * leadership tab in details page.
- * @param {Number} leadershipId - id of leader to look for
+ * @param {Array} idList - list of leaderIds
  */
 }
 
-function getNewsDetail(newsId){
+function getNewsDetail(idList){
   /**
-   * Return news detail given input id
-   * @param {Number} newsId
+   * Return news detail given list of input ids
+   * @param {Array} isList list of newsIds
    */
 }
 
-function getCurrentUserDetail(){
+function getUserDetail(idList){
 /**
- * Return the details of the current user
- * Used to get the ids of fmily members to be displayed in the family sections
- */
-}
-
-function getUserDetail(userId){
-/**
- * Return the details of a given user
+ * Return the details of a list of given users
  * Used to get the details of family members
- * @param {Number} userId
+ * @param {Array} userId list of userIds
  */
 }
