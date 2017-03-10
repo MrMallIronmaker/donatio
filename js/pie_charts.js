@@ -165,7 +165,7 @@ var sibling_data =  [{
 
 }]
 
-var width = 500,
+var width = 600,
     height = width,
     maxRadius = Math.min(width, height) / 2;
 
