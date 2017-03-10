@@ -1,6 +1,7 @@
 function loadSelectionMenu(){
   var obj = getSessionObject();
   var savedCharities = obj["savedCharities"];
+  var initialSelectedCharities = obj["comparisonCharities"];
   var charityDetails = getCharityDetails();
 
   var elemList = document.getElementById("myCharitiesList");
@@ -13,7 +14,11 @@ function loadSelectionMenu(){
     elem.appendChild(para);
     para.appendChild(node);
     elemList.appendChild(elem);
-    elem.className = "charity-element";
+    if (initialSelectedCharities.indexOf(savedCharities[i]) > -1){
+      elem.className = "charity-element charity-element-selected";
+    } else{
+      elem.className = "charity-element";
+    }
     var clickHandler = function(elem, charityId){
       return function(){
         if (elem.className.split(" ").length == 1){
