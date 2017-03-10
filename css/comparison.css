@@ -27,6 +27,11 @@ hr{
     background-color: #C43E00;
 }
 
+.comparison-name-row{
+  margin-bottom:20px;
+  margin-top:40px;
+}
+
 .comparison-row-even{
   display: flex;
   align-items: center;
