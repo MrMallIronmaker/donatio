@@ -1,3 +1,11 @@
+var ratingMetrics = ["BBB Rating", "Impact Score"];
+var generalMetrics = ["Corporate Headquarters", "Outreach Offices",
+    "Number of Donors", "Organization Type", "Scope of Impact",
+    "Type of Work", "Years of Operation"];
+var financialMetrics = ["Administrative Overhead", "Charitable Commitment",
+    "Donor Dependency","Fundraising Efficiency", "Primary Support",
+    "Tax Status", "Total Expenses"];
+
 function loadSelectionMenu(){
   var obj = getSessionObject();
   var savedCharities = obj["savedCharities"];
@@ -99,18 +107,12 @@ function updateComparison(charityIds){
   }
 }
 
-var ratingMetrics = ["BBB Rating", "Impact Score"];
-var generalMetrics = ["Corporate Headquarters", "Outreach Offices",
-    "Number of Donors", "Organization Type", "Scope of Impact",
-    "Type of Work", "Year of Operation"];
-var financialMetrics = ["Administrative Overhead", "Charitable Commitment",
-    "Donor Dependency","Fundraising Efficiency", "Primary Support",
-    "Tax Status", "Total Expenses"];
 
 
 function editMetricsHandler(){
   // Create a model pop-up which prepopulates with the current comparison metrics
 // Have a button to update metrics
+  var sessObj = getSessionObject();
   var modal = document.getElementById("metricSelectionModal");
   modal.style.display = "block";
 
@@ -127,7 +129,8 @@ function editMetricsHandler(){
   }
   // Generate list of possible metrics to select from
   var allMetricsView = document.getElementById("allMetricsView");
-  var generateMetricsList = function(title, metricNames){
+  allMetricsView.innerHTML = "";
+  var generateMetricsList = function(title, metricNames, selectedMetrics){
     var column = document.createElement("div");
     column.className = "col-md-4";
     var titleElem = document.createElement("div");
@@ -136,21 +139,46 @@ function editMetricsHandler(){
     column.appendChild(titleElem);
     for (var i=0; i<metricNames.length; i++){
       var metricElem = document.createElement("div");
-      metricElem.className = "row";
+      if (selectedMetrics.indexOf(metricNames[i]) > -1){
+        metricElem.className = "row metric-elem metric-elem-selected"
+      } else {
+        metricElem.className = "row metric-elem";
+      }
       metricElem.innerHTML = metricNames[i];
+      metricElem.addEventListener("click", function(metricElem){
+        return function(){
+          if (metricElem.className.split(" ").indexOf("metric-elem-selected") > -1){
+            metricElem.className = "row metric-elem"
+          } else {
+            metricElem.className = "row metric-elem metric-elem-selected";
+          }
+        };
+      }(metricElem));
       column.appendChild(metricElem);
     }
    return column; 
   };
-  allMetricsView.appendChild(generateMetricsList("Ratings", ratingMetrics));
-  allMetricsView.appendChild(generateMetricsList("General Info", generalMetrics));
-  allMetricsView.appendChild(generateMetricsList("Financials", financialMetrics));
+  selectedMetrics = sessObj["comparisonMetrics"];
+  allMetricsView.appendChild(generateMetricsList("Ratings",
+        ratingMetrics, selectedMetrics));
+  allMetricsView.appendChild(generateMetricsList("General Info",
+        generalMetrics, selectedMetrics));
+  allMetricsView.appendChild(generateMetricsList("Financials",
+        financialMetrics, selectedMetrics));
 
   // Generate update metrics button
   var updateMetricsButton = document.getElementById("updateMetricsButton");
   updateMetricsButton.onclick = function(){
     //TODO : update comparison metrics in session state
+    var selectedMetrics = document.getElementsByClassName("metric-elem-selected");
+    var selectedMetricNames = [];
+    for (var i=0; i<selectedMetrics.length; i++){
+      selectedMetricNames.push(selectedMetrics[i].innerHTML);
+    }
+    sessObj["comparisonMetrics"] = selectedMetricNames;
+    setSessionObject(sessObj);
     modal.style.display = "none";
+    updateComparison(sessObj["comparisonCharities"]);
   }; 
 
 }

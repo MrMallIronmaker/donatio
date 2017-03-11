@@ -16,7 +16,7 @@ function getSessionObject(){
       "searchString":"",
       "searchFilters":{},
       "savedCharities":[0,1,2,3],
-      "comparisonMetrics":["BBB Rating", "Years of Operation", "Score of Impact", "Fundraising Efficiency"],
+      "comparisonMetrics":["BBB Rating", "Years of Operation", "Scope of Impact", "Fundraising Efficiency"],
       "comparisonCharities":[],
       "allocationAmounts":{}
     }
@@ -145,7 +145,7 @@ function generateRandomCharityDetails(charityDetail){
       randomChoice(["A","B","C"]) + randomChoice(["+","","-"]));
   charityDetail = fillIn(charityDetail, "Years of Operation",
       Math.floor(Math.random()*100));
-  charityDetail = fillIn(charityDetail, "Score of Impact",
+  charityDetail = fillIn(charityDetail, "Scope of Impact",
       randomChoice(["International", "National", "Local"]));
   charityDetail = fillIn(charityDetail, "Fundraising Efficiency",
       Math.floor(Math.random()*100) + "%");

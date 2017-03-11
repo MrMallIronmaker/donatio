@@ -106,3 +106,21 @@ hr{
   padding-top: 5px;
   padding-bottom: 5px;
 }
+
+.metric-elem{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  margin-right: 20px;
+}
+
+.metric-elem:hover{
+  color: white;
+  background-color: #CD6F43;
+}
+
+.metric-elem-selected,
+.metric-elem-selected:hover{
+  color: white;
+  background-color: #C43E00;
+}
