@@ -99,7 +99,58 @@ function updateComparison(charityIds){
   }
 }
 
+var ratingMetrics = ["BBB Rating", "Impact Score"];
+var generalMetrics = ["Corporate Headquarters", "Outreach Offices",
+    "Number of Donors", "Organization Type", "Scope of Impact",
+    "Type of Work", "Year of Operation"];
+var financialMetrics = ["Administrative Overhead", "Charitable Commitment",
+    "Donor Dependency","Fundraising Efficiency", "Primary Support",
+    "Tax Status", "Total Expenses"];
+
+
 function editMetricsHandler(){
   // Create a model pop-up which prepopulates with the current comparison metrics
-  // Have a button to update metrics
+// Have a button to update metrics
+  var modal = document.getElementById("metricSelectionModal");
+  modal.style.display = "block";
+
+  var modalCloseButton = document.getElementById("modalCloseButton");
+  modalCloseButton.onclick = function(){
+    modal.style.display = "none";
+  };
+
+  // Click anywhere outside of modal causes it to close
+  window.onclick = function(event){
+    if (event.target == modal){
+      modal.style.display = "none";
+    }
+  }
+  // Generate list of possible metrics to select from
+  var allMetricsView = document.getElementById("allMetricsView");
+  var generateMetricsList = function(title, metricNames){
+    var column = document.createElement("div");
+    column.className = "col-md-4";
+    var titleElem = document.createElement("div");
+    titleElem.className = "row";
+    titleElem.innerHTML = "<h3>"+title+"</h3>";
+    column.appendChild(titleElem);
+    for (var i=0; i<metricNames.length; i++){
+      var metricElem = document.createElement("div");
+      metricElem.className = "row";
+      metricElem.innerHTML = metricNames[i];
+      column.appendChild(metricElem);
+    }
+   return column; 
+  };
+  allMetricsView.appendChild(generateMetricsList("Ratings", ratingMetrics));
+  allMetricsView.appendChild(generateMetricsList("General Info", generalMetrics));
+  allMetricsView.appendChild(generateMetricsList("Financials", financialMetrics));
+
+  // Generate update metrics button
+  var updateMetricsButton = document.getElementById("updateMetricsButton");
+  updateMetricsButton.onclick = function(){
+    //TODO : update comparison metrics in session state
+    modal.style.display = "none";
+  }; 
+
 }

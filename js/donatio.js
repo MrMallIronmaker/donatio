@@ -5,6 +5,55 @@ function initializePage(currentNavItem){
   loadMenu(currentNavItem);
 }
 
+
+function getSessionObject(){
+  /**
+   * Return session object if it exists - otherwise return an empty initialized object
+   */
+  var obj = JSON.parse(sessionStorage.getItem("state"));
+  if (obj == null){
+    obj = {
+      "searchString":"",
+      "searchFilters":{},
+      "savedCharities":[0,1,2,3],
+      "comparisonMetrics":["BBB Rating", "Years of Operation", "Score of Impact", "Fundraising Efficiency"],
+      "comparisonCharities":[],
+      "allocationAmounts":{}
+    }
+  }
+  return obj;
+}
+
+function setSessionObject(object){
+  /**
+   * Set session object to the given object
+   */
+  sessionStorage.setItem("state", JSON.stringify(object));
+}
+
+function getCharityDetails(){
+  /**
+   * Returns a flattened version of all charities details as a list
+   */
+  //var allDetailsData = generateRandomCharityDetails(100);
+  var allDetailsData = JSON.parse(sessionStorage.getItem("charityData"));
+  for (var i = 0; i < allDetailsData.length; i++){
+    allDetailsData[i] = generateRandomCharityDetails(allDetailsData[i]);
+  }
+
+  for (var i = 0; i < allDetailsData.length; i++){
+    var detail = allDetailsData[i];
+    detail["founders"] = getPeopleDetail(detail["founders"]);
+    detail["news"] = getNewsDetail(detail["news"]);
+    allDetailsData[i] = detail;
+  }
+  return allDetailsData;
+}
+
+/** ------------------ Helper Functions ---------------------------- 
+ * Should not be called outside of this file*/
+
+
 function loadMenu(currentNavItem){
   /**
    * Load menu to div with id "menu" and highlight tab denoted by currentNavItem
@@ -55,53 +104,6 @@ function highlightNavItem(itemName){
       break;
   }
 }
-
-function getSessionObject(){
-  /**
-   * Return session object if it exists - otherwise return an empty initialized object
-   */
-  var obj = JSON.parse(sessionStorage.getItem("state"));
-  if (obj == null){
-    obj = {
-      "searchString":"",
-      "searchFilters":{},
-      "savedCharities":[0,1,2,3],
-      "comparisonMetrics":["BBB Rating", "Years of Operation", "Score of Impact", "Fundraising Efficiency"],
-      "comparisonCharities":[],
-      "allocationAmounts":{}
-    }
-  }
-  return obj;
-}
-
-function setSessionObject(object){
-  /**
-   * Set session object to the given object
-   */
-  sessionStorage.setItem("state", JSON.stringify(object));
-}
-
-function getCharityDetails(){
-  /**
-   * Returns a flattened version of all charities details as a list
-   */
-  //var allDetailsData = generateRandomCharityDetails(100);
-  var allDetailsData = JSON.parse(sessionStorage.getItem("charityData"));
-  for (var i = 0; i < allDetailsData.length; i++){
-    allDetailsData[i] = generateRandomCharityDetails(allDetailsData[i]);
-  }
-
-  for (var i = 0; i < allDetailsData.length; i++){
-    var detail = allDetailsData[i];
-    detail["founders"] = getPeopleDetail(detail["founders"]);
-    detail["news"] = getNewsDetail(detail["news"]);
-    allDetailsData[i] = detail;
-  }
-  return allDetailsData;
-}
-
-/** ------------------ Helper Functions ---------------------------- 
- * Should not be called outside of this file*/
 
 function searchCharities(searchText, filters){
   /**
