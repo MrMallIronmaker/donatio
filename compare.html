@@ -50,9 +50,11 @@
 
     <!--Load menu bar separately-->
     <script>
+      //sessionStorage.clear();
       loadMenu("compare");
       loadSelectionMenu();
-      updateComparison([1,2,3,4]);
+      var sessObj = getSessionObject();
+      updateComparison(sessObj["comparisonCharities"]);
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

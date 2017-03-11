@@ -1,8 +1,8 @@
 function loadSelectionMenu(){
   var obj = getSessionObject();
   var savedCharities = obj["savedCharities"];
+  var initialSelectedCharities = obj["comparisonCharities"];
   var charityDetails = getCharityDetails();
-  savedCharities = [0,1,2,3,4,5];
 
   var elemList = document.getElementById("myCharitiesList");
 
@@ -14,17 +14,34 @@ function loadSelectionMenu(){
     elem.appendChild(para);
     para.appendChild(node);
     elemList.appendChild(elem);
-    elem.className = "charity-element";
-    var clickHandler = function(elem){
+    if (initialSelectedCharities.indexOf(savedCharities[i]) > -1){
+      elem.className = "charity-element charity-element-selected";
+    } else{
+      elem.className = "charity-element";
+    }
+    var clickHandler = function(elem, charityId){
       return function(){
         if (elem.className.split(" ").length == 1){
           // Charity is not currently selected
           elem.className = "charity-element charity-element-selected";
+          var sessObj = getSessionObject();
+          sessObj["comparisonCharities"].push(charityId);
+          setSessionObject(sessObj);
+          console.log(sessObj["comparisonCharities"]);
+          updateComparison(sessObj["comparisonCharities"]);
+
         } else{
           // Charity is already selected
           elem.className = "charity-element";
+          var sessObj = getSessionObject();
+          var removeIndex = sessObj["comparisonCharities"].indexOf(charityId);
+          if (removeIndex > -1){
+            sessObj["comparisonCharities"].splice(removeIndex, 1);
+          }
+          setSessionObject(sessObj);
+          updateComparison(sessObj["comparisonCharities"]);
         }
-      }}(elem);
+      }}(elem, savedCharities[i]);
     elem.addEventListener("click", clickHandler);
   }
 }
@@ -41,6 +58,20 @@ function updateComparison(charityIds){
   comparisonView.innerHTML = "";
 
   // first column with charity names and pictures
+  var firstRow = document.createElement("div");
+  firstRow.className = "row comparison-name-row";
+  comparisonView.appendChild(firstRow);
+  // TODO : change empty space to the edit metrics button
+  var emptySpace = document.createElement("div");
+  emptySpace.className = "col-md-2";
+  firstRow.appendChild(emptySpace);
+  for (var i = 0; i < numComparisons; i++){
+    var charityName = charityDetails[i].name;
+    var charityNameColumn = document.createElement("div");
+    charityNameColumn.className = "col-md-" + bootstrapColumnSize;
+    charityNameColumn.innerHTML = charityName;
+    firstRow.appendChild(charityNameColumn);
+  }
 
   // remaining columns of comparison chart
   for (var i = 0; i < comparisonMetrics.length; i ++){
@@ -55,7 +86,7 @@ function updateComparison(charityIds){
     for (var j = 0; j < numComparisons; j++){
       var column = document.createElement("div");
       column.className = "col-md-" + bootstrapColumnSize;
-      charityId = charityIds[i];
+      charityId = charityIds[j];
       var charityMetricValue = charityDetails[charityId][comparisonMetric];
       column.innerHTML = charityMetricValue;
       row.appendChild(column);

@@ -39,8 +39,9 @@ function getSessionObject(){
     obj = {
       "searchString":"",
       "searchFilters":{},
-      "savedCharities":[],
+      "savedCharities":[0,1,2,3,4,5],
       "comparisonMetrics":["BBB Rating", "Years of Operation", "Score of Impact", "Fundraising Efficiency"],
+      "comparisonCharities":[],
       "allocationAmounts":{}
     }
   }
