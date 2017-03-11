@@ -49,3 +49,12 @@ hr{
   margin-bottom: 10px;
   height:70px;
 }
+
+.edit-button{
+  color: white;
+  background-color:#00C4B1;
+  padding-left:10px;
+  padding-top:5px;
+  padding-bottom:5px;
+  border-radius:10px;
+}

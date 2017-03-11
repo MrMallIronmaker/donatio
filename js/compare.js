@@ -61,12 +61,17 @@ function updateComparison(charityIds){
   var firstRow = document.createElement("div");
   firstRow.className = "row comparison-name-row";
   comparisonView.appendChild(firstRow);
-  // TODO : change empty space to the edit metrics button
-  var emptySpace = document.createElement("div");
-  emptySpace.className = "col-md-2";
-  firstRow.appendChild(emptySpace);
+
+  var editButtonSpace = document.createElement("div");
+  editButtonSpace.className = "col-md-2";
+  firstRow.appendChild(editButtonSpace);
+  var editButton = document.createElement("div");
+  editButton.className = "edit-button";
+  editButton.innerHTML = "Edit Metrics";
+  editButtonSpace.appendChild(editButton);
+  editButton.addEventListener("click", editMetricsHandler);
   for (var i = 0; i < numComparisons; i++){
-    var charityName = charityDetails[i].name;
+    var charityName = charityDetails[charityIds[i]].name;
     var charityNameColumn = document.createElement("div");
     charityNameColumn.className = "col-md-" + bootstrapColumnSize;
     charityNameColumn.innerHTML = charityName;
@@ -92,4 +97,9 @@ function updateComparison(charityIds){
       row.appendChild(column);
     }
   }
+}
+
+function editMetricsHandler(){
+  // Create a model pop-up which prepopulates with the current comparison metrics
+  // Have a button to update metrics
 }
