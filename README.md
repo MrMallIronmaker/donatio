@@ -1,3 +1,7 @@
+Site Location
+
+http://markromanmiller.com/donatio/
+
 # Local Setup
 
 The use of javascript to import other documents will only work when running an http server from this directory. One way to run an http server from your local machine is found here
@@ -13,6 +17,7 @@ The following variables will be stored in the user session through javascript
 * searchFilters : Dictionary - mapping between filter category and user selected filters
 * savedCharities : Array - list of charityIds that the user has in their cart at the current moment
 * comparisonMetrics : Array - list of strings that correspond to comparison metrics selected
+* comparisonCharities : Array - list of charity ids that correspond the the charities that are selected on the comparison page
 * allocationAmounts : Dictionary - mappng between charityIds that have nonzero allocation and percent allocation
 
 The following variables will be stored statically for this demo
@@ -26,3 +31,6 @@ The following variables will be stored statically for this demo
   * mission : String - mission statement diplayed on details page
   * leadershipTeam : Array - dictionary of leadership data
   * ...
+
+# Known issues
+* race condition where static content is needs to finish loading prior to intialization of elements on compare page otherwise the site crashes
