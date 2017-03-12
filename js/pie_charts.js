@@ -102,7 +102,6 @@ function update_pie(char_name, amount){
       }else if (data[i][j].label == 'Unallocated'){
         obj = getSessionObject()
         data[i][j].value = (100-obj['percentAllocated'])*60/100
-        console.log(100-obj['percentAllocated'])
       }
     }
   }
