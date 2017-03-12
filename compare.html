@@ -29,6 +29,27 @@
 
     <div id='menu'></div>
 
+    <!-- The Modal -->
+    <div id="metricSelectionModal" class="modal">
+      <div class="modal-content">
+        <div class="row">
+          <div class="col-md-10">
+            <h2>Comparison Metrics</h2>
+          </div>
+          <div class="col-md-2">
+            <div id="modalCloseButton" class="close">&times;</div>
+          </div>
+        </div>
+        <div id="allMetricsView"></div>
+        <div class="row">
+          <div class="col-md-10"></div>
+          <div class="col-md-2">
+            <div id="updateMetricsButton">Update Metrics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="row" style="padding-top:10px">
         <div class="col-md-3">
           <h3>My Charities</h3>
@@ -51,10 +72,13 @@
     <!--Load menu bar separately-->
     <script>
       //sessionStorage.clear();
-      loadMenu("compare");
-      loadSelectionMenu();
-      var sessObj = getSessionObject();
-      updateComparison(sessObj["comparisonCharities"]);
+      initializePage("compare");
+      // hack to wait for data to load before generating generating view
+      setTimeout(function(){
+        loadSelectionMenu();
+        var sessObj = getSessionObject();
+        updateComparison(sessObj["comparisonCharities"]);
+      }, 50);
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
