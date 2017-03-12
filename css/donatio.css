@@ -91,7 +91,7 @@ html, body {
 }
 
 .wrapper {
-    position: relative;
+    position: absolute;
 }
 
 .preview{
@@ -108,12 +108,4 @@ html, body {
 
 #searchbar {
   width: 100%;
-}
-
-.global_search_bar{
-    margin-left: 5%;
-}
-
-#searchBar{
-  width: 1000px;
 }
