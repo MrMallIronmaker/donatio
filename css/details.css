@@ -38,3 +38,15 @@
   margin-top:10px;
   margin-bottom:10px;
 }
+
+.impact-elem{
+  background-color: #F3F3F3;
+  border-radius: 20px;
+  padding-top:20px;
+  padding-bottom:20px;
+  margin-bottom:40px;
+}
+
+.impact-image{
+  width:250px;
+}

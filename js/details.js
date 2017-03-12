@@ -64,7 +64,6 @@ function showAboutView(){
   for (var i=0; i < charityDetail["news"].length; i++){
     var date = charityDetail["news"][i].date;
     var headline = charityDetail["news"][i].headline;
-    console.log(headline);
     var row = document.createElement("div");
     row.className = "row news-row";
     contentView.appendChild(row);
@@ -81,12 +80,79 @@ function showAboutView(){
 
 function showImpactView(){
 
+  var sessObj = getSessionObject();
+  var charityId = sessObj["detailsCharity"];
+  var charityDetails = getCharityDetails();
+  var charityDetail = charityDetails[charityId];
+
+  var contentView = document.getElementById("mainContentView");
+  contentView.innerHTML = "";
+
+  var impactHeader = document.createElement("h2");
+  impactHeader.innerHTML = "Impact";
+  contentView.appendChild(impactHeader);
+
+  var impactList = charityDetail["impact"];
+
+  for (var i=0; i < impactList.length; i++){
+    var title = impactList[i]["title"];
+    var description = impactList[i]["description"];
+    var photoUrl = impactList[i]["photoUrl"];
+
+    var impactRow = document.createElement("div");
+    impactRow.className = "row impact-elem";
+    contentView.appendChild(impactRow);
+
+    var leftSide = document.createElement("div");
+    leftSide.className = "col-md-4";
+    impactRow.appendChild(leftSide);
+
+    var rightSide = document.createElement("div");
+    rightSide.className = "col-md-8";
+    impactRow.appendChild(rightSide);
+
+    var imageView = document.createElement("img");
+    imageView.className = "impact-image"
+    imageView.src = photoUrl;
+    leftSide.appendChild(imageView);
+
+    var titleView = document.createElement("h3");
+    titleView.innerHTML = title;
+    rightSide.appendChild(titleView);
+
+    var descriptionView = document.createElement("p");
+    descriptionView.innerHTML = description;
+    rightSide.appendChild(descriptionView);
+  }
+
 }
 
 function showFinancialsView(){
 
+  var sessObj = getSessionObject();
+  var charityId = sessObj["detailsCharity"];
+  var charityDetails = getCharityDetails();
+  var charityDetail = charityDetails[charityId];
+
+  var contentView = document.getElementById("mainContentView");
+  contentView.innerHTML = "";
+
+  var financialsHeader = document.createElement("h2");
+  financialsHeader.innerHTML = "Financials";
+  contentView.appendChild(financialsHeader);
 }
 
 function showLeadershipView(){
 
+  var sessObj = getSessionObject();
+  var charityId = sessObj["detailsCharity"];
+  var charityDetails = getCharityDetails();
+  var charityDetail = charityDetails[charityId];
+
+  var contentView = document.getElementById("mainContentView");
+  contentView.innerHTML = "";
+
+  var leadershipHeader = document.createElement("h2");
+  leadershipHeader.innerHTML = "Leadership Team";
+  contentView.appendChild(leadershipHeader);
 }
