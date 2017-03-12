@@ -25,14 +25,10 @@
 
     <!-- search bar -->
     <div id='menu'></div>
-    <div class="container-fluid">
-        <div class="row">
-            <form class="form-inline">
-                <div class="form-group">
-                    <input type="search" class="form-control" id="searchBar" placeholder="I would like to donate to...">
-                </div>
-                <button type="submit" class="btn btn-default">Search</button>
-            </form>
+    <div id="contianer-fluid"> 
+        <div class="input-group stylish-input-group col-md-12">
+            <input type="text" class="form-control" id ='searchBar' placeholder="I would like to donate to..." >
+            <span class="input-group-btn"><button class="btn btn-default" type="button" onclick='query_search()' >Search</button></span> 
         </div>
     </div>
 
@@ -390,7 +386,8 @@
 
     <!--Load menu bar separately-->
     <script>
-      loadMenu("search");
+      sessionStorage.clear();
+      initializePage("search");
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

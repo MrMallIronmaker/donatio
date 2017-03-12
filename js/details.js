@@ -64,7 +64,6 @@ function showAboutView(){
   for (var i=0; i < charityDetail["news"].length; i++){
     var date = charityDetail["news"][i].date;
     var headline = charityDetail["news"][i].headline;
-    console.log(headline);
     var row = document.createElement("div");
     row.className = "row news-row";
     contentView.appendChild(row);
@@ -81,12 +80,124 @@ function showAboutView(){
 
 function showImpactView(){
 
+  var sessObj = getSessionObject();
+  var charityId = sessObj["detailsCharity"];
+  var charityDetails = getCharityDetails();
+  var charityDetail = charityDetails[charityId];
+
+  var contentView = document.getElementById("mainContentView");
+  contentView.innerHTML = "";
+
+  var impactHeader = document.createElement("h2");
+  impactHeader.innerHTML = "Impact";
+  contentView.appendChild(impactHeader);
+
+  var impactList = charityDetail["impact"];
+
+  for (var i=0; i < impactList.length; i++){
+    var title = impactList[i]["title"];
+    var description = impactList[i]["description"];
+    var photoUrl = impactList[i]["photoUrl"];
+
+    var impactRow = document.createElement("div");
+    impactRow.className = "row impact-elem";
+    contentView.appendChild(impactRow);
+
+    var leftSide = document.createElement("div");
+    leftSide.className = "col-md-4";
+    impactRow.appendChild(leftSide);
+
+    var rightSide = document.createElement("div");
+    rightSide.className = "col-md-8";
+    impactRow.appendChild(rightSide);
+
+    var imageView = document.createElement("img");
+    imageView.className = "impact-image"
+    imageView.src = photoUrl;
+    leftSide.appendChild(imageView);
+
+    var titleView = document.createElement("h3");
+    titleView.innerHTML = title;
+    rightSide.appendChild(titleView);
+
+    var descriptionView = document.createElement("p");
+    descriptionView.innerHTML = description;
+    rightSide.appendChild(descriptionView);
+  }
+
 }
 
 function showFinancialsView(){
 
+  var sessObj = getSessionObject();
+  var charityId = sessObj["detailsCharity"];
+  var charityDetails = getCharityDetails();
+  var charityDetail = charityDetails[charityId];
+
+  var contentView = document.getElementById("mainContentView");
+  contentView.innerHTML = "";
+
+  var financialsHeader = document.createElement("h2");
+  financialsHeader.innerHTML = "Financials";
+  contentView.appendChild(financialsHeader);
 }
 
 function showLeadershipView(){
 
+  var sessObj = getSessionObject();
+  var charityId = sessObj["detailsCharity"];
+  var charityDetails = getCharityDetails();
+  var charityDetail = charityDetails[charityId];
+
+  var contentView = document.getElementById("mainContentView");
+  contentView.innerHTML = "";
+
+  var genPeopleRow = function(peopleList){
+    var rowContent = document.createElement("div");
+    rowContent.className = "row people-row";
+    var maxDisplay = Math.min(peopleList.length, 3);
+    for (var i=0; i < maxDisplay; i++){
+      var column = document.createElement("div");
+      column.className = "col-md-4";
+      rowContent.appendChild(column);
+
+      var name = peopleList[i]["name"];
+      var photoUrl = peopleList[i]["photoUrl"];
+
+      var image = document.createElement("img");
+      image.className = "person-image";
+      image.src = photoUrl;
+      column.appendChild(image);
+      var text = document.createElement("h4");
+      text.innerHTML = name;
+      column.appendChild(text);
+
+      var position = peopleList[i]["position"];
+      var tenure = peopleList[i]["tenure"];
+      if (position != null && tenure != null){
+        var additionalText = document.createElement("h4");
+        additionalText.innerHTML = position + ": " + tenure;
+        column.appendChild(additionalText);
+      }
+    }
+
+    return rowContent;
+  };
+
+  var leadershipData = charityDetail["leadershipTeam"];
+  var founderData = charityDetail["founders"];
+
+  var leadershipHeader = document.createElement("h2");
+  leadershipHeader.innerHTML = "Current Leadership:";
+  contentView.appendChild(leadershipHeader);
+
+  var leadershipRow = genPeopleRow(leadershipData);
+  contentView.appendChild(leadershipRow);
+
+  var founderHeader = document.createElement("h2");
+  founderHeader.innerHTML = "Founders";
+  contentView.appendChild(founderHeader);
+
+  var founderRow = genPeopleRow(founderData);
+  contentView.appendChild(founderRow);
 }

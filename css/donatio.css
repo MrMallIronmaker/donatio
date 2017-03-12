@@ -132,6 +132,11 @@ html, body {
   margin-top: 50%;
 }
 
-#searchbar {
+#searchBar {
   width: 100%;
+}
+
+#logo-text,
+#logo-text{
+  text-decoration: none;
 }

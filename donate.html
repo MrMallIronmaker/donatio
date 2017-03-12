@@ -74,18 +74,21 @@
         </div>
       </div>
       <div class = 'container visual col-sm-7'>
-        <div class = 'row family_allocs'>
+        
+        <div class = 'row family_icons'>
             <h4 id = "pie_title">My Family Allocation</h4>
+            <div class = 'icons'>
+              <span class="icon col-sm-1" onclick='change_pie(0)'><img id="icon0" src="imgs/user.png" height="75" width="75"/><span class="caption">Family</span></span>
+              <span class="icon col-sm-1" onclick='change_pie(1)'><img id="icon1" src="imgs/user.png" height="75" width="75"/><span class="caption">Dad</span></span>
+              <span class="icon col-sm-1" onclick='change_pie(2)'><img id="icon2" src="imgs/user.png" height="75" width="75"/><span class="caption">Mom</span></span>
+              <span class="icon col-sm-1" onclick='change_pie(3)'><img id="icon3" src="imgs/user.png" height="75" width="75"/><span class="caption">Me</span></span>
+              <span class="icon col-sm-1" onclick='change_pie(4)'><img id="icon4" src="imgs/user.png" height="75" width="75"/><span class="caption">Sister</span></span>
+            </div>
+        </div>
+        <div class = 'row family_allocs'>
+            
             <div id ='pie'></div>
         </div>
-        <div class = 'row family_icons'>
-            <div class = 'icons'>
-              <div class="icon col-sm-1" onclick='change_pie(0)'><img id="icon0" src="imgs/user.png"/><span class="caption">Family</span></div>
-              <div class="icon col-sm-1" onclick='change_pie(1)'><img id="icon1" src="imgs/user.png"/><span class="caption">Dad</span></div>
-              <div class="icon col-sm-1" onclick='change_pie(2)'><img id="icon2" src="imgs/user.png"/><span class="caption">Mom</span></div>
-              <div class="icon col-sm-1" onclick='change_pie(3)'><img id="icon3" src="imgs/user.png"/><span class="caption">Me</span></div>
-              <div class="icon col-sm-1" onclick='change_pie(4)'><img id="icon4" src="imgs/user.png"/><span class="caption">Sister</span></div>
-            </div>
       </div>
 
     <!--Load menu bar separately-->
