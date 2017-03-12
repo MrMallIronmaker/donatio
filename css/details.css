@@ -1,0 +1,35 @@
+#returnToSearchButton{
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.side-nav-bar{
+  margin-left:10px;
+}
+
+.name-logo{
+  padding-top:10px;
+  padding-bottom:10px;
+  margin-bottom:30px;
+}
+
+
+#addCharityButton{
+  padding-top:10px;
+  padding-bottom:10px;
+  padding-left:20px;
+  margin-bottom:50px;
+ background-color: #00C0AC;
+ color: white;
+ border-radius:10px;
+}
+
+.side-nav-elem{
+  padding-left:20px;
+  padding-top:10px;
+  padding-bottom:10px;
+}
+
+.side-nav-elem-selected{
+  background-color: #00C0AC;
+}
