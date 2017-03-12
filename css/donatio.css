@@ -56,3 +56,7 @@ html, body {
 .long-caption {
   margin-top: 80%;
 }
+
+#searchbar {
+  width: 100%;
+}
