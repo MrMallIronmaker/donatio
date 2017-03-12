@@ -1,5 +1,5 @@
-var width = 550,
-    height = 550,
+var width = 450
+    height = 450,
     radius = Math.min(width, height) / 2;
 
 var svg = d3.select("#pie")
@@ -112,11 +112,17 @@ function update_pie(char_name, amount){
 }
 
 function change_pie(idx) {
-  users = ["My Family", "Dad\'s", "Mom\'s", 'My', "Sister\'s"]
-  document.getElementById("pie_title").innerHTML = "Currently Viewing " + users[idx] + " Allocation" 
+  users = ["The Family", "Dad\'s", "Mom\'s", 'My', "Sister\'s"]
+  document.getElementById("pie_title").innerHTML = users[idx] + " Allocation" 
 
-  document.getElementById('icon'+current_pie).style.border = 'solid 0px black;'
-  document.getElementById('icon'+idx).style.border = 'solid thick black;'
+  document.getElementById('icon'+current_pie).setAttribute("height", '75px');
+  document.getElementById('icon'+current_pie).setAttribute("width", "auto")
+  document.getElementById('icon'+current_pie).style.marginTop ="-10px"
+  document.getElementById('icon'+current_pie).style.marginLeft ="-10px"
+  document.getElementById('icon'+idx).setAttribute("height", '90px');
+  document.getElementById('icon'+idx).setAttribute("width", "auto")
+  document.getElementById('icon'+idx).style.marginTop ="-10px"
+  document.getElementById('icon'+idx).style.marginLeft ="-10px"
 
   current_pie = idx
   data = [family_data, dad_data, mom_data, user_data, sib_data]

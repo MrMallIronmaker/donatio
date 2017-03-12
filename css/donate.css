@@ -57,6 +57,7 @@
 #pie{
 	/*position: absolute;*/
 	background-size: contain;
+  margin-top: 60px;
 }
 
 .visual {
@@ -66,6 +67,9 @@
 
 .family_icons .family_alloc {
   text-align: center;
+  -ms-transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
 }
 
 .caption {
@@ -74,20 +78,35 @@
 }
 
 .icon {
-	vertical-align: top;
-    display: inline-block;
-    text-align: center;
-	height: 40px;
-    width: 40px;
+	
+	height: 20px;
+    width: 20px;
     margin: 30px;
 	-webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -o-transition: all 1s ease;
 }
 
+.icon{
+  vertical-align: top;
+    display: inline-block;
+    text-align: center;
+  margin-top: 0px;
+}
+
+.pie_title{
+  display: table;
+  margin: auto;
+}
+
+#icon0 #icon1 #icon2 #icon3 #icon4{
+  height: 50px;
+  width: auto;
+}
+
 .icon :hover{
-	height: 100px;
-	width: 100px;
+	height: 90px;
+	width: 90px;
 	margin-top: -10px;
 	margin-left: -10px;
 
