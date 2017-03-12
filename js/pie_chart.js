@@ -34,42 +34,24 @@ var pie = d3.layout.pie().sort(null).value(function(d){return d.value;});
 
 // declare an arc generator function
 var arc = d3.svg.arc().outerRadius(r);
+//var labelArc = d3.svg.arc().outerRadius(r - 40).innerRadius(r-40);
 var arcOver = d3.svg.arc()
         .outerRadius(r + 9);
 
 // select paths, use arc generator to draw
 var arcs = vis.selectAll("g.slice").data(pie).enter().append("svg:g").attr("class", "slice");
 
+var div = d3.select("#pie").append("div").attr("class", "toolTip");
+
 arcs.append("svg:path")
-/*    .attr("fill", function(d, i){
-        return color(i);
-    })
-    .attr("d", function (d) {
-        return arc(d);
-    })
-     .on("mouseenter", function(d) {
-            d3.select(this)
-               .attr("stroke","white")
-               .transition()
-               .duration(1000)
-               .attr("d", arcOver)             
-               .attr("stroke-width",6);
-        })
-        .on("mouseleave", function(d) {
-            d3.select(this).transition()            
-               .attr("d", arc)
-               .attr("stroke","none");
-        });
-  arcs.append("svg:text")
-    .attr("transform", function(d) {                    //set the label's origin to the center of the arc
-              //we have to make sure to set these before calling arc.centroid
-      d.innerRadius = 0;
-      d.outerRadius = r+9;
-      return "translate(" + arc.centroid(d) + ")";        //this gives us a pair of coordinates like [50, 50]
-    })
-    .attr("text-anchor", "middle").text(function(d, i) {
-      return family_data[i].label; 
-    })*/
+
+vis.append("g")
+  .attr("class", "lines");
+
+var outerArc = d3.svg.arc()
+  .innerRadius(r * 0.9)
+  .outerRadius(r * 0.9);
+
 make_data();
 change_pie(current_pie);
 
@@ -82,12 +64,19 @@ function make_data(){
     name = char_names[i]
     for (var j=0; j<data.length; j++){
       amount =  0
-      if(j == 3){
-        amount = user_charities[name]
+      if(j == 3 || j==0){
+        amount = user_charities[name]*60/100.0
       }
       data[j].push({'label': name, 'value':amount})
     }
   }
+  for (var j=0; j<data.length; j++){
+      amount =  0
+      if(j == 3|| j==0){
+        amount = (100 - obj['percentAllocated'])*60/100.0
+      }
+      data[j].push({'label': 'Unallocated', 'value':amount})
+    }
   console.log(data)
 }
 
@@ -97,6 +86,8 @@ function update_pie(char_name, amount){
     for (var j = 0; j<data[i].length; j++){
       if (data[i][j].label == char_name){
         data[i][j].value = amount;
+      }else if (data[i][j].label == 'Unallocated'){
+        data[i][j].value = 100-getSessionObject()['percentAllocated']
       }
     }
   }
@@ -125,13 +116,29 @@ function change_pie(idx) {
                 return arc(interpolate(t));
             };
         });
-    slice.append("text")
-      .attr("transform", function(d) {
-        d.innerRadius = 0;
-        d.outerRadius = r+9; 
-        return "translate(" + arc.centroid(d) + ")"; })
-      .attr("text-anchor", "middle")
-      .text(function(d) { return d.label;});
+
+   /* var label_group = arcs.append("g")
+  .attr("transform", function(d) {
+    var c = labelArc.centroid(d);
+    return "translate(" + c[0] +"," + c[1] + ")";
+  })
+
+    label_group.data(pie)
+   .transition().duration(750)
+    .attr("transform", function(d) {
+      var c = labelArc.centroid(d);
+      return "translate(" + c[0] +"," + c[1] + ")";
+    })
+
+    var line_1 = label_group.append("text") // First line
+  .text(function(d) { return d.data.label; })
+  .attr("text-anchor", "middle")
+
+    line_1.data(pie)
+    .text(function(d) { return d.data.label; })*/
+    
+  //slice.update().insert("text") .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
+  //;
 
     slice
         .on("mouseenter", function(d) {
@@ -142,27 +149,27 @@ function change_pie(idx) {
                .attr("d", arcOver)             
                .attr("stroke-width",6);
         })
-        /*.on("mousemove", function(d){
+    slice.on("mousemove", function(d){
             div.style("left", d3.event.pageX+10+"px");
             div.style("top", d3.event.pageY-25+"px");
             div.style("display", "inline-block");
-            div.html((d.data.label)+"<br>"+(d.data.value)+"%");
-        });*/
+            div.html((d.data.label)+"<br>$"+(d.data.value));
+        });
     slice
         .on("mouseleave", function(d) {
             d3.select(this).transition()            
                .attr("d", arc)
                .attr("stroke","none");
         });
-        /*.on("mouseout", function(d){
+    slice.on("mouseout", function(d){
             div.style("display", "none");
         });
 
     slice.exit()
-        .remove();*/
+        .remove();
 
     /* ------- TEXT LABELS -------*/
-    /*var text = vis.select("g.slice").selectAll("text")
+    var text = vis.select(".labelName").selectAll("text")
         .data(pie(data), function(d){ return d.data.label });
 
     text.enter()
@@ -182,11 +189,21 @@ function change_pie(idx) {
             this._current = this._current || d;
             var interpolate = d3.interpolate(this._current, d);
             this._current = interpolate(0);
+            return function(t) {
+                var d2 = interpolate(t);
+                var pos = outerArc.centroid(d2);
+                pos[0] = r * (midAngle(d2) < Math.PI ? 1 : -1);
+                return "translate("+ pos +")";
+            };
         })
         .styleTween("text-anchor", function(d){
             this._current = this._current || d;
             var interpolate = d3.interpolate(this._current, d);
             this._current = interpolate(0);
+            return function(t) {
+                var d2 = interpolate(t);
+                return midAngle(d2) < Math.PI ? "start":"end";
+            };
         })
         .text(function(d) {
             return (d.data.label+": "+d.value+"%");
@@ -198,7 +215,7 @@ function change_pie(idx) {
 
     /* ------- SLICE TO TEXT POLYLINES -------*/
 /*
-    var polyline = svg.select(".lines").selectAll("polyline")
+    var polyline = vis.select(".lines").selectAll("polyline")
         .data(pie(data), function(d){ return d.data.label });
 
     polyline.enter()
@@ -212,7 +229,7 @@ function change_pie(idx) {
             return function(t) {
                 var d2 = interpolate(t);
                 var pos = outerArc.centroid(d2);
-                pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
+                pos[0] = r * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
                 return [arc.centroid(d2), outerArc.centroid(d2), pos];
             };
         });

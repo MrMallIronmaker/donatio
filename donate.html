@@ -27,7 +27,29 @@
 
     </head>
     <body>
+    <div id="submitModal" class="modal col-md-9">
+      <div class="modal-content">
+        <div class="row">
+          <div class="col-md-1 col-md-offset-11">
+              <div id="subCloseButton" class="close"><a href = 'index.html'>&times;</a></div>
+          </div>
+          <div class="col-md-4 col-md-offset-4">
+            <h2>Congratulations!</h2>
+            <h3>Your donation has been sent.</h3>
+          </div>
+          
      <div id='menu'></div>
+     
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-md-offset-4">
+              <h4>Donation Summary:</h4>
+              <div id="donation_summary"></div>
+          </div>    
+        </div>
+      </div>
+    </div>
+
      <div class = "container col-sm-5">
         <h4>My Funds Allocated</h4>
         <div class = "progress">
@@ -48,22 +70,21 @@
         </div>
         <div id="charity_list"></div>
         <div>
-          <button type='submit' class='submit'>SUBMIT</button>
+          <button type='submit' class='submit' onclick='submit()'>SUBMIT</button>
         </div>
       </div>
       <div class = 'container visual col-sm-7'>
         <div class = 'row family_allocs'>
-            <h4>Family Allocations</h4>
+            <h4 id = "pie_title">My Family Allocation</h4>
             <div id ='pie'></div>
-            <h5 id = "pie_title">Currently Viewing The Family's Allocation</h5>
         </div>
         <div class = 'row family_icons'>
             <div class = 'icons'>
-              <div class="icon col-sm-1" onclick='change_pie(0)'><img src="imgs/user.png"/><span class="caption">Family</span></div>
-              <div class="icon col-sm-1" onclick='change_pie(1)'><img src="imgs/user.png"/><span class="caption">Family</span></div>
-              <div class="icon col-sm-1" onclick='change_pie(2)'><img src="imgs/user.png"/><span class="caption">Family</span></div>
-              <div class="icon col-sm-1" onclick='change_pie(3)'><img src="imgs/user.png"/><span class="caption">Family</span></div>
-              <div class="icon col-sm-1" onclick='change_pie(4)'><img src="imgs/user.png"/><span class="caption">Family</span></div>
+              <div class="icon col-sm-1" onclick='change_pie(0)'><img id="icon0" src="imgs/user.png"/><span class="caption">Family</span></div>
+              <div class="icon col-sm-1" onclick='change_pie(1)'><img id="icon1" src="imgs/user.png"/><span class="caption">Dad</span></div>
+              <div class="icon col-sm-1" onclick='change_pie(2)'><img id="icon2" src="imgs/user.png"/><span class="caption">Mom</span></div>
+              <div class="icon col-sm-1" onclick='change_pie(3)'><img id="icon3" src="imgs/user.png"/><span class="caption">Me</span></div>
+              <div class="icon col-sm-1" onclick='change_pie(4)'><img id="icon4" src="imgs/user.png"/><span class="caption">Sister</span></div>
             </div>
       </div>
 
