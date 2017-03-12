@@ -186,7 +186,7 @@ function getPeopleDetail(idList){
   var peopleData =  JSON.parse(sessionStorage.getItem("peopleData"));
   var result = [];
   for (var i=0; i < idList.length; i++){
-    result.push(peopleData[i]);
+    result.push(peopleData[idList[i]]);
   }
   return result;
 }
@@ -199,7 +199,7 @@ function getNewsDetail(idList){
   var newsData = JSON.parse(sessionStorage.getItem("newsData"));
   var result = [];
   for (var i=0; i < idList.length; i++){
-    result.push(newsData[i]);
+    result.push(newsData[idList[i]]);
   }
   return result;
 }
@@ -213,7 +213,7 @@ function getUserDetail(idList){
   var userData = JSON.parse(sessionStorage.getItem("userData"));
   var result = [];
   for (var i=0; i < idList.length; i++){
-    result.push(userData[i]);
+    result.push(userData[idList[i]]);
   }
   return result;
 }
@@ -223,7 +223,7 @@ function getImpactDetail(idList){
   var impactData = JSON.parse(sessionStorage.getItem("impactData"));
   var result = [];
   for (var i=0; i < idList.length; i++){
-    result.push(impactData[i]);
+    result.push(impactData[idList[i]]);
   }
   return result;
 }

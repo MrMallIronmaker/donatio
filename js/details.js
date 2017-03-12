@@ -152,7 +152,52 @@ function showLeadershipView(){
   var contentView = document.getElementById("mainContentView");
   contentView.innerHTML = "";
 
+  var genPeopleRow = function(peopleList){
+    var rowContent = document.createElement("div");
+    rowContent.className = "row people-row";
+    var maxDisplay = Math.min(peopleList.length, 3);
+    for (var i=0; i < maxDisplay; i++){
+      var column = document.createElement("div");
+      column.className = "col-md-4";
+      rowContent.appendChild(column);
+
+      var name = peopleList[i]["name"];
+      var photoUrl = peopleList[i]["photoUrl"];
+
+      var image = document.createElement("img");
+      image.className = "person-image";
+      image.src = photoUrl;
+      column.appendChild(image);
+      var text = document.createElement("h4");
+      text.innerHTML = name;
+      column.appendChild(text);
+
+      var position = peopleList[i]["position"];
+      var tenure = peopleList[i]["tenure"];
+      if (position != null && tenure != null){
+        var additionalText = document.createElement("h4");
+        additionalText.innerHTML = position + ": " + tenure;
+        column.appendChild(additionalText);
+      }
+    }
+
+    return rowContent;
+  };
+
+  var leadershipData = charityDetail["leadershipTeam"];
+  var founderData = charityDetail["founders"];
+
   var leadershipHeader = document.createElement("h2");
-  leadershipHeader.innerHTML = "Leadership Team";
+  leadershipHeader.innerHTML = "Current Leadership:";
   contentView.appendChild(leadershipHeader);
+
+  var leadershipRow = genPeopleRow(leadershipData);
+  contentView.appendChild(leadershipRow);
+
+  var founderHeader = document.createElement("h2");
+  founderHeader.innerHTML = "Founders";
+  contentView.appendChild(founderHeader);
+
+  var founderRow = genPeopleRow(founderData);
+  contentView.appendChild(founderRow);
 }
