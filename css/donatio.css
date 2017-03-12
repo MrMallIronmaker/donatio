@@ -99,4 +99,13 @@ html, body {
   height: auto;
   display: block;
   font-size: .7em
+=======
+}
+
+.short-caption {
+  margin-top: 50%;
+}
+
+#searchbar {
+  width: 100%;
 }

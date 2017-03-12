@@ -19,9 +19,9 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="css/donatio.css" rel="stylesheet">
-    <link href="css/comparison.css" rel="stylesheet">
+    <link href="css/details.css" rel="stylesheet">
     <script src="js/donatio.js"></script>
-    <script src="js/compare.js"></script>
+    <script src="js/details.js"></script>
 
   </head>
   <body>
@@ -29,56 +29,53 @@
 
     <div id='menu'></div>
 
-    <!-- The Modal -->
-    <div id="metricSelectionModal" class="modal">
-      <div class="modal-content">
-        <div class="row">
-          <div class="col-md-10">
-            <h2>Comparison Metrics</h2>
-          </div>
-          <div class="col-md-2">
-            <div id="modalCloseButton" class="close">&times;</div>
+
+    <!--Side navagation bar-->
+    <div class="col-md-3 side-nav-bar">
+      <div class="row">
+        <div id="returnToSearchButton">
+          <a href="search.html">Return To Search</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 name-logo">
+          <div id="charity-image">
+            <img src="data/imgs/charities/0.png">
           </div>
         </div>
-        <div id="allMetricsView"></div>
-        <div class="row">
-          <div class="col-md-10"></div>
-          <div class="col-md-2">
-            <div id="updateMetricsButton">Update Metrics</div>
+        <div class="col-md-6"></div>
+          <div id="charity-name">
+            <h3> Bill and Melinda Gates Foundation</h3>
           </div>
-        </div>
+      </div>
+      <div class="row">
+        <div id="addCharityButton"> Add to Charity </div>
+      </div>
+
+      <div class="row side-nav-elem" id="aboutNavButton">
+        About
+      </div>
+      <div class="row side-nav-elem" id="impactNavButton">
+        Impact
+      </div>
+      <div class="row side-nav-elem" id="financialsNavButton">
+        Financials
+      </div>
+      <div class="row side-nav-elem" id="leadershipNavButton">
+        Leadership Team
       </div>
     </div>
 
-    <div class="row" style="padding-top:10px">
-        <div class="col-md-3">
-          <h3>My Charities</h3>
-          <hr>
-          <form action="#">
-            <input type="text" name="lname">
-            <input type="submit" value="Filter">
-          </form>
-
-          <div id="myCharitiesList"></div>
-
-        </div>
-        <div class="col-md-9">
-          <h3>Comparison Chart</h3>
-          <div id="comparisonList"></div>
-        </div>
-      </div>
-
-
+    <!--Main details view-->
+    <div class="col-md-8">
+      <div id="mainContentView"></div>
+    </div>
     <!--Load menu bar separately-->
     <script>
       //sessionStorage.clear();
-      initializePage("compare");
-      // hack to wait for data to load before generating generating view
-      setTimeout(function(){
-        loadSelectionMenu();
-        var sessObj = getSessionObject();
-        updateComparison(sessObj["comparisonCharities"]);
-      }, 50);
+      initializePage("search");
+      initNavMenu(); 
+      showAboutView();
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

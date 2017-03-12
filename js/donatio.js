@@ -18,6 +18,7 @@ function getSessionObject(){
       "savedCharities":[0,1,2,3],
       "comparisonMetrics":["BBB Rating", "Years of Operation", "Scope of Impact", "Fundraising Efficiency"],
       "comparisonCharities":[],
+      "detailsCharity":0,
       "allocationAmounts":{},
       'percentAllocated': 0,
       'totalFunds': 60
