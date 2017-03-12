@@ -106,12 +106,19 @@ function update_pie(char_name, amount){
       }
     }
   }
-  change_pie(current_pie)
+  if(current_pie == 0 || current_pie == 3){
+      change_pie(current_pie)
+  }
+  
 }
 
 function change_pie(idx) {
-  users = ["The Family\'s", "Dad\'s", "Mom\'s", 'My', "Sister\'s"]
+  users = ["My Family", "Dad\'s", "Mom\'s", 'My', "Sister\'s"]
   document.getElementById("pie_title").innerHTML = "Currently Viewing " + users[idx] + " Allocation" 
+
+  document.getElementById('icon'+current_pie).style.border = 'solid 0px black;'
+  document.getElementById('icon'+idx).style.border = 'solid thick black;'
+
   current_pie = idx
   data = [family_data, dad_data, mom_data, user_data, sib_data]
   data = data[idx]

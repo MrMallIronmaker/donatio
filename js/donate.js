@@ -26,6 +26,49 @@ $("#char-search").on('change keydown paste input', function(){
 
 })
 
+function submit(){
+    obj = getSessionObject()
+    donation = obj['allocationAmounts']
+    charities = Object.keys(donation).sort()
+    modal_msg = document.getElementById('donation_summary')
+    sub_list = document.createElement('ul')
+    sub_list.style.listStyleType= 'none'
+    total = document.createElement('li')
+    total.innerHTML = "TOTAL DONATION: $" + obj['totalFunds']
+    sub_list.appendChild(total)
+    for (var i=0; i<charities.length; i++){
+        ul = document.createElement('li')
+        ul.innerHTML = charities[i] + ": $" + donation[charities[i]]*60/100.0
+        sub_list.appendChild(ul)
+    }
+    modal_msg.appendChild(sub_list)
+
+    var modal = document.getElementById("submitModal");
+    modal.style.display = "block";
+    console.log(modal)
+
+  var modalCloseButton = document.getElementById("subCloseButton");
+  modalCloseButton.onclick = function(){
+    modal.style.display = "none";
+    obj = getSessionObject()
+    obj['allocationAmounts'] = {}
+    obj['percentAllocated'] = 0
+    setSessionObject(obj)
+  };
+
+  // Click anywhere outside of modal causes it to close
+  window.onclick = function(event){
+    if (event.target == modal){
+      modal.style.display = "none";
+      obj = getSessionObject()
+      obj['allocationAmounts'] = {}
+      obj['percentAllocated'] = 0
+      setSessionObject(obj)
+      window.location.href = "./index.html";
+    }
+  }
+}
+
 function makeCharList(my_charities) {
     // Create the list element:
     charities = Object.keys(my_charities).sort()
@@ -101,86 +144,12 @@ function makeCharList(my_charities) {
                     prog_bar.innerHTML = obj_slide['percentAllocated']+'%'
                 }
                 update_pie(char_name, my_charities[char_name])
+                //document.getElementById('fund').innerHTML = '$'+(obj_slide['percentAllocated']/100.0*obj_slide['totalFunds'])+'/$'+obj_slide['totalFunds']+' allocated'
                 $("#"+this.getAttribute('id') +" .ui-slider-range").css( "background-color", '#C43E00' );
 
                 $( "#"+this.getAttribute('id') +" .ui-state-default, .ui-widget-content .ui-state-default" ).css( "background-color", '#C43E00' );
             }
         });
-        /*
-        var slider_input = document.createElement('input');
-
-        slider_input.setAttribute('class', 'col-sm-10 col-sm-offset-1 sliders slider_'+i)
-        slider_input.setAttribute('type', 'text')
-        slider_input.setAttribute('data-slider-id', 'alloc_slider_'+i);
-        slider_input.setAttribute('data-slider-min', 0)
-        slider_input.setAttribute('data-slider-max', max_alloc)
-        slider_input.setAttribute('data-slider-step', 1)
-        slider_input.setAttribute('data-slider-value', my_charities[charities[i]])
-        slider_input.setAttribute('data-slider-tooltip', 'hide')
-
-        char_band.appendChild(slider_input);*/
-        /*
-        $('.slider_'+i).slider({
-            $('.slider_'+i).on('slide', function(obj){
-                console.log(this)
-                console.log(obj.value.newValue)
-                char_name = this.parentNode.parentNode.childNodes[0].innerHTML
-                //total_alloc = 100 - total_alloc - my_charities[char_name]
-                my_charities[char_name] = Math.round(parseInt($('#'+this.getAttribute('data-slider-id')).sliderValue())*100/max_alloc)
-                money = 100 - Object.values(my_charities).reduce(function(a,b){return a+b;},0)
-                if (money < 0){
-                    my_charities[char_name] += money;
-                    this.parentNode.parentNode.childNodes[2].innerHTML = my_charities[char_name]+'%';
-                    $('#'+this.getAttribute('data-slider-id')).slider('setValue', my_charities[char_name]);
-                    console.log($('#'+this.getAttribute('data-slider-id')).attr('data-slider-value'))
-                    total_alloc = 100;
-                    prog_bar = document.getElementsByClassName('progress-bar')[0]
-                    prog_bar.setAttribute('aria-valuenow', total_alloc)
-                    prog_bar.setAttribute('style', "width:"+total_alloc+"%")
-                    prog_bar.innerHTML = total_alloc+'%'
-                    return false;
-                }else{
-                    my_charities[char_name] = Math.round(parseInt($('#'+this.getAttribute('data-slider-id')).sliderValue())*100/max_alloc);
-                    total_alloc = Object.values(my_charities).reduce(function(a,b){return a+b;},0);
-                    this.parentNode.parentNode.childNodes[2].innerHTML = Math.round(parseInt($('#'+this.getAttribute('data-slider-id')).sliderValue())*100/max_alloc)+'%';
-                    prog_bar = document.getElementsByClassName('progress-bar')[0]
-                    prog_bar.setAttribute('aria-valuenow', total_alloc)
-                    prog_bar.setAttribute('style', "width:"+total_alloc+"%")
-                    prog_bar.innerHTML = total_alloc+'%'
-                }
-            }
-        })*/
-            //console.log($('#'+this.getAttribute('data-slider-id')).sliderValue())
-        /*
-        $('.slider_'+i).slider().on('slide', function(ev){
-            console.log($('#'+this.getAttribute('data-slider-id')).sliderValue())
-            char_name = this.parentNode.parentNode.childNodes[0].innerHTML
-            //total_alloc = 100 - total_alloc - my_charities[char_name]
-            my_charities[char_name] = Math.round(parseInt($('#'+this.getAttribute('data-slider-id')).sliderValue())*100/max_alloc)
-            money = 100 - Object.values(my_charities).reduce(function(a,b){return a+b;},0)
-            if (money < 0){
-                my_charities[char_name] += money;
-                this.parentNode.parentNode.childNodes[2].innerHTML = my_charities[char_name]+'%';
-                $('#'+this.getAttribute('data-slider-id')).slider('setValue', my_charities[char_name]);
-                console.log($('#'+this.getAttribute('data-slider-id')).attr('data-slider-value'))
-                total_alloc = 100;
-                prog_bar = document.getElementsByClassName('progress-bar')[0]
-                prog_bar.setAttribute('aria-valuenow', total_alloc)
-                prog_bar.setAttribute('style', "width:"+total_alloc+"%")
-                prog_bar.innerHTML = total_alloc+'%'
-                return false;
-            }else{
-                my_charities[char_name] = Math.round(parseInt($('#'+this.getAttribute('data-slider-id')).sliderValue())*100/max_alloc);
-                total_alloc = Object.values(my_charities).reduce(function(a,b){return a+b;},0);
-                this.parentNode.parentNode.childNodes[2].innerHTML = Math.round(parseInt($('#'+this.getAttribute('data-slider-id')).sliderValue())*100/max_alloc)+'%';
-                prog_bar = document.getElementsByClassName('progress-bar')[0]
-                prog_bar.setAttribute('aria-valuenow', total_alloc)
-                prog_bar.setAttribute('style', "width:"+total_alloc+"%")
-                prog_bar.innerHTML = total_alloc+'%'
-            }
-            document.getElementById('#pie')
-        });*/
-
 
         var char_content_value = document.createElement('span');
         char_content_value.className ='alloc_val'
@@ -226,10 +195,6 @@ function makeCharList(my_charities) {
 
     // Finally, return the constructed list:
     return list;
-}
-
-function makePieChart(my_charities) {
-
 }
 
 makeCharList(my_charities);

@@ -19,7 +19,8 @@ function getSessionObject(){
       "comparisonMetrics":["BBB Rating", "Years of Operation", "Scope of Impact", "Fundraising Efficiency"],
       "comparisonCharities":[],
       "allocationAmounts":{},
-      'percentAllocated': 0
+      'percentAllocated': 0,
+      'totalFunds': 60
     }
   }
   return obj;
