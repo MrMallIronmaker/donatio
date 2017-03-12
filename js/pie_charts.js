@@ -228,7 +228,6 @@ function change_pie(idx) {
               lab = d.data.label
               if (lab.length > 25){
                 lab = lab.substr(0,23)+"... "
-                console.log
               }
               return (lab+":\n $"+d.value);
             }else{
