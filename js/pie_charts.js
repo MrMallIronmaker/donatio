@@ -234,6 +234,18 @@ function change_pie(idx) {
             }
         });
 
+    text
+        .on("mousemove", function(d){
+            div.style("left", d3.event.pageX+10+"px");
+            div.style("top", d3.event.pageY-25+"px");
+            div.style("display", "inline-block");
+            div.html((d.data.label)+"<br>$"+(d.data.value));
+        });
+    text
+        .on("mouseout", function(d){
+            div.style("display", "none");
+        });
+
 
     text.exit()
         .remove();

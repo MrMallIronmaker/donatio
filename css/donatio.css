@@ -3,15 +3,15 @@ html, body {
 }
 
 .titlebar {
-	background-color: #00786C;
+  background-color: #00786C;
 }
 
 .titlebar h1, .titlebar h3 {
-	color: #ffffff;
+  color: #ffffff;
 }
 
 .topbar {
-	background-color: #00C4B1;
+  background-color: #00C4B1;
 }
 
 .topbar-text{
@@ -24,7 +24,7 @@ html, body {
 }
 
 .search-sidebar {
-	background-color: #e7e6e6;
+  background-color: #e7e6e6;
 }
 
 .vertical-align {
@@ -91,7 +91,6 @@ html, body {
 }
 
 .wrapper {
-    /*check this*/
     position: absolute;
 }
 

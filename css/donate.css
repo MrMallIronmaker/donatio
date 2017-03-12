@@ -134,11 +134,12 @@
     background: none;
     background-color: #C43E00;
 }
-}
+
 
 .alloc_val{
 	margin-right: 10px;
 	margin-left: 10px;
+  text-align: right;
 }
 
 .toolTip {
