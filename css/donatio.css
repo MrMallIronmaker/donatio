@@ -91,7 +91,7 @@ html, body {
 }
 
 .wrapper {
-    position: absolute;
+    position: relative;
 }
 
 .preview{
@@ -104,4 +104,8 @@ html, body {
 
 .short-caption {
   margin-top: 50%;
+}
+
+#searchbar {
+  width: 100%;
 }
