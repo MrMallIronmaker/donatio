@@ -109,3 +109,8 @@ html, body {
 #searchBar {
   width: 100%;
 }
+
+#logo-text,
+#logo-text{
+  text-decoration: none;
+}

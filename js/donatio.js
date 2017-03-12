@@ -46,6 +46,8 @@ function getCharityDetails(){
 
   for (var i = 0; i < allDetailsData.length; i++){
     var detail = allDetailsData[i];
+    detail["impact"] = getImpactDetail(detail["impact"]);
+    detail["leadershipTeam"] = getPeopleDetail(detail["leadershipTeam"]);
     detail["founders"] = getPeopleDetail(detail["founders"]);
     detail["news"] = getNewsDetail(detail["news"]);
     allDetailsData[i] = detail;
@@ -92,6 +94,12 @@ function loadStaticData(){
       sessionStorage.setItem("newsData", response);
     });
   }
+  if (sessionStorage.getItem("impactData") == null){
+    loadJSON("data/impactData.json", function(response){
+      sessionStorage.setItem("impactData", response);
+    });
+  }
+
 }
 
 function highlightNavItem(itemName){
@@ -139,6 +147,7 @@ function generateRandomCharityDetails(charityDetail){
   charityDetail = fillIn(charityDetail, "typeOfWork", "Philanthropy");
   charityDetail = fillIn(charityDetail, "charitableCommitment", "$2.19B");
   charityDetail = fillIn(charityDetail, "mission", "Fillter mission text");
+  charityDetail = fillIn(charityDetail, "impact", [0,1,2]);
   charityDetail = fillIn(charityDetail, "leadershipTeam", [2,3,4]);
   charityDetail = fillIn(charityDetail, "founders", [0,2]);
   charityDetail = fillIn(charityDetail, "news", [0,1,2]);
@@ -177,7 +186,7 @@ function getPeopleDetail(idList){
   var peopleData =  JSON.parse(sessionStorage.getItem("peopleData"));
   var result = [];
   for (var i=0; i < idList.length; i++){
-    result.push(peopleData[i]);
+    result.push(peopleData[idList[i]]);
   }
   return result;
 }
@@ -190,7 +199,7 @@ function getNewsDetail(idList){
   var newsData = JSON.parse(sessionStorage.getItem("newsData"));
   var result = [];
   for (var i=0; i < idList.length; i++){
-    result.push(newsData[i]);
+    result.push(newsData[idList[i]]);
   }
   return result;
 }
@@ -204,7 +213,17 @@ function getUserDetail(idList){
   var userData = JSON.parse(sessionStorage.getItem("userData"));
   var result = [];
   for (var i=0; i < idList.length; i++){
-    result.push(userData[i]);
+    result.push(userData[idList[i]]);
+  }
+  return result;
+}
+
+
+function getImpactDetail(idList){
+  var impactData = JSON.parse(sessionStorage.getItem("impactData"));
+  var result = [];
+  for (var i=0; i < idList.length; i++){
+    result.push(impactData[idList[i]]);
   }
   return result;
 }

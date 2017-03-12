@@ -1,0 +1,17 @@
+[
+  {
+    "title":"Vaccine Delivery",
+    "description":"Vaccines save millions of lives a year and are among the most cost-effective health interventions ever developed.",
+    "photoUrl":"data/imgs/impact/0.png"
+  },
+  {
+    "title":"HIV",
+    "description":"More than 33 million people around the world are currently living with human immunodeficiency virus (HIV), and more than 30 million people have died from HIV-related complications since the earliest cases were detected in the 1980s.",
+    "photoUrl":"data/imgs/impact/1.png"
+  },
+  {
+    "title":"Malaria",
+    "description":"Malaria occurs in nearly 100 countries worldwide, exacting a huge toll on human health and imposing a heavy social and economic burden in developing countries, particularly in Sub-Saharan Africa and South Asia.",
+    "photoUrl":"data/imgs/impact/2.png"
+  }
+]
