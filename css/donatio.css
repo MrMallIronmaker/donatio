@@ -57,6 +57,10 @@ html, body {
   margin-top: 80%;
 }
 
+.short-caption {
+  margin-top: 50%;
+}
+
 #searchbar {
   width: 100%;
 }
