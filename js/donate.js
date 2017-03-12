@@ -45,7 +45,6 @@ function submit(){
 
     var modal = document.getElementById("submitModal");
     modal.style.display = "block";
-    console.log(modal)
 
   var modalCloseButton = document.getElementById("subCloseButton");
   modalCloseButton.onclick = function(){
