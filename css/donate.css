@@ -28,7 +28,7 @@
 }
 
 .char_name{
-	/*margin-right: 100px;*/
+	width: 500px;
 }
 
 .trash{
@@ -62,8 +62,7 @@
 
 #pie{
 	/*position: absolute;*/
-	width: 100%;
-	height: 100%;
+	background-size: contain;
 }
 
 .visual {
@@ -141,3 +140,21 @@
 	margin-right: 10px;
 	margin-left: 10px;
 }
+
+.toolTip {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    position: absolute;
+    display: none;
+    width: auto;
+    height: auto;
+    background: none repeat scroll 0 0 white;
+    border: 0 none;
+    border-radius: 8px 8px 8px 8px;
+    box-shadow: -3px 3px 15px #888888;
+    color: black;
+    font: 12px sans-serif;
+    padding: 5px;
+    text-align: center;
+}
+
+

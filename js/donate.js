@@ -1,10 +1,9 @@
 var my_charities = {'Bill and Melinda Gates Foundation':0, 'Marie Curie':0, 'SOS Children\'s Villages':0, 'United Way':0};
 
-var total_alloc = 0
-
-var obj = getSessionObject();
-obj['allocationAmounts'] = {'Bill and Melinda Gates Foundation':0, 'Marie Curie':0, 'SOS Children\'s Villages':0, 'United Way':0};
-var my_charities = obj["allocationAmounts"];
+var obj_init = getSessionObject();
+obj_init['allocationAmounts'] = {'Bill and Melinda Gates Foundation':0, 'Marie Curie':0, 'SOS Children\'s Villages':0, 'United Way':0};
+setSessionObject(obj_init)
+var my_charities = obj_init["allocationAmounts"];
 
 $("#char-search").on('change keydown paste input', function(){
     search=document.getElementById('char-search').value.toLowerCase()
@@ -37,6 +36,17 @@ function makeCharList(my_charities) {
     var list = document.createElement('div');
     document.getElementById('charity_list').appendChild(list);
 
+    var char_num_chars = document.createElement('span');
+    char_num_chars.className ='num_chars'
+    var no_char_msg = document.createTextNode('You Have Not Selected Any Charities Yet');
+    char_num_chars.appendChild(no_char_msg);
+    if (charities.length == 0){
+        char_num_chars.style.display = 'block'
+    }else{
+        char_num_chars.style.display = 'none'
+    }
+    list.appendChild(char_num_chars);
+
     for(var i = 0; i < charities.length; i++) {
         // Create the list item:
         var char_band = document.createElement('div');
@@ -49,7 +59,7 @@ function makeCharList(my_charities) {
         char_band.appendChild(char_content_name);
 
         var slider = document.createElement('div')
-        slider.className="sliders sm-col-2 sm-col-offset-2"
+        slider.className="sliders"
         slider.setAttribute('id', 'slider_'+i)
         char_band.appendChild(slider);
 
@@ -57,35 +67,38 @@ function makeCharList(my_charities) {
             step: 1,
             min: 0,
             max: 100,
-            value: 0,
+            value: my_charities[char_name],
             slide: function( event, ui ) {
                 var amount = ui.value;
                 char_name = this.parentNode.childNodes[0].innerHTML
                 //total_alloc = 100 - total_alloc - my_charities[char_name]
                 my_charities[char_name] = amount
                 money = 100 - Object.values(my_charities).reduce(function(a,b){return a+b;},0)
+                obj_slide = getSessionObject()
                 if (money < 0){
+                    char_error.style.visibility = 'visible'
                     my_charities[char_name] += money;
-                    obj['allocationAmounts'] = my_charities;
-                    setSessionObject(obj);
+                    obj_slide['allocationAmounts'] = my_charities;
+                    obj_slide['percentAllocated'] = 100;
+                    setSessionObject(obj_slide);
                     this.parentNode.childNodes[2].innerHTML = my_charities[char_name]+'%';
                     $('#'+this.getAttribute('id')).slider('value', my_charities[char_name]);
-                    total_alloc = 100;
                     prog_bar = document.getElementsByClassName('progress-bar')[0]
-                    prog_bar.setAttribute('aria-valuenow', total_alloc)
-                    prog_bar.setAttribute('style', "width:"+total_alloc+"%")
-                    prog_bar.innerHTML = total_alloc+'%'
+                    prog_bar.setAttribute('aria-valuenow', obj_slide['percentAllocated'])
+                    prog_bar.setAttribute('style', "width:"+obj_slide['percentAllocated']+"%")
+                    prog_bar.innerHTML = obj_slide['percentAllocated']+'%'
                     return false;
                 }else{
+                    char_error.style.visibility = 'hidden'
                     my_charities[char_name] = amount
-                    obj['allocationAmounts'] = my_charities;
-                    setSessionObject(obj);
-                    total_alloc = Object.values(my_charities).reduce(function(a,b){return a+b;},0);
+                    obj_slide['allocationAmounts'] = my_charities;
+                    obj_slide['percentAllocated'] = Object.values(my_charities).reduce(function(a,b){return a+b;},0);
+                    setSessionObject(obj_slide);
                     this.parentNode.childNodes[2].innerHTML = amount+'%';
                     prog_bar = document.getElementsByClassName('progress-bar')[0]
-                    prog_bar.setAttribute('aria-valuenow', total_alloc)
-                    prog_bar.setAttribute('style', "width:"+total_alloc+"%")
-                    prog_bar.innerHTML = total_alloc+'%'
+                    prog_bar.setAttribute('aria-valuenow', obj_slide['percentAllocated'])
+                    prog_bar.setAttribute('style', "width:"+obj_slide['percentAllocated']+"%")
+                    prog_bar.innerHTML = obj_slide['percentAllocated']+'%'
                 }
                 update_pie(char_name, my_charities[char_name])
                 $("#"+this.getAttribute('id') +" .ui-slider-range").css( "background-color", '#C43E00' );
@@ -182,10 +195,12 @@ function makeCharList(my_charities) {
         trash.setAttribute('class', 'glyphicon glyphicon-trash');
         button.appendChild(trash)
         button.onclick = function(){ 
-            update_pie(parentNode.childNodes[0].childNodes[0].nodeValue, 0);
+            obj_del = getSessionObject()
+            obj_del['percentAllocated'] -= my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
+            setSessionObject(obj_del);
+            update_pie(this.parentNode.childNodes[0].childNodes[0].nodeValue, 0);
             delete my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
-            obj['allocationAmounts'] = my_charities;
-            setSessionObject(obj);
+            obj_del['allocationAmounts'] = my_charities;
             this.parentNode.parentNode.removeChild(this.parentNode);
             document.getElementById("My_Charities").childNodes[0].nodeValue = 'My Charities (' + Object.keys(my_charities).length + ')'
             total_alloc = Object.values(my_charities).reduce(function(a,b){return a+b;},0);
@@ -201,7 +216,13 @@ function makeCharList(my_charities) {
         // Add it to the list:
         //list.appendChild(char_band);
     }
-    
+    var char_error = document.createElement('span');
+    char_error.className ='error_msg'
+    var msg = document.createTextNode('Donation Budget Reached - Please Reduce One Or More Donations to Continue');
+    char_error.appendChild(msg);
+    char_error.style.visibility = 'hidden'
+    char_error.style.color= '#C43E00'
+    list.appendChild(char_error);
 
     // Finally, return the constructed list:
     return list;
