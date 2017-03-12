@@ -91,7 +91,7 @@ html, body {
 }
 
 .wrapper {
-    position: absolute;
+    position: relative;
 }
 
 .preview{
