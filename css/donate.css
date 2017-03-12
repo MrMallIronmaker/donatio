@@ -57,7 +57,7 @@
 #pie{
 	/*position: absolute;*/
 	background-size: contain;
-  margin-top: 100px;
+  margin-top: 200px;
 }
 
 .visual {
@@ -70,6 +70,7 @@
   -ms-transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%,-50%);
   transform: translate(-50%,-50%);
+  margin-top: -25px;
 }
 
 .caption {
