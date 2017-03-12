@@ -98,10 +98,10 @@ function update_pie(char_name, amount){
   for (var i=0; i<data.length; i++){
     for (var j = 0; j<data[i].length; j++){
       if (data[i][j].label == char_name){
-        data[i][j].value = amount;
+        data[i][j].value = amount*60/100;
       }else if (data[i][j].label == 'Unallocated'){
         obj = getSessionObject()
-        data[i][j].value = 100-obj['percentAllocated']
+        data[i][j].value = (100-obj['percentAllocated'])*60/100
         console.log(100-obj['percentAllocated'])
       }
     }
@@ -191,7 +191,7 @@ function change_pie(idx) {
         .attr("dy", ".35em")
         .text(function(d) {
             if(d.data.value > 0){
-                return (d.data.label+": $"+d.value);
+                return (d.data.label+":\n $"+d.value);
             }else{
                 return "";
             }
@@ -225,7 +225,12 @@ function change_pie(idx) {
         })
         .text(function(d) {
             if(d.data.value > 0 && Math.abs(d.endAngle - d.startAngle) > .6){
-                return (d.data.label+": $"+d.value);
+              lab = d.data.label
+              if (lab.length > 25){
+                lab = lab.substr(0,23)+"... "
+                console.log
+              }
+              return (lab+":\n $"+d.value);
             }else{
                 return ""
             }
