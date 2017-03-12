@@ -34,37 +34,138 @@
             <p id="filters"> 
             </p>
             <h3>Scope of Work</h3>
-            <p id="scopes"> 
-            	Local<br>
-            	Regional<br>
-            	State<br>
-            	National<br>
-            	International
-            </p>
+            <div class="filter-option-group" id="scopes"> 
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">Local</p>
+            		<p class="filter-results-count" id="Local">(114)</p>
+            	</div>
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">Regional</p>
+            		<p class="filter-results-count" id="Regional">(114)</p>
+            	</div>
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">State</p>
+            		<p class="filter-results-count" id="State">(114)</p>
+            	</div>
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">National</p>
+            		<p class="filter-results-count" id="National">(114)</p>
+            	</div>
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">International</p>
+            		<p class="filter-results-count" id="International">(114)</p>
+            	</div>
+            </div>
             <h3>Category</h3>
-            <p id="category">
-            	Health<br>
-            	Disease Research<br>
-            	Vaccinations<br>
-            	Human Services
-            	</p>
+            <div class="filter-option-group" id="category">
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">Health</p>
+            		<p class="filter-results-count" id="Health">(114)</p>
+            	</div>
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">Disease Research</p>
+            		<p class="filter-results-count" id="Disease Research">(114)</p>
+            	</div>
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">Vaccinations</p>
+            		<p class="filter-results-count" id="Vaccinations">(114)</p>
+            	</div>
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">Human Services</p>
+            		<p class="filter-results-count" id="Human Services">(114)</p>
+            	</div>
+            </div>
             <h3>Rating</h3>
             <p> starzzz... </p>
             <h3>Type of Work</h3>
-            <p id="types">
-            	Direct Service <br>
-            	Philanthropy <br>
-            	Policy<br>
-            	</p>
+            <div class="filter-option-group" id="types">
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">Direct Service</p>
+            		<p class="filter-results-count" id="Direct Service">(114)</p>
+            	</div>
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">Philanthropy</p>
+            		<p class="filter-results-count" id="Philanthropy">(114)</p>
+            	</div>
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">Policy</p>
+            		<p class="filter-results-count" id="Policy">(114)</p>
+            	</div>
+            </div>
             <h3>Organization</h3>
-            	<p id="organization">
-            		Foundations
-            	</p>
+        	<div class="filter-option-group" id="organization">
+        		<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">Foundation</p>
+            		<p class="filter-results-count" id="Foundation">(114)</p>
+            	</div>
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">Public Charity</p>
+            		<p class="filter-results-count" id="Public Charity">(114)</p>
+            	</div>
+            	<div class="filter-option">
+            		<input type="checkbox">
+            		<p class="filter-name">Professional</p>
+            		<p class="filter-results-count" id="Professional">(114)</p>
+            	</div>
+        	</div>
 
             <h3>Past Donations</h3>
-            	Past Donations
+            	<input type="checkbox"> Past Donations
         </div>
-        <div class="col-md-10">RESULTs</div>
+        <div class="col-md-10 search-column">
+        	<form class="form-inline">
+                <div class="form-group">
+                    <input type="search" class="form-control" id="searchBar" placeholder="I would like to donate to...">
+                </div>
+                <button type="submit" class="btn btn-default">Search</button>
+            </form>
+            <p> Displaying results 1-10 of 1024 </p>
+        	<div class="search-results">
+	        	<div class="search-result"> 
+	        		<h3 class="search-result-title"> Starlight Children's Foundation - Global Office </h3>
+	        		<p class="search-result-body"> Brightening the lives of seriously ill children.... </p>
+	        	</div>
+	        	<div class="search-result"> 
+	        		<h3 class="search-result-title"> Bill and Melinda Gates Foundation </h3>
+	        		<p class="search-result-body"> We seek to unlock the possibilitiy inside every individual.... </p>
+	        		<table>
+	        			<tr>
+	        				<td class="details-table-label">Rating:</td> 
+	        				<td class="details-table-data">starzzz...</td>
+	        				<td class="details-table-label">Headquarters:</td> 
+	        				<td class="details-table-data">Seattle, Washington</td>
+	        				<td class="details-table-label">Type of Work:</td> 
+	        				<td class="details-table-data">Philanthrophy</td>
+        				</tr>
+        				<tr>
+	        				<td class="details-table-label">Org. Type:</td> 
+	        				<td class="details-table-data">Private Foundation</td>
+	        				<td class="details-table-label">Regions of Operation:</td> 
+	        				<td class="details-table-data">Worldwide</td>
+	        				<td class="details-table-label">Charitable Commitment:</td>
+	        				<td class="details-table-data">$2.19B</td>
+	        			<tr>
+	        				<td class="details-table-label">Founded:</td>
+	        				<td class="details-table-data">Jan 1, 1997</td>
+	        			</tr>
+	        		</table>
+	        	</div>
+	        </div>
+        </div>
       </div>
 
 
