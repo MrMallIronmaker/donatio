@@ -63,9 +63,9 @@ function loadSelectionMenu(){
             var index = sessObj["savedCharities"].indexOf(charityId);
             if (index > -1){
                 sessObj["savedCharities"].splice(index, 1);
-                alloc = sessObj["allocationAmounts"][charityDetails[detailsCharity]];
+                alloc = sessObj["allocationAmounts"][charityDetails[index]['name']];
                 sessObj["percentAllocated"] -= alloc;
-                delete sessObj["allocationAmounts"][charityDetails[detailsCharity]];
+                delete sessObj["allocationAmounts"][charityDetails[index]['name']];
                 setSessionObject(sessObj);
             }
             elemList.removeChild(elem);
