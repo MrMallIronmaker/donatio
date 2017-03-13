@@ -27,7 +27,7 @@ function submit(){
     sub_list = document.createElement('ul')
     sub_list.style.listStyleType= 'none'
     total = document.createElement('li')
-    total.innerHTML = "TOTAL DONATION: $" + obj['totalFunds']
+    total.innerHTML = "TOTAL DONATION: $" + (obj['totalFunds']*obj['percentAllocated'])
     sub_list.appendChild(total)
     for (var i=0; i<charities.length; i++){
         ul = document.createElement('li')
@@ -135,7 +135,8 @@ function makeCharList(my_charities, saved_charities) {
                     prog_bar.innerHTML = obj_slide['percentAllocated']+'%'
                 }
                 update_pie(char_name, my_charities[char_name])
-                //document.getElementById('fund').innerHTML = '$'+(obj_slide['percentAllocated']/100.0*obj_slide['totalFunds'])+'/$'+obj_slide['totalFunds']+' allocated'
+
+                document.getElementById('fund').innerHTML = '$'+(obj_slide['percentAllocated']/100.0*obj_slide['totalFunds'])+'/$'+obj_slide['totalFunds']+' allocated'
                 $("#"+this.getAttribute('id') +" .ui-slider-range").css( "background-color", '#C43E00' );
 
                 $( "#"+this.getAttribute('id') +" .ui-state-default, .ui-widget-content .ui-state-default" ).css( "background-color", '#C43E00' );
