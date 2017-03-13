@@ -8,8 +8,8 @@ var svg = d3.select("#pie")
 
 var svg2 = d3.select("#legend")
     .append("svg")
-    .attr("width", 30)
-    .attr("height", 20*8);
+    .attr("width", 600)
+    .attr("height", 600);
         
 
 
@@ -74,6 +74,9 @@ var user_data = [{"label":"Dave Thomas Foundation", "value":0, "person": ["Dad"]
 
 var current_pie = 3
 
+    
+
+
 make_data();
 change_pie(current_pie);
 
@@ -127,7 +130,7 @@ function update_pie(char_name, amount){
 function change_pie(idx) {
   users = ["The Family", "Dad\'s", "Mom\'s", 'My', "Sister\'s"]
   document.getElementById("pie_title").innerHTML = users[idx] + " Allocation" 
-
+/*
   document.getElementById('icon'+current_pie).setAttribute("height", '75px');
   document.getElementById('icon'+current_pie).setAttribute("width", "auto")
   document.getElementById('icon'+current_pie).style.marginTop ="-10px"
@@ -135,7 +138,7 @@ function change_pie(idx) {
   document.getElementById('icon'+idx).setAttribute("height", '90px');
   document.getElementById('icon'+idx).setAttribute("width", "auto")
   document.getElementById('icon'+idx).style.marginTop ="-10px"
-  document.getElementById('icon'+idx).style.marginLeft ="-10px"
+  document.getElementById('icon'+idx).style.marginLeft ="-10px"*/
 
   current_pie = idx
   data = [family_data, dad_data, mom_data, user_data, sib_data]
@@ -173,9 +176,9 @@ function change_pie(idx) {
             div.style("display", "inline-block");
             //div.html((d.data.label)+"<br>$"+(d.data.value));
             if (d.data.label=="Unallocated"){
-              div.html((d.data.person).join()+" have $"+(d.data.value)+"<br>of unallocated funds");
+              div.html((d.data.person).join()+" have $"+(d.data.value).toFixed(2)+"<br>of unallocated funds");
             }else{
-              div.html((d.data.person).join()+" donated $"+(d.data.value)+"<br>to "+(d.data.label));
+              div.html((d.data.person).join()+" donated $"+(d.data.value).toFixed(2)+"<br>to "+(d.data.label));
             }
         });
     slice
@@ -185,48 +188,10 @@ function change_pie(idx) {
 
     slice.exit()
         .remove();
+    
+    d_color = color.domain()
 
-/*
-    var legend = svg2.append("g")
-                  .attr("class", "legend1")
-                  .attr('transform', function(d, i) {
-            var height = legendRectSize + legendSpacing;
-            var offset =  height * color.domain().length / 2;
-            var horz = -3 * legendRectSize;
-            var vert = i * height - offset;
-            return 'translate(' + horz + ',' + vert + ')';
-            })    
-
-
-legend.selectAll('rect')
-  .data(data)
-  .enter()
-  .append("rect")
-  .attr("x", 30)
-  .attr("y", function(d, i){ return (i-1) *  20;})
-  .attr("width", 5)
-  .attr("height", 5)
-  .style("fill", function(d) { 
-    var color = color(d.data.label);
-    return color;
-  })
-
-legend.selectAll('text')
-  .data(data)
-  .enter()
-  .append("text")
-  .attr("x", 40)
-  .attr("width", 5)
-  .attr("height", 5)
-  .attr("y", function(d, i){ return (i-1) *  20 + 5;})
-  .text(function(d) {
-    var text = d.data.label;
-    return text;
-  });
-
- 
-/*
-    var legend = svg.selectAll('.legend')
+    var legend = svg2.selectAll('.legend')
         .data(color.domain())
         .enter()
         .append('g')
@@ -234,8 +199,8 @@ legend.selectAll('text')
         .attr('transform', function(d, i) {
             var height = legendRectSize + legendSpacing;
             var offset =  height * color.domain().length / 2;
-            var horz = -3 * legendRectSize;
-            var vert = i * height - offset;
+            var horz = -3 * legendRectSize+50;
+            var vert = i * height - offset +100;
             return 'translate(' + horz + ',' + vert + ')';
         });
 
@@ -247,8 +212,22 @@ legend.selectAll('text')
 
     legend.append('text')
         .attr('x', legendRectSize + legendSpacing)
-        .attr('y', legendRectSize - legendSpacing)
+        .attr('y', legendRectSize - legendSpacing+3)
         .text(function(d) { return d; });
+
+    var names = ["The Family", "Dad\'s", "Mom\'s", 'My', "Sister\'s"]
+    var donation = [240, 80, 60, 60, 40]
+    my_donation = (getSessionObject()['percentAllocated']/100*60.0).toFixed(2);
+    var current_donation = [240, 80, 60, my_donation, 40]
+    svg.append("text")
+   .attr("text-anchor", "middle")
+   .attr("id", "title")
+   .text(names[current_pie]+" Donation:\n"+"$" + current_donation[current_pie]+"/$"+donation[current_pie])
+   /*
+    console.log(d3.select('#pie svg #title').node().innerHTML)
+    d3.select('#pie svg #title').node().innerHTML = names[current_pie]+" Donation:\n"+"$" + current_donation[current_pie]+"/$"+donation[current_pie];*/
+
+    
 
     /* ------- TEXT LABELS -------*/
     /*

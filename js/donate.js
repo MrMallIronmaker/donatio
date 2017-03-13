@@ -19,6 +19,11 @@ $("#char-search").on('change keydown paste input', function(){
 
 })
 
+$('img').click(function(){
+   $('.selected').removeClass('selected'); // removes the previous selected class
+   $(this).addClass('selected'); // adds the class to the clicked image
+});
+
 function submit(){
     obj = getSessionObject()
     donation = obj['allocationAmounts']
@@ -27,11 +32,11 @@ function submit(){
     sub_list = document.createElement('ul')
     sub_list.style.listStyleType= 'none'
     total = document.createElement('li')
-    total.innerHTML = "TOTAL DONATION: $" + (obj['totalFunds']*obj['percentAllocated'])
+    total.innerHTML = "TOTAL DONATION: $" + (obj['totalFunds']*obj['percentAllocated'])/100.0.toFixed(2)
     sub_list.appendChild(total)
     for (var i=0; i<charities.length; i++){
         ul = document.createElement('li')
-        ul.innerHTML = charities[i] + ": $" + donation[charities[i]]*60/100.0
+        ul.innerHTML = charities[i] + ": $" + donation[charities[i]]*60/100.0.toFixed(2)
         sub_list.appendChild(ul)
     }
     modal_msg.appendChild(sub_list)
@@ -136,7 +141,7 @@ function makeCharList(my_charities, saved_charities) {
                 }
                 update_pie(char_name, my_charities[char_name])
 
-                document.getElementById('funds').innerHTML = '$'+(obj_slide['percentAllocated']/100.0*obj_slide['totalFunds'])+'/$'+obj_slide['totalFunds']+' allocated'
+                //document.getElementById('funds').innerHTML = '$'+(obj_slide['percentAllocated']/100.0*obj_slide['totalFunds']).toFixed(2)+'/$'+obj_slide['totalFunds']+' allocated'
                 $("#"+this.getAttribute('id') +" .ui-slider-range").css( "background-color", '#C43E00' );
 
                 $( "#"+this.getAttribute('id') +" .ui-state-default, .ui-widget-content .ui-state-default" ).css( "background-color", '#C43E00' );

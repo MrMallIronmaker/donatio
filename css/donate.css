@@ -60,6 +60,11 @@
   margin-top: 60px;
 }
 
+#legend_div{
+  /*position: absolute;*/
+  float:right;
+}
+
 .visual {
   display: inline-block;
   text-align: center;
@@ -105,11 +110,23 @@
 }
 
 .icon :hover{
-	height: 90px;
-	width: 90px;
-	margin-top: -10px;
-	margin-left: -10px;
 
+  -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+ -webkit-box-shadow: 0px 0px 30px 0px rgba(0,196,177, 0.8);
+-moz-box-shadow:    0px 0px 30px 0px rgba(0,196,177, 0.8);
+box-shadow:         0px 0px 30px 0px rgba(0,196,177, 0.8);
+
+}
+
+.selected{
+   -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+ -webkit-box-shadow: 0px 0px 30px 0px rgba(0,196,177, 0.8);
+-moz-box-shadow:    0px 0px 30px 0px rgba(0,196,177, 0.8);
+box-shadow:         0px 0px 30px 0px rgba(0,196,177, 0.8);
 }
 
 .icon:focus { 
@@ -174,7 +191,7 @@
     color: black;
     font: 12px sans-serif;
     padding: 5px;
-    text-align: center;
+    text-align: left;
 }
 
 /* The Modal (background) */
