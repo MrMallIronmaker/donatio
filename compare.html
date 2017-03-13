@@ -9,7 +9,8 @@
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -54,15 +55,20 @@
         <div class="col-md-3">
           <h3>My Charities</h3>
           <hr>
-          <form action="#">
-            <input type="text" name="lname">
-            <input type="submit" value="Filter">
-          </form>
+
+          <div class="input-group stylish-input-group">
+              <input type="text" class="form-control" id="char-search" placeholder="Search your charities" >
+              <span class="input-group-addon">
+                  <button type="submit">
+                      <span class="glyphicon glyphicon-search"></span>
+                  </button>  
+              </span>
+          </div>
 
           <div id="myCharitiesList"></div>
 
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8 comparison-content">
           <h3>Comparison Chart</h3>
           <div id="comparisonList"></div>
         </div>
@@ -73,12 +79,10 @@
     <script>
       //sessionStorage.clear();
       initializePage("compare");
-      // hack to wait for data to load before generating generating view
-      setTimeout(function(){
-        loadSelectionMenu();
-        var sessObj = getSessionObject();
-        updateComparison(sessObj["comparisonCharities"]);
-      }, 50);
+      initializeFilter();
+    loadSelectionMenu();
+    var sessObj = getSessionObject();
+    updateComparison(sessObj["comparisonCharities"]);
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
