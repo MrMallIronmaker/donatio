@@ -67,6 +67,18 @@ function submit(){
 }
 
 function makeCharList(my_charities, saved_charities) {
+    /*var obj = getSessionObject();
+  var savedCharities = obj["savedCharities"];
+  var charityDetails = getCharityDetails();
+
+  for (var sc = 0; sc < savedCharities.length; sc++){
+    text = charityDetails[savedCharities[sc]].name;
+    if (!(text in obj['allocationAmounts'])){
+        obj['allocationAmounts'][text] = 0;
+    }
+
+    my_charities = obj['allocationAmounts']*/
+    
     // Create the list element:
     charities = Object.keys(my_charities).sort()
 
