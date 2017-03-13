@@ -11,6 +11,7 @@ function initializeDetails(){
     imageDiv.appendChild(imageView);
     imageView.src = charityDetails[detailsCharity]["photoUrl"];
     console.log(imageView.src);
+    console.log(charityDetails[detailsCharity]["name"])
 
     var nameDiv = document.getElementById("charity-name");
     nameDiv.innerHTML = "<h3>" + charityDetails[detailsCharity]["name"] +"<h3>";
@@ -22,7 +23,7 @@ function initializeDetails(){
         addCharityButton.innerHTML = "Add Charity";
     }
 
-    console.log(charityDetails[detailsCharity]["name"])
+
 
     addCharityButton.addEventListener("click", function(elem){
         return function(){
