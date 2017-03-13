@@ -11,7 +11,6 @@ function initializeDetails(){
     imageDiv.appendChild(imageView);
     imageView.src = charityDetails[detailsCharity]["photoUrl"];
     console.log(imageView.src);
-    console.log(charityDetails[detailsCharity]["name"])
 
     var nameDiv = document.getElementById("charity-name");
     nameDiv.innerHTML = "<h3>" + charityDetails[detailsCharity]["name"] +"<h3>";
@@ -23,18 +22,19 @@ function initializeDetails(){
         addCharityButton.innerHTML = "Add Charity";
     }
 
-
-
     addCharityButton.addEventListener("click", function(elem){
         return function(){
             var sessObj = getSessionObject();
             if (elem.innerHTML == "Add Charity"){
                 sessObj["savedCharities"].push(sessObj["detailsCharity"]);
+                sessObj["allocationAmounts"][charityDetails[detailsCharity]["name"]] = 0
                 elem.innerHTML = "Remove Charity";
             }else{
                 var removeIndex = sessObj["savedCharities"].indexOf(sessObj["detailsCharity"]);
                 sessObj["savedCharities"].splice(removeIndex, 1);
-
+                alloc = sessObj["allocationAmounts"][charityDetails[detailsCharity]];
+                sessObj["percentAllocated"] -= alloc;
+                delete sessObj["allocationAmounts"][charityDetails[detailsCharity]];
                 elem.innerHTML = "Add Charity";
             }
             setSessionObject(sessObj);
