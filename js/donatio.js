@@ -124,6 +124,13 @@ function searchCharities(searchText, filters){
    * @param {String} searchText - text in the main charity search box
    * @param {Array} filters - dictionary mapping filters with their toggled values
    */
+
+   window.location.href = "search.html";
+   $(document).ready( function() {
+    $("#searchBar").val(searchText);
+    alert($("#searchBar").val());
+    onSearchClick();
+   })
 }
 
 function randomChoice(arr){
