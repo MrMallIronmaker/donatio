@@ -91,12 +91,15 @@ function makeCharList(my_charities, saved_charities) {
         // Create the list item:
         var char_band = document.createElement('div');
         char_band.className = "char_band";
-        list.appendChild(char_band);
-        var char_content_name = document.createElement('span');
+        var outer_div = document.createElement('div');
+        outer_div.className ='outer_div';
+        list.appendChild(outer_div);
+        var char_content_name = document.createElement('div');
         char_content_name.className ='char_name';
         var char_name = document.createTextNode(charities[i]);
         char_content_name.appendChild(char_name);
         char_band.appendChild(char_content_name);
+        outer_div.appendChild(char_band)
 
         var slider = document.createElement('div')
         slider.className="sliders"
