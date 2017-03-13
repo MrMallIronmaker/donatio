@@ -81,7 +81,11 @@ function make_data(){
       if(j == 3 || j==0){
         amount = user_charities[name]*60/100.0
       }
-      data[j].push({'label': name, 'value':amount})
+      if (name in data[j]){
+          data[j][name] += amount
+      }else{
+          data[j].push({'label': name, 'value':amount})
+      }
     }
   }
   for (var j=0; j<data.length; j++){

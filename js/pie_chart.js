@@ -1,7 +1,7 @@
 var current_pie = 0
 
-var w = 550;
-var h = 550;
+var w = 300;
+var h = 300;
 var r = h/2;
 var color = d3.scale.category20c();
 
