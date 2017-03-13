@@ -22,12 +22,13 @@ function initializeDetails(){
         addCharityButton.innerHTML = "Add Charity";
     }
 
+    console.log(charityDetails[detailsCharity]["name"])
+
     addCharityButton.addEventListener("click", function(elem){
         return function(){
             var sessObj = getSessionObject();
             if (elem.innerHTML == "Add Charity"){
                 sessObj["savedCharities"].push(sessObj["detailsCharity"]);
-                console.log(charityDetails[detailsCharity]["name"])
                 elem.innerHTML = "Remove Charity";
             }else{
                 var removeIndex = sessObj["savedCharities"].indexOf(sessObj["detailsCharity"]);
