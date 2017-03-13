@@ -19,7 +19,7 @@ function getSessionObject(){
       "comparisonMetrics":["BBB Rating", "Years of Operation", "Scope of Impact", "Fundraising Efficiency"],
       "comparisonCharities":[],
       "detailsCharity":0,
-      "allocationAmounts":{},
+      "allocationAmounts":{'Bill and Melinda Gates Foundation': 0, 'Marie Curie': 0, 'SOS Children\'s Villages':0, 'United Way': 0},
       'percentAllocated': 0,
       'totalFunds': 60
     }

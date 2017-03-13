@@ -61,9 +61,8 @@ function submit(){
   }
 }
 
-function makeCharList(my_charities) {
+function makeCharList(my_charities, saved_charities) {
     // Create the list element:
-    console.log(my_charities)
     charities = Object.keys(my_charities).sort()
 
     list_header = document.createTextNode('My Charities (' + charities.length + ')')
@@ -98,16 +97,15 @@ function makeCharList(my_charities) {
         slider.className="sliders"
         slider.setAttribute('id', 'slider_'+i)
         char_band.appendChild(slider);
-
+        init_obj = getSessionObject()['allocationAmounts'][charities[i]]
        $('#slider_'+i).slider({
             step: 1,
             min: 0,
             max: 100,
-            value: my_charities[char_name],
+            value: init_obj,
             slide: function( event, ui ) {
                 var amount = ui.value;
                 char_name = this.parentNode.childNodes[0].innerHTML
-                //total_alloc = 100 - total_alloc - my_charities[char_name]
                 my_charities[char_name] = amount
                 money = 100 - Object.values(my_charities).reduce(function(a,b){return a+b;},0)
                 obj_slide = getSessionObject()
