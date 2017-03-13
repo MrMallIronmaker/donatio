@@ -1,6 +1,21 @@
 function initializeDetails(){
+    var sessObj = getSessionObject();
+    var charityDetails = getCharityDetails(); 
+    var detailsCharity = sessObj["detailsCharity"];
+
+    // Get Charity Name and Image
+    var imageDiv = document.getElementById("charity-image");
+    imageDiv.innerHTML = "";
+
+    var imageView = document.createElement("img");
+    imageDiv.appendChild(imageView);
+    imageView.src = charityDetails[detailsCharity]["photoUrl"];
+    console.log(imageView.src);
+
+    var nameDiv = document.getElementById("charity-name");
+    nameDiv.innerHTML = "<h3>" + charityDetails[detailsCharity]["name"] +"<h3>";
+
     var addCharityButton = document.getElementById("addCharityButton");
-    var sessObj = getSessionObject(); 
     if (sessObj["savedCharities"].indexOf(sessObj["detailsCharity"]) > -1){
         addCharityButton.innerHTML = "Remove Charity";
     } else {
