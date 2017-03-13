@@ -17,21 +17,41 @@ function loadSelectionMenu(){
   for (var i = 0; i < savedCharities.length; i++){
     text = charityDetails[savedCharities[i]].name;
     var elem = document.createElement("div");
-    var para = document.createElement("p");
-    var node = document.createTextNode(text);
-    elem.appendChild(para);
-    para.appendChild(node);
     elemList.appendChild(elem);
+    
     if (initialSelectedCharities.indexOf(savedCharities[i]) > -1){
-      elem.className = "charity-element charity-element-selected";
+      elem.className = "row charity-element charity-element-selected";
     } else{
-      elem.className = "charity-element";
+      elem.className = "row charity-element";
     }
+
+    var leftSide = document.createElement("div");
+    leftSide.className = "col-md-10";
+    leftSide.innerHTML = text;
+    elem.appendChild(leftSide);
+
+    var deleteButton = document.createElement("div");
+    deleteButton.className = "col-md-2 glyphicon glyphicon-trash delete-button";
+    elem.appendChild(deleteButton);
+
+    var deleteHandler = function(elemList, elem, charityId){
+        return function(){
+            var sessObj = getSessionObject();
+            var index = sessObj["savedCharities"].indexOf(charityId);
+            if (index > -1){
+                sessObj["savedCharities"].splice(index, 1);
+                setSessionObject(sessObj);
+            }
+            elemList.removeChild(elem);
+        };
+    }(elemList, elem, savedCharities[i]);
+    deleteButton.addEventListener("click", deleteHandler);
+
     var clickHandler = function(elem, charityId){
       return function(){
-        if (elem.className.split(" ").length == 1){
+        if (elem.className.split(" ").length == 2){
           // Charity is not currently selected
-          elem.className = "charity-element charity-element-selected";
+          elem.className = "row charity-element charity-element-selected";
           var sessObj = getSessionObject();
           sessObj["comparisonCharities"].push(charityId);
           setSessionObject(sessObj);
@@ -40,7 +60,7 @@ function loadSelectionMenu(){
 
         } else{
           // Charity is already selected
-          elem.className = "charity-element";
+          elem.className = "row charity-element";
           var sessObj = getSessionObject();
           var removeIndex = sessObj["comparisonCharities"].indexOf(charityId);
           if (removeIndex > -1){
@@ -50,7 +70,7 @@ function loadSelectionMenu(){
           updateComparison(sessObj["comparisonCharities"]);
         }
       }}(elem, savedCharities[i]);
-    elem.addEventListener("click", clickHandler);
+    leftSide.addEventListener("click", clickHandler);
   }
 }
 

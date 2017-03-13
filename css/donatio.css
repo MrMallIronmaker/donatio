@@ -24,7 +24,37 @@ html, body {
 }
 
 .search-sidebar {
+  background-color: #ffffff;
+}
+
+.search-column {
   background-color: #e7e6e6;
+  box-shadow: 4px 4px 4px #b0b0b0 inset;
+}
+
+.search-result {
+	background-color: #ffffff;
+	margin: 10px 0px;
+	padding: 0px 20px;
+	overflow: hidden;
+	box-shadow: 4px 4px 4px #b0b0b0;
+}
+
+.search-result-title {
+	color: #2F80ED;
+}
+
+.details-table {
+  display: none;
+}
+
+.details-table-label {
+	font-weight: bold;
+	text-align: right;
+}
+
+.filter-name, .filter-results-count {
+	display: inline;
 }
 
 .vertical-align {

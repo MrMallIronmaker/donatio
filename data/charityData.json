@@ -1,6 +1,9 @@
-[{
+[
+  {
     "id" : 0,
     "name":"Bill and Melinda Gates Foundation",
+    "category":"Health",
+    "cause":"Medical Research",
     "photoUrl":"0.png",
     "website":"http://www.gatesfoundation.org/",
     "mission":"Our friend and co-trustee Warren Buffett once gave us some great advice about philanthropy: \u201CDon\u2019t just go for safe projects,\u201D he said. \u201CTake on the really tough problems.\u201D\r\n\r\nWe couldn\u2019t agree more. Our foundation is teaming up with partners around the world to take on some tough challenges: extreme poverty and poor health in developing countries, and the failures of America\u2019s education system. We focus on only a few issues because we think that\u2019s the best way to have great impact, and we focus on these issues in particular because we think they are the biggest barriers that prevent people from making the most of their lives.",
@@ -8,20 +11,32 @@
     "leadershipTeam":[2,3,4],
     "founders":[0,1],
     "news":[0,1,2]
-},
-{"id":1,
-  "name":"Marie Curie",
-  "photoUrl":"1.png",
-  "website":"https://www.mariecurie.org.uk/",
-  "mission":"We now focus our research efforts on finding better ways of caring for terminally ill people and their families (palliative care research).\n\nIn recent years, we've significantly increased our funding in this area, setting up new research teams at UCL (London), Liverpool University and Cardiff University. We also established a major grants programme, awarding around £1 million every year to fund palliative care research projects, on a competitive basis. We are now one of the UK's leading funders of palliative care research."},
-{"id":2,
-  "name":"SOS Childrens Villages",
-  "photoUrl":"2.png",
-  "website":"http://www.sos-childrensvillages.org/",
-  "mission":"We build families for children in need, we help them shape their own futures, and we share in the development of their communities.\n"},
-{"id":3,
-  "name":"United Way",
-  "photoUrl":"3.png",
-  "website":"https://www.unitedway.org/",
-  "mission":"We all have a stake in what befalls our fellow man. We all benefit when a child succeeds in school, when someone finds a job that will help them provide for their family, or when more people are able to access quality, affordable health care.  \n\nThe solutions we create for communities around the world go beyond short-term charity for a few.  When United Way’s support for Community Schools helps increase the graduation rate in the Vallejo City Unified School District by 11 percent in just three years, it’s not just the students, or even just the families of those students who benefit. Those proud graduates now have a much better chance of landing a job that pays a livable wage, of staying out of trouble with the law, and of living longer, healthier lives — and that translates into a safer, healthier and more prosperous community for everyone.\n\nWe rise or fall together. With your support, we are reaching for great new heights."}
+  },
+  {
+    "id":1,
+    "name":"Marie Curie",
+    "category":"Health",
+    "cause":"Patient and Family Support",
+    "photoUrl":"1.png",
+    "website":"https://www.mariecurie.org.uk/",
+    "mission":"We now focus our research efforts on finding better ways of caring for terminally ill people and their families (palliative care research).\n\nIn recent years, we've significantly increased our funding in this area, setting up new research teams at UCL (London), Liverpool University and Cardiff University. We also established a major grants programme, awarding around £1 million every year to fund palliative care research projects, on a competitive basis. We are now one of the UK's leading funders of palliative care research."
+  },
+  {
+    "id":2,
+    "name":"SOS Childrens Villages",
+    "category":"Human Services",
+    "cause":"Children's and Family Services",
+    "photoUrl":"2.png",
+    "website":"http://www.sos-childrensvillages.org/",
+    "mission":"We build families for children in need, we help them shape their own futures, and we share in the development of their communities.\n"
+  },
+  {
+    "id":3,
+    "name":"United Way",
+    "category":"Human Services",
+    "cause":"Social Services",
+    "photoUrl":"3.png",
+    "website":"https://www.unitedway.org/",
+    "mission":"We all have a stake in what befalls our fellow man. We all benefit when a child succeeds in school, when someone finds a job that will help them provide for their family, or when more people are able to access quality, affordable health care.  \n\nThe solutions we create for communities around the world go beyond short-term charity for a few.  When United Way’s support for Community Schools helps increase the graduation rate in the Vallejo City Unified School District by 11 percent in just three years, it’s not just the students, or even just the families of those students who benefit. Those proud graduates now have a much better chance of landing a job that pays a livable wage, of staying out of trouble with the law, and of living longer, healthier lives — and that translates into a safer, healthier and more prosperous community for everyone.\n\nWe rise or fall together. With your support, we are reaching for great new heights."
+  }
 ]
