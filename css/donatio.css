@@ -44,6 +44,10 @@ html, body {
 	color: #2F80ED;
 }
 
+.details-table {
+  display: none;
+}
+
 .details-table-label {
 	font-weight: bold;
 	text-align: right;
