@@ -1,6 +1,6 @@
-function onSearchClick(searchbar = null) {
+function onSearchClick() {
 	var charityDetails = getCharityDetails();
-	if (searchbar == null){var searchbar = $("#searchBar").val;}
+	var searchbar = $("#searchBar").val;
 	var pointsMap = search(charityDetails, searchbar);
 
 	var search_results = $("#search-results");
