@@ -1,6 +1,6 @@
 function onSearchClick() {
 	var charityDetails = getCharityDetails();
-	var searchbar = $("#searchBar").val;
+	var searchbar = $("#searchBar").val();
 	var pointsMap = search(charityDetails, searchbar);
 
 	var search_results = $("#search-results");
