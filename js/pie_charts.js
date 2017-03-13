@@ -6,6 +6,13 @@ var svg = d3.select("#pie")
     .append("svg").attr("width", width).attr("height", height)
     .append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
+var svg2 = d3.select("#legend")
+    .append("svg")
+    .attr("width", 30)
+    .attr("height", 20*8);
+        
+
+
 svg.append("g")
     .attr("class", "slices");
 svg.append("g")
@@ -25,6 +32,7 @@ var pie = d3.layout.pie()
 
 var arc = d3.svg.arc()
     .outerRadius(radius)
+    .innerRadius(100)
 
 var outerArc = d3.svg.arc()
     .innerRadius(0)
@@ -41,30 +49,30 @@ var color = d3.scale.ordinal()
     .range(colorRange.range());
 
 
-var family_data = [{"label":"Dave Thomas Foundation", "value":60},
-              {"label":"Friends of Earth", "value":20}, 
-                  {"label":"Rainforest Alliance", "value":60},
-              {"label":"Homes For Our Troops", "value":40}] 
-var dad_data =[{"label":"Dave Thomas Foundation", "value":60},
-              {"label":"Friends of Earth", "value":20},
-              {"label":"Rainforest Alliance", "value":0},
-              {"label":"Homes For Our Troops", "value":0}];
-var mom_data = [{"label":"Dave Thomas Foundation", "value":0},
-              {"label":"Friends of Earth", "value":0}, 
-              {"label":"Rainforest Alliance", "value":60},
-              {"label":"Homes For Our Troops", "value":0}]
+var family_data = [{"label":"Dave Thomas Foundation", "value":60, "person": ["Dad"]},
+              {"label":"Friends of Earth", "value":20, "person": ["Dad"]}, 
+                  {"label":"Rainforest Alliance", "value":60, "person": ["Mom"]},
+              {"label":"Homes For Our Troops", "value":40, "person": ["Sasha"]}] 
+var dad_data =[{"label":"Dave Thomas Foundation", "value":60, "person": ["Dad"]},
+              {"label":"Friends of Earth", "value":20, "person": ["Dad"]},
+              {"label":"Rainforest Alliance", "value":0, "person": ["Mom"]},
+              {"label":"Homes For Our Troops", "value":0, "person": ["Sasha"]}];
+var mom_data = [{"label":"Dave Thomas Foundation", "value":0, "person": ["Dad"]},
+              {"label":"Friends of Earth", "value":0, "person": ["Dad"]}, 
+              {"label":"Rainforest Alliance", "value":60, "person": ["Mom"]},
+              {"label":"Homes For Our Troops", "value":0, "person": ["Sasha"]}]
 
-var sib_data = [{"label":"Dave Thomas Foundation", "value":0},
-              {"label":"Friends of Earth", "value":0}, 
-              {"label":"Rainforest Alliance", "value":0},
-              {"label":"Homes For Our Troops", "value":40}]
+var sib_data = [{"label":"Dave Thomas Foundation", "value":0, "person": ["Dad"]},
+              {"label":"Friends of Earth", "value":0, "person": ["Dad"]}, 
+              {"label":"Rainforest Alliance", "value":0, "person": ["Mom"]},
+              {"label":"Homes For Our Troops", "value":40, "person": ["Sasha"]}]
 
-var user_data = [{"label":"Dave Thomas Foundation", "value":0},
-              {"label":"Friends of Earth", "value":0}, 
-              {"label":"Rainforest Alliance", "value":0},
-              {"label":"Homes For Our Troops", "value":0}]
+var user_data = [{"label":"Dave Thomas Foundation", "value":0, "person": ["Dad"]},
+              {"label":"Friends of Earth", "value":0, "person": ["Dad"]}, 
+              {"label":"Rainforest Alliance", "value":0, "person": ["Mom"]},
+              {"label":"Homes For Our Troops", "value":0, "person": ["Sasha"]}]
 
-var current_pie = 0
+var current_pie = 3
 
 make_data();
 change_pie(current_pie);
@@ -81,10 +89,11 @@ function make_data(){
       if(j == 3 || j==0){
         amount = user_charities[name]*60/100.0
       }
-      if (name in data[j]){
-          data[j][name] += amount
+      if (data[j]['label']==name){
+          data[j]['value'] += amount
+          data[j]['person'].push("Me")
       }else{
-          data[j].push({'label': name, 'value':amount})
+          data[j].push({'label': name, 'value':amount, "person": ["I"]})
       }
     }
   }
@@ -93,7 +102,7 @@ function make_data(){
       if(j == 3|| j==0){
         amount = (100 - obj['percentAllocated'])*60/100.0
       }
-      data[j].push({'label': 'Unallocated', 'value':amount})
+      data[j].push({'label': 'Unallocated', 'value':amount, "person": ["I"]})
     }
 }
 
@@ -138,7 +147,13 @@ function change_pie(idx) {
 
     slice.enter()
         .insert("path")
-        .style("fill", function(d) { return color(d.data.label); })
+        .style("fill", function(d) { 
+          if (d.data.label == "Unallocated"){
+            return "grey";
+          }else{
+            return color(d.data.label); 
+          }
+        })
         .attr("class", "slice");
 
     slice
@@ -156,7 +171,12 @@ function change_pie(idx) {
             div.style("left", d3.event.pageX+10+"px");
             div.style("top", d3.event.pageY-25+"px");
             div.style("display", "inline-block");
-            div.html((d.data.label)+"<br>$"+(d.data.value));
+            //div.html((d.data.label)+"<br>$"+(d.data.value));
+            if (d.data.label=="Unallocated"){
+              div.html((d.data.person).join()+" have $"+(d.data.value)+"<br>of unallocated funds");
+            }else{
+              div.html((d.data.person).join()+" donated $"+(d.data.value)+"<br>to "+(d.data.label));
+            }
         });
     slice
         .on("mouseout", function(d){
@@ -165,6 +185,46 @@ function change_pie(idx) {
 
     slice.exit()
         .remove();
+
+/*
+    var legend = svg2.append("g")
+                  .attr("class", "legend1")
+                  .attr('transform', function(d, i) {
+            var height = legendRectSize + legendSpacing;
+            var offset =  height * color.domain().length / 2;
+            var horz = -3 * legendRectSize;
+            var vert = i * height - offset;
+            return 'translate(' + horz + ',' + vert + ')';
+            })    
+
+
+legend.selectAll('rect')
+  .data(data)
+  .enter()
+  .append("rect")
+  .attr("x", 30)
+  .attr("y", function(d, i){ return (i-1) *  20;})
+  .attr("width", 5)
+  .attr("height", 5)
+  .style("fill", function(d) { 
+    var color = color(d.data.label);
+    return color;
+  })
+
+legend.selectAll('text')
+  .data(data)
+  .enter()
+  .append("text")
+  .attr("x", 40)
+  .attr("width", 5)
+  .attr("height", 5)
+  .attr("y", function(d, i){ return (i-1) *  20 + 5;})
+  .text(function(d) {
+    var text = d.data.label;
+    return text;
+  });
+
+ 
 /*
     var legend = svg.selectAll('.legend')
         .data(color.domain())
@@ -191,7 +251,7 @@ function change_pie(idx) {
         .text(function(d) { return d; });
 
     /* ------- TEXT LABELS -------*/
-
+    /*
     var text = svg.select(".labelName").selectAll("text")
         .data(pie(data), function(d){ return d.data.label });
 
@@ -249,7 +309,8 @@ function change_pie(idx) {
             div.style("left", d3.event.pageX+10+"px");
             div.style("top", d3.event.pageY-25+"px");
             div.style("display", "inline-block");
-            div.html((d.data.label)+"<br>$"+(d.data.value));
+            //div.html((d.data.label)+"<br>$"+(d.data.value));
+            div.html((d.data.person).join()+" donated $"+(d.data.value)+"<br>to "+(d.data.label));
         });
     text
         .on("mouseout", function(d){
