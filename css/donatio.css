@@ -44,8 +44,12 @@ html, body {
 	color: #2F80ED;
 }
 
-.details-table {
+.details-table-hidden {
   display: none;
+}
+
+.details-table-visible {
+  display: inherit;
 }
 
 .details-table-label {
