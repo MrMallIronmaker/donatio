@@ -1,11 +1,3 @@
-//var my_charities = {'Bill and Melinda Gates Foundation':0, 'Marie Curie':0, 'SOS Children\'s Villages':0, 'United Way':0};
-
-var obj_init = getSessionObject();
-//obj_init['allocationAmounts'] = {'Bill and Melinda Gates Foundation':0, 'Marie Curie':0, 'SOS Children\'s Villages':0, 'United Way':0};
-//setSessionObject(obj_init)
-var my_charities = obj_init["allocationAmounts"];
-console.log(my_charities)
-
 $("#char-search").on('change keydown paste input', function(){
     search=document.getElementById('char-search').value.toLowerCase()
     if (search == ''){
@@ -196,5 +188,3 @@ function makeCharList(my_charities) {
     // Finally, return the constructed list:
     return list;
 }
-
-makeCharList(my_charities);
