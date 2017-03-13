@@ -1,3 +1,27 @@
+function initializeDetails(){
+    var addCharityButton = document.getElementById("addCharityButton");
+    var sessObj = getSessionObject(); 
+    if (sessObj["savedCharities"].indexOf(sessObj["detailsCharity"]) > -1){
+        addCharityButton.innerHTML = "Remove Charity";
+    } else {
+        addCharityButton.innerHTML = "Add Charity";
+    }
+
+    addCharityButton.addEventListener("click", function(elem){
+        return function(){
+            var sessObj = getSessionObject();
+            if (elem.innerHTML == "Add Charity"){
+                sessObj["savedCharities"].push(sessObj["detailsCharity"]);
+                elem.innerHTML = "Remove Charity";
+            }else{
+                var removeIndex = sessObj["savedCharities"].indexOf(sessObj["detailsCharity"]);
+                sessObj["savedCharities"].splice(removeIndex, 1);
+                elem.innerHTML = "Add Charity";
+            }
+            setSessionObject(sessObj);
+        };
+    }(addCharityButton));
+}
 function initNavMenu(){
    var aboutNavButton = document.getElementById("aboutNavButton");
    var impactNavButton = document.getElementById("impactNavButton");
