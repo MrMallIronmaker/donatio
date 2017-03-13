@@ -141,7 +141,7 @@ function makeCharList(my_charities, saved_charities) {
                 }
                 update_pie(char_name, my_charities[char_name])
 
-                //document.getElementById('funds').innerHTML = '$'+(obj_slide['percentAllocated']/100.0*obj_slide['totalFunds']).toFixed(2)+'/$'+obj_slide['totalFunds']+' allocated'
+                document.getElementById('funds').innerHTML = '$'+(obj_slide['percentAllocated']/100.0*obj_slide['totalFunds']).toFixed(2)+'/$'+obj_slide['totalFunds']+' allocated'
                 $("#"+this.getAttribute('id') +" .ui-slider-range").css( "background-color", '#C43E00' );
 
                 $( "#"+this.getAttribute('id') +" .ui-state-default, .ui-widget-content .ui-state-default" ).css( "background-color", '#C43E00' );
