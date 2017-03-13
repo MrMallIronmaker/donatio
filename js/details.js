@@ -9,6 +9,7 @@ function initializeDetails(){
 
     var imageView = document.createElement("img");
     imageDiv.appendChild(imageView);
+    imageView.className = "charity-image";
     imageView.src = charityDetails[detailsCharity]["photoUrl"];
     console.log(imageView.src);
 

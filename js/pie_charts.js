@@ -74,10 +74,24 @@ var user_data = [{"label":"Dave Thomas Foundation", "value":0, "person": ["Dad"]
 
 var current_pie = 3
 
-    
-
-
 make_data();
+var texts = svg.selectAll("text").data(user_data)
+                .attr("text-anchor", "middle")
+                .attr("id", "title")
+                .enter();
+
+    texts.append("text")
+         .attr("id", "title_donor")
+         .attr('x', -39)
+         .attr('y', legendRectSize - legendSpacing-10)
+         .text("My Donation:")
+         // set position etc.
+
+    texts.append("text")
+         .attr("id", "title_amount")
+         .attr('x', -32)
+        .attr('y', legendRectSize - legendSpacing+10)
+         .text("$" + 0 +"/$"+60);
 change_pie(current_pie);
 
 function make_data(){
@@ -219,10 +233,32 @@ function change_pie(idx) {
     var donation = [240, 80, 60, 60, 40]
     my_donation = (getSessionObject()['percentAllocated']/100*60.0).toFixed(2);
     var current_donation = [240, 80, 60, my_donation, 40]
-    svg.append("text")
+    /*var t = svg.append("text")
    .attr("text-anchor", "middle")
    .attr("id", "title")
-   .text(names[current_pie]+" Donation:\n"+"$" + current_donation[current_pie]+"/$"+donation[current_pie])
+   .text(names[current_pie]+" Donation:\n"+"$" + current_donation[current_pie]+"/$"+donation[current_pie])*/
+
+   svg.selectAll("#title_donor").remove();
+   svg.selectAll("#title_amount").remove();
+   var texts = svg.selectAll("text").data(data)
+                .attr("text-anchor", "middle")
+                .attr("id", "title")
+                .enter();
+
+    texts.append("text")
+         .attr("id", "title_donor")
+         .attr('x', -39)
+         .attr('y', legendRectSize - legendSpacing-10)
+         .text(names[current_pie]+" Donation:")
+         // set position etc.
+
+    texts.append("text")
+         .attr("id", "title_amount")
+         .attr('x', -32)
+        .attr('y', legendRectSize - legendSpacing+10)
+         .text("$" + current_donation[current_pie]+"/$"+donation[current_pie]);
+
+
    /*
     console.log(d3.select('#pie svg #title').node().innerHTML)
     d3.select('#pie svg #title').node().innerHTML = names[current_pie]+" Donation:\n"+"$" + current_donation[current_pie]+"/$"+donation[current_pie];*/

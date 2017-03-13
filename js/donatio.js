@@ -1,3 +1,18 @@
+var allCauses = [
+  "Medical Research",
+  "Patient and Family Support",
+  "Children's and Family Servies",
+  "Social Services"
+];
+
+var allCategories = [
+  "Health",
+  "Human Services"
+];
+
+
+
+
 function initializePage(currentNavItem){
   // TODO : race condition if data is not loaded prior to init functions
   // for compare and allocation pages
@@ -160,6 +175,12 @@ function generateRandomCharityDetails(charityDetail){
   charityDetail = fillIn(charityDetail, "leadershipTeam", [2,3,4]);
   charityDetail = fillIn(charityDetail, "founders", [0,2]);
   charityDetail = fillIn(charityDetail, "news", [0,1,2]);
+
+  // For filtering
+  charityDetail = fillIn(charityDetail, "cause",
+      randomChoice(allCauses));
+  charityDetail = fillIn(charityDetail, "category",
+      randomChoice(allCategories));
 
   // Comparison metrics
   charityDetail = fillIn(charityDetail, "BBB Rating",

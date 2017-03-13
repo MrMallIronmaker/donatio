@@ -67,6 +67,18 @@ function submit(){
 }
 
 function makeCharList(my_charities, saved_charities) {
+    /*var obj = getSessionObject();
+  var savedCharities = obj["savedCharities"];
+  var charityDetails = getCharityDetails();
+
+  for (var sc = 0; sc < savedCharities.length; sc++){
+    text = charityDetails[savedCharities[sc]].name;
+    if (!(text in obj['allocationAmounts'])){
+        obj['allocationAmounts'][text] = 0;
+    }
+
+    my_charities = obj['allocationAmounts']*/
+    
     // Create the list element:
     charities = Object.keys(my_charities).sort()
 
@@ -91,12 +103,15 @@ function makeCharList(my_charities, saved_charities) {
         // Create the list item:
         var char_band = document.createElement('div');
         char_band.className = "char_band";
-        list.appendChild(char_band);
-        var char_content_name = document.createElement('span');
+        var outer_div = document.createElement('div');
+        outer_div.className ='outer_div';
+        list.appendChild(outer_div);
+        var char_content_name = document.createElement('div');
         char_content_name.className ='char_name';
         var char_name = document.createTextNode(charities[i]);
         char_content_name.appendChild(char_name);
         char_band.appendChild(char_content_name);
+        outer_div.appendChild(char_band)
 
         var slider = document.createElement('div')
         slider.className="sliders"
