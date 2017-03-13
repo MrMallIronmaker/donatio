@@ -63,6 +63,7 @@ function submit(){
 
 function makeCharList(my_charities) {
     // Create the list element:
+    console.log(my_charities)
     charities = Object.keys(my_charities).sort()
 
     list_header = document.createTextNode('My Charities (' + charities.length + ')')
