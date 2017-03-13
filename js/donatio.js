@@ -72,6 +72,7 @@ function loadMenu(currentNavItem){
       document.getElementById('menu').innerHTML= this.responseText;
       // Highlight current page nav text after menu bar is loaded
       highlightNavItem(currentNavItem)
+      document.getElementById('funds').innerHTML = '$'+(obj_slide['percentAllocated']/100.0*obj_slide['totalFunds']).toFixed(2)+'/$'+obj_slide['totalFunds']+' allocated';
   };
   xhr.send();
 
