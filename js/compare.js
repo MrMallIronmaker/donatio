@@ -37,6 +37,15 @@ function loadSelectionMenu(){
 
   var elemList = document.getElementById("myCharitiesList");
 
+  // prepopulate selected charities if comparison basket is empty
+  if (initialSelectedCharities.length == 0){
+    for (var i=0; i < Math.min(savedCharities.length, 4); i++){
+      initialSelectedCharities.push(savedCharities[i]);
+      obj["comparisonCharities"] = initialSelectedCharities;
+      setSessionObject(obj);
+    }
+  }
+
   for (var i = 0; i < savedCharities.length; i++){
     text = charityDetails[savedCharities[i]].name;
     var elem = document.createElement("div");
