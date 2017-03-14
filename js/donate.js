@@ -70,9 +70,11 @@ function makeCharList() {
   var obj = getSessionObject();
   var savedCharities = obj["savedCharities"];
   var charityDetails = getCharityDetails();
+  var idx_name_map = {}
 
   for (var sc = 0; sc < savedCharities.length; sc++){
     text = charityDetails[savedCharities[sc]].name;
+    idx_name_map[text] = sc;
     if (!(text in obj['allocationAmounts'])){
         obj['allocationAmounts'][text] = 0;
     }
@@ -191,10 +193,14 @@ function makeCharList() {
         button.onclick = function(){ 
             obj_del = getSessionObject()
             obj_del['percentAllocated'] -= my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
+            delete my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
+            var index = obj_del['savedCharities'].indexOf(idx_name_map[this.parentNode.childNodes[0].childNodes[0].nodeValue])
+            if (index > -1) {
+                obj_del['savedCharities'].splice(index, 1);
+            }
+            obj_del['allocationAmounts'] = my_charities;
             setSessionObject(obj_del);
             update_pie(this.parentNode.childNodes[0].childNodes[0].nodeValue, 0);
-            delete my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
-            obj_del['allocationAmounts'] = my_charities;
             this.parentNode.parentNode.removeChild(this.parentNode);
             document.getElementById("My_Charities").childNodes[0].nodeValue = 'My Charities (' + Object.keys(my_charities).length + ')'
             total_alloc = Object.values(my_charities).reduce(function(a,b){return a+b;},0);
