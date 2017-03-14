@@ -2,6 +2,38 @@ Site Location
 
 http://markromanmiller.com/donatio/
 
+# TODO  - Demo Day
+* General (All)
+ * Cart display should work
+ * Add discovery page to navigate to causes
+
+* Search Page (Mark)
+ * Save search state across tabs
+ * Limit results to 10 per page
+ * Implement filters
+ * Implement filter charity counts
+ * Add to cart from search page
+ * Search from causes page
+ * make sure the filters launch correctly from causes page
+ * Format subcategories
+ * User should click enter for search
+ * Limit size of description for search results
+ * Add visual cue to drop down for search results
+
+* Donate Page (Lindsey)
+ * Finalize slider display
+ * Link to do actual session
+ 
+* Details (Matt)
+ * At a glance
+ * Decrease the size of the display picture
+ * Add padding to contentview of details page
+ * Financials (Lindsey)
+ 
+* Comparison(Matt)
+ * Default select first four charities
+ * Fix z order of filter bar (Lindsey)
+ 
 # Local Setup
 
 The use of javascript to import other documents will only work when running an http server from this directory. One way to run an http server from your local machine is found here
