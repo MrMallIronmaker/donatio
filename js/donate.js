@@ -112,7 +112,7 @@ function makeCharList(my_charities, saved_charities) {
         // Create the list item:
         var char_band = document.createElement('div');
         char_band.className = "char_band";
-        char_band.style.background = "linear-gradient(to right,"+color(charities[i])+" 5%,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA)";
+        char_band.style.background = "linear-gradient(to right,"+color(charities[i])+" 2%,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA)";
         var outer_div = document.createElement('div');
         outer_div.className ='outer_div';
         list.appendChild(outer_div);
@@ -253,7 +253,7 @@ function makeFamCharList(my_charities) {
         char_band.setAttribute('id', 'cb'+i);
         col = color(charities[i]);
         //char_band.style.background = "linear-gradient(to right,"+col+"  0%,#EAEAEA 100%)"
-        char_band.style.background = "linear-gradient(to right,"+col+" 5%,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA)"
+        char_band.style.background = "linear-gradient(to right,"+col+" 2%,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA"
         var outer_div = document.createElement('div');
         outer_div.className ='outer_div';
         list.appendChild(outer_div);
