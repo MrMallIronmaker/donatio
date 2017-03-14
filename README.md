@@ -2,10 +2,27 @@ Site Location
 
 http://markromanmiller.com/donatio/
 
+# Deadlines
+
+* User feedback round 1 - (Monday)
+* Mood board - Done
+* Poster - (Wednesday)
+* Pitch Slide - (Wednesday)
+* Coding all functionality - (Wednesday 5PM)
+* Final coding - (Thursday 5PM)
+* Video - (Thursday)
+* Final Report - (Friday)
+
 # TODO  - Demo Day
 * General (All)
  * Cart display should work
  * Add discovery page to navigate to causes
+ * Add triangle back to search bar
+ * Create separate page to clear session data instead of index page (Matt)
+
+* Causes (Lindsey)
+ * left-align front page text
+ * add padding to cause text
 
 * Search Page (Mark)
  * Save search state across tabs
@@ -19,6 +36,7 @@ http://markromanmiller.com/donatio/
  * User should click enter for search
  * Limit size of description for search results
  * Add visual cue to drop down for search results
+ * Keep search query in search box
 
 * Donate Page (Lindsey)
  * Finalize slider display
