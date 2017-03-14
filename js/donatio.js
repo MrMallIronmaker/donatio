@@ -301,3 +301,12 @@ function loadJSON(jsonUrl, callback) {
   xobj.send(null);  
 }
 
+function deleteElemFromList(list, elem){
+    /** Delete element from list if it exists - otherwise return the original list*/
+    var index = list.indexOf(elem);
+    if (index > -1){
+        list.splice(index, 1);
+    }
+    return list;
+}
+

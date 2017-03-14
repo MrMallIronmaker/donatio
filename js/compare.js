@@ -69,6 +69,8 @@ function loadSelectionMenu(){
     var deleteHandler = function(elemList, elem, charityId){
         return function(){
             var sessObj = getSessionObject();
+            sessObj["comparisonCharities"] = deleteElemFromList(
+                    sessObj["comparisonCharities"], charityId);
             var index = sessObj["savedCharities"].indexOf(charityId);
             if (index > -1){
                 sessObj["savedCharities"].splice(index, 1);
@@ -78,6 +80,7 @@ function loadSelectionMenu(){
                 setSessionObject(sessObj);
             }
             elemList.removeChild(elem);
+            updateComparison(sessObj["comparisonCharities"]);
         };
     }(elemList, elem, savedCharities[i]);
     deleteButton.addEventListener("click", deleteHandler);
