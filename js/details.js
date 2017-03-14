@@ -190,12 +190,44 @@ function showImpactView(){
 
 }
 
+var current_eff_metric = 1;
+var current_cap_metric = 5;
+
 function showFinancialsView(){
 
-  var sessObj = getSessionObject();
+  /*var sessObj = getSessionObject();
   var charityId = sessObj["detailsCharity"];
   var charityDetails = getCharityDetails();
-  var charityDetail = charityDetails[charityId];
+  var charityDetail = charityDetails[charityId];*/
+
+  var char_commit_data = []
+  var fund_eff_data = []
+  var op_reliance_data = []
+
+  var vis_ratio_data = []
+  var current_ratio_data = []
+  var op_reserve_data = []
+  var op_margin_data = []
+  var net_assets_data = []
+  var quick_ratio_data = []
+
+  var years = ['2012', '2013', '2014', '2015', '2016']
+
+  for (var i=0; i<years.length; i++){
+    char_commit_data.push({'year': years[i], 'value': Math.random()})
+    fund_eff_data.push({'year': years[i], 'value': Math.random()})
+    op_reliance_data.push({'year': years[i], 'value': Math.random()})
+
+    vis_ratio_data.push({'year': years[i], 'value': Math.random()})
+    current_ratio_data.push({'year': years[i], 'value': Math.random()})
+    op_reserve_data.push({'year': years[i], 'value': Math.random()})
+    op_margin_data.push({'year': years[i], 'value': Math.random()})
+    quick_ratio_data.push({'year': years[i], 'value': Math.random()})
+    net_assets_data.push({'year': years[i], 'value': Math.floor((Math.random()*50000) + 500)/10000})
+  }
+
+  var map = {1:['#efficiency-chart', char_commit_data, "Charitable Commitment (%)"], 2:['#efficiency-chart', fund_eff_data, "Fundraising Efficiency (%)"], 3:['#efficiency-chart', op_reliance_data, "Operating Reliance (%)"], 4:['#capacity-chart', current_ratio_data, "Current Ratio (%)"], 5:['#capacity-chart', net_assets_data, "Net Assets ($millions)"], 6:['#capacity-chart', op_margin_data, "Operating Margin (%)"], 7:['#capacity-chart', op_reserve_data, "Operating Reserve (%)"], 8:['#capacity-chart', quick_ratio_data, "Quick Ratio (%)"], 9:['#capacity-chart', vis_ratio_data, "Visibility Ratio (%)"]}
+
 
   var contentView = document.getElementById("mainContentView");
   contentView.innerHTML = "";
@@ -203,6 +235,251 @@ function showFinancialsView(){
   var financialsHeader = document.createElement("h2");
   financialsHeader.innerHTML = "Financials";
   contentView.appendChild(financialsHeader);
+
+  var chartRow = document.createElement("div");
+  chartRow.className = "row fin_charts";
+  contentView.appendChild(chartRow);
+  var leftSide = document.createElement("div");
+  leftSide.className = "col-md-6";
+  leftSide.setAttribute('id', 'efficiency-chart');
+  chartRow.appendChild(leftSide);
+
+  var rightSide = document.createElement("div");
+  rightSide.className = "col-md-6";
+  rightSide.setAttribute('id', 'capacity-chart');
+  chartRow.appendChild(rightSide);
+
+  var togRow = document.createElement("div");
+  togRow.className = "row fin_chart_toggles";
+  contentView.appendChild(togRow);
+  var leftSideToggle = document.createElement("div");
+  leftSideToggle.className = "col-md-5";
+  leftSideToggle.setAttribute('id', 'efficiency-toggles');
+  togRow.appendChild(leftSideToggle);
+
+  var financialsLeftTogHeader = document.createElement("h4");
+  financialsLeftTogHeader.innerHTML = "Financial Efficiency Performance Metrics";
+  leftSideToggle.appendChild(financialsLeftTogHeader);
+  var hr1 = document.createElement("hr");
+  leftSideToggle.appendChild(hr1);
+
+  var but1 = document.createElement("div");
+  but1.className = "col-md-3 tog-button tog-button-selected eft";
+  but1.setAttribute('id', 'but1');
+  but1.innerHTML = 'Charitable Commitment'
+  leftSideToggle.appendChild(but1);
+  but1.onclick = function(){
+    if (!(this.style.background == '#00C0AC')){
+      make_chart(map[1][0], map[1][1], map[1][2])
+      document.getElementById('but'+current_eff_metric).className = 'col-md-3 tog-button'
+      this.className += ' tog-button-selected'
+      current_eff_metric = 1      
+    }
+  }
+  var but2 = document.createElement("div");
+  but2.className = "col-md-3 tog-button eft";
+  but2.setAttribute('id', 'but2');
+  but2.innerHTML = 'Fundraising Efficiency'
+  leftSideToggle.appendChild(but2);
+  but2.onclick = function(){
+    if (!(this.style.background == '#00C0AC')){
+      make_chart(map[2][0], map[2][1], map[2][2])
+      document.getElementById('but'+current_eff_metric).className = 'col-md-3 tog-button'
+      this.className += ' tog-button-selected'
+      current_eff_metric = 2      
+    }
+  }
+  var but3 = document.createElement("div");
+  but3.className = "col-md-3 tog-button eft";
+  but3.setAttribute('id', 'but3');
+  but3.innerHTML = 'Operating Reliance'
+  leftSideToggle.appendChild(but3);
+  but3.onclick = function(){
+    if (!(this.style.background == '#00C0AC')){
+      make_chart(map[3][0], map[3][1], map[3][2])
+      document.getElementById('but'+current_eff_metric).className = 'col-md-3 tog-button'
+      this.className += ' tog-button-selected'
+      current_eff_metric = 3      
+    }
+  }
+
+  var rightSideToggle = document.createElement("div");
+  rightSideToggle.className = "col-md-5";
+  rightSideToggle.setAttribute('id', 'cap-toggles');
+  togRow.appendChild(rightSideToggle);
+
+  var financialsRightTogHeader = document.createElement("h4");
+  financialsRightTogHeader.innerHTML = "Financial Capacity Performance Metrics";
+  rightSideToggle.appendChild(financialsRightTogHeader);
+  var hr2 = document.createElement("hr");
+  rightSideToggle.appendChild(hr2);
+
+  var but4 = document.createElement("div");
+  but4.className = "col-md-3 tog-button";
+  but4.setAttribute('id', 'but4');
+  but4.innerHTML = 'Current Ratio'
+  rightSideToggle.appendChild(but4);
+  but4.onclick = function(){
+    if (!(this.style.background == '#00C0AC')){
+      make_chart(map[4][0], map[4][1], map[4][2])
+      document.getElementById('but'+current_cap_metric).className = 'col-md-3 tog-button'
+      this.className += ' tog-button-selected'
+      current_cap_metric = 4      
+    }
+  }
+  var but5 = document.createElement("div");
+  but5.className = "col-md-3 tog-button tog-button-selected";
+  but5.setAttribute('id', 'but5');
+  but5.innerHTML = 'Net Assets'
+  rightSideToggle.appendChild(but5);
+  but5.onclick = function(){
+    if (!(this.style.background == '#00C0AC')){
+      make_chart(map[5][0], map[5][1], map[5][2])
+      document.getElementById('but'+current_cap_metric).className = 'col-md-3 tog-button'
+      this.className += ' tog-button-selected'
+      current_cap_metric = 5      
+    }
+  }
+  var but6 = document.createElement("div");
+  but6.className = "col-md-3 tog-button";
+  but6.setAttribute('id', 'but6');
+  but6.innerHTML = 'Operating Margin'
+  rightSideToggle.appendChild(but6);
+  but6.onclick = function(){
+    if (!(this.style.background == '#00C0AC')){
+      make_chart(map[6][0], map[6][1], map[6][2])
+      document.getElementById('but'+current_cap_metric).className = 'col-md-3 tog-button'
+      this.className += ' tog-button-selected'
+      current_cap_metric = 6      
+    }
+  }
+  var but7 = document.createElement("div");
+  but7.className = "col-md-3 tog-button";
+  but7.setAttribute('id', 'but7');
+  but7.innerHTML = 'Operating Reserve'
+  rightSideToggle.appendChild(but7);
+  but7.onclick = function(){
+    if (!(this.style.background == '#00C0AC')){
+      make_chart(map[7][0], map[7][1], map[7][2])
+      document.getElementById('but'+current_cap_metric).className = 'col-md-3 tog-button'
+      this.className += ' tog-button-selected'
+      current_cap_metric = 7      
+    }
+  }
+  var but8 = document.createElement("div");
+  but8.className = "col-md-3 tog-button";
+  but8.setAttribute('id', 'but8');
+  but8.innerHTML = 'Quick Ratio'
+  rightSideToggle.appendChild(but8);
+  but8.onclick = function(){
+    if (!(this.style.background == '#00C0AC')){
+      make_chart(map[8][0], map[8][1], map[8][2])
+      document.getElementById('but'+current_cap_metric).className = 'col-md-3 tog-button'
+      this.className += ' tog-button-selected'
+      current_cap_metric = 8      
+    }
+  }
+  var but9 = document.createElement("div");
+  but9.className = "col-md-3 tog-button";
+  but9.setAttribute('id', 'but9');
+  but9.innerHTML = 'Visibility Ratio'
+  rightSideToggle.appendChild(but9);
+  but9.onclick = function(){
+    if (!(this.style.background == '#00C0AC')){
+      make_chart(map[9][0], map[9][1], map[9][2])
+      document.getElementById('but'+current_cap_metric).className = 'col-md-3 tog-button'
+      this.className += ' tog-button-selected'
+      current_cap_metric = 9      
+    }
+  }
+
+  var stmtRow = document.createElement("div");
+  stmtRow.className = "row fin_stmt";
+  contentView.appendChild(stmtRow);
+
+  make_chart('#efficiency-chart', char_commit_data, "Charitable Commitment (%)");
+  make_chart('#capacity-chart', net_assets_data, "Net Assets ($millions)");
+  
+}
+
+  
+
+function make_chart(location, data, label){
+  in_loc = location.substring(1)
+  console.log(document.getElementById(in_loc))
+  document.getElementById(in_loc).innerHTML = "";
+  var margin = {top: 40, right: 20, bottom: 30, left: 40},
+      width = 400 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
+
+  var formatPercent = d3.format(".0%");
+
+  var x = d3.scale.ordinal()
+      .rangeRoundBands([0, width], .1);
+
+  var y = d3.scale.linear()
+      .range([height, 0]);
+
+  var xAxis = d3.svg.axis()
+      .scale(x)
+      .orient("bottom");
+
+  var yAxis = d3.svg.axis()
+      .scale(y)
+      .orient("left")
+
+  var tip = d3.tip()
+    .attr('class', 'd3-tip')
+    .offset([-10, 0])
+
+  if(label != "Net Assets ($millions)"){
+      yAxis.tickFormat(formatPercent);
+      tip.html(function(d) {
+      return "<strong><span style='color:red'>" + (d.value*100).toFixed(2) + "%</span></strong>";
+    })
+  }else{
+    tip.html(function(d) {
+      return "<strong><span style='color:red'>$" + (d.value).toFixed(2) + "</span></strong>";
+    })
+  }
+    
+
+  var svg = d3.select(location).append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+    .append("g")
+      .attr("transform", "translate(" + (margin.left + 20) + "," + margin.top + ")");
+
+  svg.call(tip);
+
+    x.domain(data.map(function(d) { return d.year; }));
+    y.domain([0, d3.max(data, function(d) { return d.value; })]);
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .call(yAxis)
+      .append("text")
+        //.attr("transform", "rotate(-90)")
+        .attr("y", -20)
+        .attr("dy", ".71em")
+        .style("text-anchor", "left")
+        .text(label);
+
+    svg.selectAll(".bar")
+        .data(data)
+      .enter().append("rect")
+        .attr("class", "bar")
+        .attr("x", function(d) { return x(d.year); })
+        .attr("width", x.rangeBand())
+        .attr("y", function(d) { return y(d.value); })
+        .attr("height", function(d) { return height - y(d.value); })
+        .on('mouseover', tip.show)
+        .on('mouseout', tip.hide)
 }
 
 function showLeadershipView(){
