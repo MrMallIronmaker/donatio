@@ -81,6 +81,13 @@ function makeCharList(my_charities, saved_charities) {
 
     // Create the list element:
     charities = Object.keys(my_charities).sort()
+    var colorRange = d3.scale.category20();
+    var color = d3.scale.ordinal()
+    .range(colorRange.range());
+    fam_charities = ['Dave Thomas Foundation', 'Friends of Earth', 'Rainforest Alliance', 'Homes For Our Troops']
+    for(var c = 0; c < fam_charities.length; c++) {
+        color(fam_charities[c])
+    }
 
     list_header = document.createTextNode('My Charities (' + charities.length + ')')
     document.getElementById('My_Charities').appendChild(list_header)
@@ -99,10 +106,13 @@ function makeCharList(my_charities, saved_charities) {
     }
     list.appendChild(char_num_chars);
 
+    
+
     for(var i = 0; i < charities.length; i++) {
         // Create the list item:
         var char_band = document.createElement('div');
         char_band.className = "char_band";
+        char_band.style.background = "linear-gradient(to right,"+color(charities[i])+" 5%,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA)";
         var outer_div = document.createElement('div');
         outer_div.className ='outer_div';
         list.appendChild(outer_div);
@@ -198,6 +208,7 @@ function makeCharList(my_charities, saved_charities) {
         // Add it to the list:
         //list.appendChild(char_band);
     }
+    /*
     var char_error = document.createElement('span');
     char_error.className ='error_msg'
     var msg = document.createTextNode('You have allocated 100% of your donation budget. Press Donate to proceed with your donation or reallocate your funds by reducing one or more of your current donation amounts.');
@@ -205,7 +216,57 @@ function makeCharList(my_charities, saved_charities) {
     char_error.style.visibility = 'hidden'
     char_error.style.color= '#C43E00'
     list.appendChild(char_error);
+    */
 
     // Finally, return the constructed list:
+    return list;
+}
+
+function makeFamCharList(my_charities) {
+    /*var obj = getSessionObject();
+  var savedCharities = obj["savedCharities"];
+  var charityDetails = getCharityDetails();
+
+  for (var sc = 0; sc < savedCharities.length; sc++){
+    text = charityDetails[savedCharities[sc]].name;
+    if (!(text in obj['allocationAmounts'])){
+        obj['allocationAmounts'][text] = 0;
+    }
+
+    my_charities = obj['allocationAmounts']*/
+
+    // Create the list element:
+    charities = ['Dave Thomas Foundation', 'Friends of Earth', 'Rainforest Alliance', 'Homes For Our Troops']
+
+    var colorRange = d3.scale.category20();
+    var color = d3.scale.ordinal()
+    .range(colorRange.range());
+
+
+    var list = document.createElement('div');
+    document.getElementById('family_charity_list').appendChild(list);
+
+    for(var i = 0; i < charities.length; i++) {
+        // Create the list item:
+        var char_band = document.createElement('div');
+        char_band.className = "char_band";
+        char_band.setAttribute('id', 'cb'+i);
+        col = color(charities[i]);
+        //char_band.style.background = "linear-gradient(to right,"+col+"  0%,#EAEAEA 100%)"
+        char_band.style.background = "linear-gradient(to right,"+col+" 5%,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA)"
+        var outer_div = document.createElement('div');
+        outer_div.className ='outer_div';
+        list.appendChild(outer_div);
+        var legend = document.createElement('div');
+        legend.className ='legend';
+        legend.style.backgroundImage = color(charities[i]);
+        //char_band.appendChild(legend);
+        var char_content_name = document.createElement('div');
+        char_content_name.className ='char_name';
+        var char_name = document.createTextNode(charities[i]);
+        char_content_name.appendChild(char_name);
+        char_band.appendChild(char_content_name);
+        outer_div.appendChild(char_band)
+        }
     return list;
 }

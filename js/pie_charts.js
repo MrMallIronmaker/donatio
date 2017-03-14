@@ -232,7 +232,7 @@ function change_pie(idx) {
     var names = ["The Family", "Dad\'s", "Mom\'s", 'My', "Sister\'s"]
     var donation = [240, 80, 60, 60, 40]
     my_donation = (getSessionObject()['percentAllocated']/100*60.0).toFixed(2);
-    var current_donation = [240, 80, 60, my_donation, 40]
+    var current_donation = [180+my_donation, 80, 60, my_donation, 40]
     /*var t = svg.append("text")
    .attr("text-anchor", "middle")
    .attr("id", "title")

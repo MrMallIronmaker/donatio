@@ -72,10 +72,14 @@
             </div>
         </div-->
         <div id="charity_list" style="margin-top: -10px;"></div>
+        
         <div>
           <button type='submit' class='submit' onclick='submit()'>SUBMIT</button>
         </div>
-        <div ><div id="legend"></div></div>
+        <h4 style="margin-top: 80px; margin-bottom: -10px;">My Family's Charities</h4>
+        <hr>
+        <div id="family_charity_list" style="margin-top: -10px;"></div>
+        <!--div ><div id="legend"></div></div-->
       </div>
       <div class = 'container visual col-sm-7'>
         
@@ -97,6 +101,7 @@
     </div>
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="js/d3.min.js"></script>
     <script src="js/donate.js"></script>
 
     <!--Load menu bar separately-->
@@ -105,6 +110,7 @@
       var obj = getSessionObject();
       console.log(obj["allocationAmounts"])
       makeCharList(obj["allocationAmounts"]);
+      makeFamCharList(obj["allocationAmounts"])
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -113,7 +119,7 @@
     <script src="js/bootstrap.min.js"></script>
     <!--script src="js/bootstrap-slider.js"></script-->
 
-    <script src="js/d3.min.js"></script>
+    
     <script src="js/pie_charts.js"></script>
     
   </body>
