@@ -140,12 +140,7 @@ function searchCharities(searchText, filters){
    * @param {Array} filters - dictionary mapping filters with their toggled values
    */
 
-   window.location.href = "search.html";
-   $(document).ready( function() {
-    $("#searchBar").val(searchText);
-    alert($("#searchBar").val());
-    onSearchClick();
-   })
+   window.location.href = "search.html?st=" + searchText;
 }
 
 function randomChoice(arr){

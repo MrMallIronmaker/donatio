@@ -1,7 +1,45 @@
+
+// Given a string, search all the charity data for particular results.
+function getPointsMap(charityDetails, inputString){
+	// ignore capitals
+	inputString = inputString.toLowerCase();
+	// ensure we have the charity data
+	var pointsMap = {}; // pointsMap[points] -> [index, index, index]
+	// loop over all charities [N is small, so this is OK]
+	for (var i = 0; i < charityDetails.length; i++) {
+		var points = 0;
+		// if it's in the name, give it 10 credits
+		if (charityDetails[i].name.toLowerCase().indexOf(inputString) !== -1) {
+			points += 10;
+		}
+		// if it's in the category or cause, give it three credits
+		if (charityDetails[i].category.toLowerCase().indexOf(inputString) !== -1) {
+			points += 3;
+		}
+		if (charityDetails[i].cause.toLowerCase().indexOf(inputString) !== -1) {
+			points += 3;
+		}
+		// if it's in the mission, give it one credit.
+		if (charityDetails[i].mission.toLowerCase().indexOf(inputString) !== -1) {
+			points += 1;
+		}
+		if (points > 0) {
+			if (pointsMap[points]) {
+				pointsMap[points] = pointsMap[points].concat(i);
+			}
+			else {
+				pointsMap[points] = [i];
+			}
+		}
+	}
+	alert(pointsMap);
+	return pointsMap;
+}
+
 function onSearchClick() {
 	var charityDetails = getCharityDetails();
 	var searchbar = $("#searchBar").val();
-	var pointsMap = search(charityDetails, searchbar);
+	var pointsMap = getPointsMap(charityDetails, searchbar);
 
 	var search_results = $("#search-results");
 	search_results.empty();
@@ -45,42 +83,6 @@ function onSearchClick() {
 			</div>'
 		)
 	}
-}
-
-// Given a string, search all the charity data for particular results.
-function search(charityDetails, inputString){
-	// ignore capitals
-	inputString = inputString.toLowerCase();
-	// ensure we have the charity data
-	var pointsMap = {}; // pointsMap[points] -> [index, index, index]
-	// loop over all charities [N is small, so this is OK]
-	for (var i = 0; i < charityDetails.length; i++) {
-		var points = 0;
-		// if it's in the name, give it 10 credits
-		if (charityDetails[i].name.toLowerCase().indexOf(inputString) !== -1) {
-			points += 10;
-		}
-		// if it's in the category or cause, give it three credits
-		if (charityDetails[i].category.toLowerCase().indexOf(inputString) !== -1) {
-			points += 3;
-		}
-		if (charityDetails[i].cause.toLowerCase().indexOf(inputString) !== -1) {
-			points += 3;
-		}
-		// if it's in the mission, give it one credit.
-		if (charityDetails[i].mission.toLowerCase().indexOf(inputString) !== -1) {
-			points += 1;
-		}
-		if (points > 0) {
-			if (pointsMap[points]) {
-				pointsMap[points] = pointsMap[points].concat(i);
-			}
-			else {
-				pointsMap[points] = [i];
-			}
-		}
-	}
-	return pointsMap;
 }
 
 function loadDetailsPage(pageIndex) {
