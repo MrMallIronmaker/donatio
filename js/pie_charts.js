@@ -231,8 +231,9 @@ function change_pie(idx) {
 
     var names = ["The Family", "Dad\'s", "Mom\'s", 'My', "Sister\'s"]
     var donation = [240, 80, 60, 60, 40]
-    my_donation = (getSessionObject()['percentAllocated']/100*60.0).toFixed(2);
-    var current_donation = [240, 80, 60, my_donation, 40]
+    var my_donation = getSessionObject()['percentAllocated']/100*60.0;
+    var fam_total = 180 + getSessionObject()['percentAllocated']/100*60.0; 
+    var current_donation = [fam_total, 80, 60, my_donation, 40]
     /*var t = svg.append("text")
    .attr("text-anchor", "middle")
    .attr("id", "title")
@@ -255,7 +256,7 @@ function change_pie(idx) {
     texts.append("text")
          .attr("id", "title_amount")
         .attr('y', legendRectSize - legendSpacing+10)
-         .text("$" + current_donation[current_pie]+"/$"+donation[current_pie])
+         .text("$" + (current_donation[current_pie]).toFixed(2)+"/$"+(donation[current_pie]).toFixed(2))
          .attr("text-anchor", "middle");
 
 
