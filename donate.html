@@ -56,8 +56,10 @@
         <div class = "progress">
             <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"> 70%</div>
         </div>
-        <h4 id= 'My_Charities'></h4>
-        <div class="alloc_search_bar">
+        <div class="error_msg">You have allocated 100% of your donation budget. Press Donate to proceed with your donation or reallocate your funds by reducing one or more of your current donation amounts.</div>
+        <h4 id= 'My_Charities' style="margin-bottom: -10px;"></h4>
+        <hr>
+        <!--div class="alloc_search_bar">
             <div id="imaginary_container"> 
                 <div class="input-group stylish-input-group">
                     <input type="text" class="form-control" id ='char-search' onchange='filter_chars()' placeholder="Search your charities" >
@@ -68,8 +70,8 @@
                     </span>
                 </div>
             </div>
-        </div>
-        <div id="charity_list"></div>
+        </div-->
+        <div id="charity_list" style="margin-top: -10px;"></div>
         <div>
           <button type='submit' class='submit' onclick='submit()'>SUBMIT</button>
         </div>

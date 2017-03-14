@@ -78,7 +78,7 @@ function makeCharList(my_charities, saved_charities) {
     }
 
     my_charities = obj['allocationAmounts']*/
-    
+
     // Create the list element:
     charities = Object.keys(my_charities).sort()
 
@@ -129,6 +129,7 @@ function makeCharList(my_charities, saved_charities) {
                 my_charities[char_name] = amount
                 money = 100 - Object.values(my_charities).reduce(function(a,b){return a+b;},0)
                 obj_slide = getSessionObject()
+                char_error = document.getElementsByClassName('error_msg')[0]
                 if (money < 0){
                     char_error.style.visibility = 'visible'
                     my_charities[char_name] += money;
@@ -199,7 +200,7 @@ function makeCharList(my_charities, saved_charities) {
     }
     var char_error = document.createElement('span');
     char_error.className ='error_msg'
-    var msg = document.createTextNode('Donation Budget Reached - Please Reduce One Or More Donations to Continue');
+    var msg = document.createTextNode('You have allocated 100% of your donation budget. Press Donate to proceed with your donation or reallocate your funds by reducing one or more of your current donation amounts.');
     char_error.appendChild(msg);
     char_error.style.visibility = 'hidden'
     char_error.style.color= '#C43E00'

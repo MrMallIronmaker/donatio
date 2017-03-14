@@ -247,16 +247,16 @@ function change_pie(idx) {
 
     texts.append("text")
          .attr("id", "title_donor")
-         .attr('x', -39)
          .attr('y', legendRectSize - legendSpacing-10)
          .text(names[current_pie]+" Donation:")
+         .attr("text-anchor", "middle");
          // set position etc.
 
     texts.append("text")
          .attr("id", "title_amount")
-         .attr('x', -32)
         .attr('y', legendRectSize - legendSpacing+10)
-         .text("$" + current_donation[current_pie]+"/$"+donation[current_pie]);
+         .text("$" + current_donation[current_pie]+"/$"+donation[current_pie])
+         .attr("text-anchor", "middle");
 
 
    /*
