@@ -33,7 +33,7 @@ direct page to /clear.html to clear session data for development
  * Implement filters
  * Implement filter charity counts
  * Add to cart from search page
- * Search from causes page
+ * Search from causes page - Done
  * make sure the filters launch correctly from causes page
  * Format subcategories
  * User should click enter for search
