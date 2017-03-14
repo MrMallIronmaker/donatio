@@ -148,7 +148,8 @@ function makeCharList() {
                     obj_slide['percentAllocated'] = 100;
                     setSessionObject(obj_slide);
                     this.parentNode.childNodes[2].innerHTML = my_charities[char_name]+'%';
-                    $('#'+this.getAttribute('id')).slider('value', my_charities[char_name]);
+                    is.parentNode.childNodes[2].innerHTML = my_charities[char_name]+'%';
+                    $('#slider_'+i).slider('value', my_charities[char_name]);//$('#'+this.getAttribute('id')).slider('value', my_charities[char_name]);
                     prog_bar = document.getElementsByClassName('progress-bar')[0]
                     prog_bar.setAttribute('aria-valuenow', obj_slide['percentAllocated'])
                     prog_bar.setAttribute('style', "width:"+obj_slide['percentAllocated']+"%")
