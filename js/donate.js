@@ -66,8 +66,8 @@ function submit(){
   }
 }
 
-function makeCharList(my_charities, saved_charities) {
-    /*var obj = getSessionObject();
+function makeCharList() {
+  var obj = getSessionObject();
   var savedCharities = obj["savedCharities"];
   var charityDetails = getCharityDetails();
 
@@ -76,8 +76,9 @@ function makeCharList(my_charities, saved_charities) {
     if (!(text in obj['allocationAmounts'])){
         obj['allocationAmounts'][text] = 0;
     }
+  }
 
-    my_charities = obj['allocationAmounts']*/
+    my_charities = obj['allocationAmounts']
 
     // Create the list element:
     charities = Object.keys(my_charities).sort()
@@ -222,7 +223,7 @@ function makeCharList(my_charities, saved_charities) {
     return list;
 }
 
-function makeFamCharList(my_charities) {
+function makeFamCharList() {
     /*var obj = getSessionObject();
   var savedCharities = obj["savedCharities"];
   var charityDetails = getCharityDetails();
@@ -253,7 +254,7 @@ function makeFamCharList(my_charities) {
         char_band.setAttribute('id', 'cb'+i);
         col = color(charities[i]);
         //char_band.style.background = "linear-gradient(to right,"+col+"  0%,#EAEAEA 100%)"
-        char_band.style.background = "linear-gradient(to right,"+col+" 2%,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA,#EAEAEA"
+        char_band.style.background = "linear-gradient(to right,"+col+" 2%,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF,#FFFFFF"
         var outer_div = document.createElement('div');
         outer_div.className ='outer_div';
         list.appendChild(outer_div);
