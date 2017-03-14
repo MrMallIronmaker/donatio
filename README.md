@@ -52,7 +52,7 @@ direct page to /clear.html to clear session data for development
  * Financials (Lindsey)
  
 * Comparison(Matt)
- * Default select first four charities
+ * Default select first four charities - done
  * Fix z order of filter bar (Lindsey)
  
 # Local Setup
