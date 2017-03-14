@@ -69,7 +69,7 @@ html, body {
 .cause-category {
   background-color: #003833;
   color: white;
-  padding: 5px 0 5px 10px;
+  padding: 5px 0 5px 5px;
   font-size: 1.7em;
 }
 
@@ -77,7 +77,7 @@ html, body {
   background-color: #C43E00;
   color: white;
   text-align: left;
-  padding: 5px 0 5px 0;
+  padding: 5px 0 5px 5px;
   font-size: 1.2em;
   position: absolute;
   margin-top: 40%;
