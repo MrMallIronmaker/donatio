@@ -1,13 +1,41 @@
 var allCauses = [
-  "Medical Research",
-  "Patient and Family Support",
-  "Children's and Family Servies",
-  "Social Services"
-];
-
-var allCategories = [
-  "Health",
-  "Human Services"
+  ["Animal Rights, Welfare, and Services", "Animals"],
+  ["Wildlife Conservation", "Animals"],
+  ["Zoos and Aquariums", "Animals"],
+  ["Libraries, Historical Societies and Landmark Preservation", "Arts, Culture, Humanities"],
+  ["Museums", "Arts, Culture, Humanities"],
+  ["Performing Arts", "Arts, Culture, Humanities"],
+  ["Public Broadcasting and Media", "Arts, Culture, Humanities"],
+  ["United Ways", "Community Development"],
+  ["Jewish Federations", "Community Development"],
+  ["Community Foundations", "Community Development"],
+  ["Housing and Neighborhood Development", "Community Development"],
+  ["Early Childhood Programs and Services", "Education"],
+  ["Scholarship and Financial Support", "Education"],
+  ["Special Education", "Education"],
+  ["Adult Education Programs and Services", "Education"],
+  ["Youth Education Programs and Services", "Education"],
+  ["Education Policy and Reform", "Education"],
+  ["Environmental Protection and Conservation", "Environment"],
+  ["Botanical Gardens, Parks, and Nature Centers", "Environment"],
+  ["Diseases, Disorders, and Disciplines", "Health"],
+  ["Patient and Family Support", "Health"],
+  ["Treatment and Prevention Services", "Health"],
+  ["Medical Research", "Health"],
+  ["Children's and Family Services", "Human Services"],
+  ["Youth Development, Shelter, and Crisis Services", "Human Services"],
+  ["Food Banks, Food Pantries, and Food Distribution", "Human Services"],
+  ["Multipurpose Human Service Organizations", "Human Services"],
+  ["Homeless Services", "Human Services"],
+  ["Social Services", "Human Services"],
+  ["Advocacy and Education", "Huamn and Civil Rights"],
+  ["Development and Relief Services", "International"],
+  ["International Peace, Security, and Affairs", "International"],
+  ["Humanitarian Relief Supplies", "International"],
+  ["Religious Activities", "Religion"],
+  ["Religious Media and Broadcasting", "Religion"],
+  ["Non-Medical Science & Technology Research", "Research and Public Policy"],
+  ["Social and Public Policy Research", "Research and Public Policy"]
 ];
 
 
@@ -143,7 +171,7 @@ function searchCharities(searchText, filters){
    * @param {Array} filters - dictionary mapping filters with their toggled values
    */
 
-   window.location.href = "search.html?st=" + searchText;
+   window.location.href = "search.html?q=" + searchText;
 }
 
 function randomChoice(arr){
@@ -175,10 +203,9 @@ function generateRandomCharityDetails(charityDetail){
   charityDetail = fillIn(charityDetail, "news", [0,1,2]);
 
   // For filtering
-  charityDetail = fillIn(charityDetail, "cause",
-      randomChoice(allCauses));
-  charityDetail = fillIn(charityDetail, "category",
-      randomChoice(allCategories));
+  var cause = randomChoice(allCauses);
+  charityDetail = fillIn(charityDetail, "cause", cause[0]);
+  charityDetail = fillIn(charityDetail, "category", cause[1]);
 
   // For details page
   charityDetail = fillIn(charityDetail, "orgType", "Private Foundation");
