@@ -175,6 +175,10 @@ function generateRandomCharityDetails(charityDetail){
   charityDetail = fillIn(charityDetail, "category",
       randomChoice(allCategories));
 
+  // For details page
+  charityDetail = fillIn(charityDetail, "orgType", "Private Foundation");
+  charityDetail = fillIn(charityDetail, "founded", "Jan 1, 1997");
+
   // Comparison metrics
   charityDetail = fillIn(charityDetail, "BBB Rating",
       randomChoice(["A","B","C"]) + randomChoice(["+","","-"]));

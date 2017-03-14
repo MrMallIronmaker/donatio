@@ -43,7 +43,7 @@ http://markromanmiller.com/donatio/
  * Link to do actual session
  
 * Details (Matt)
- * At a glance
+ * At a glance - Done
  * Decrease the size of the display picture - Done
  * Add padding to contentview of details page - Done
  * Financials (Lindsey)

@@ -93,11 +93,30 @@ function showAboutView(){
   glanceHeader.innerHTML = "At a Glance";
   contentView.appendChild(glanceHeader);
 
+  var glanceRow = document.createElement("div");
+  glanceRow.className = "row about-data";
+  contentView.appendChild(glanceRow);
+  var leftSide = document.createElement("div");
+  leftSide.className = "col-md-6";
+  leftSide.innerHTML += "<h4>Rating: " + charityDetail["rating"] + "</h4>";
+  leftSide.innerHTML += "<h4>Org Type: " + charityDetail["orgType"] + "</h4>";
+  leftSide.innerHTML += "<h4>Founded: " + charityDetail["founded"] + "</h4>";
+  leftSide.innerHTML += "<h4>Headquarters: " + charityDetail["headquarters"] + "</h4>";
+
+  glanceRow.appendChild(leftSide);
+  var rightSide = document.createElement("div");
+  rightSide.className = "col-md-6";
+  rightSide.innerHTML += "<h4>Region of Operation: " + charityDetail["regionOfOperation"] + "</h4>";
+  rightSide.innerHTML += "<h4>Type of Work: " + charityDetail["typeOfWork"] + "</h4>";
+  rightSide.innerHTML += "<h4>Charitable Commitment: " + charityDetail["charitableCommitment"] + "</h4>";
+  glanceRow.appendChild(rightSide);
+
   var missionHeader = document.createElement("h2");
   missionHeader.innerHTML = "Mission";
   contentView.appendChild(missionHeader);
 
-  var missionContent = document.createElement("p");
+  var missionContent = document.createElement("div");
+  missionContent.className = "row about-data";
   missionContent.innerHTML = charityDetail["mission"];
   contentView.appendChild(missionContent);
 
@@ -109,7 +128,7 @@ function showAboutView(){
     var date = charityDetail["news"][i].date;
     var headline = charityDetail["news"][i].headline;
     var row = document.createElement("div");
-    row.className = "row news-row";
+    row.className = "row about-data news-row";
     contentView.appendChild(row);
     var leftSide = document.createElement("div");
     leftSide.className = "col-md-2";
