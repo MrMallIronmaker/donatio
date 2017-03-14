@@ -32,7 +32,6 @@ function getPointsMap(charityDetails, inputString){
 			}
 		}
 	}
-	alert(pointsMap);
 	return pointsMap;
 }
 
@@ -97,4 +96,22 @@ function toggleDetailsTable(detailsP) {
 	$(detailsP).siblings().filter(".details-table-visible").removeClass("details-table-visible").addClass("details-table-temp");
 	$(detailsP).siblings().filter(".details-table-hidden").removeClass("details-table-hidden").addClass("details-table-visible");
 	$(detailsP).siblings().filter(".details-table-temp").removeClass("details-table-temp").addClass("details-table-hidden");
+}
+
+function checkGETfor(name){
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
+}
+
+function checkGETforQuery() {
+	var query = checkGETfor("st");
+	if (query) {
+		$("#searchBar").val(query);
+		onSearchClick();
+	}
 }
