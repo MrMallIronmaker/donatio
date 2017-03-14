@@ -15,7 +15,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="js/search.js"></script>
     <script src="js/donatio.js"></script>
-    <script src="js/index.js"></script>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -27,15 +26,13 @@
     <!-- header -->
 
     <!-- search bar -->
-    <div id='menu'></div>
     <div id="contianer-fluid"> 
+        <div id='menu'></div>
         <div class="input-group stylish-input-group col-md-12">
             <input type="text" class="form-control" id ='searchBar' placeholder="I would like to donate to..." >
             <span class="input-group-btn"><button class="btn btn-default" type="button" onclick='query_search()' >Search</button></span> 
         </div>
-    </div>
-
-    <!-- causes -->
+        <!-- causes -->
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -384,18 +381,20 @@
             </div>
         </div-->
         </div>
+        </div>
 
     <!-- footer -->
 
     <!--Load menu bar separately-->
     <script>
-      sessionStorage.clear();
-      initializePage("search");
+      initializePage("discover");
     </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/index.js"></script>
+    <script src="js/search.js"></script>
   </body>
 </html>

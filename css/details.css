@@ -14,8 +14,12 @@
 }
 
 .charity-image{
-  width: 300px;
-  height: 300px;
+  width: 150px;
+  height: 150px;
+}
+
+#mainContentView{
+  margin-left: 30px;
 }
 
 #addCharityButton{
@@ -57,4 +61,8 @@
 
 .people-row{
   padding-top:20px;
+}
+
+.about-data{
+  margin-left: 20px
 }

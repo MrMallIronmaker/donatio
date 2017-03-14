@@ -121,6 +121,9 @@ function loadStaticData(){
 
 function highlightNavItem(itemName){
   switch(itemName){
+    case "discover":
+      document.getElementById("nav_discover").className = "topbar-text-highlighted";
+      break;
     case "search":
       document.getElementById("nav_search").className = "topbar-text-highlighted";
       break;
@@ -176,6 +179,10 @@ function generateRandomCharityDetails(charityDetail){
       randomChoice(allCauses));
   charityDetail = fillIn(charityDetail, "category",
       randomChoice(allCategories));
+
+  // For details page
+  charityDetail = fillIn(charityDetail, "orgType", "Private Foundation");
+  charityDetail = fillIn(charityDetail, "founded", "Jan 1, 1997");
 
   // Comparison metrics
   charityDetail = fillIn(charityDetail, "BBB Rating",
