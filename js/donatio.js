@@ -121,6 +121,9 @@ function loadStaticData(){
 
 function highlightNavItem(itemName){
   switch(itemName){
+    case "discover":
+      document.getElementById("nav_discover").className = "topbar-text-highlighted";
+      break;
     case "search":
       document.getElementById("nav_search").className = "topbar-text-highlighted";
       break;

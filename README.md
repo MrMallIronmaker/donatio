@@ -2,6 +2,9 @@ Site Location
 
 http://markromanmiller.com/donatio/
 
+
+direct page to /clear.html to clear session data for development
+
 # Deadlines
 
 * User feedback round 1 - (Monday)
@@ -16,9 +19,9 @@ http://markromanmiller.com/donatio/
 # TODO  - Demo Day
 * General (All)
  * Cart display should work
- * Add discovery page to navigate to causes
+ * Add discovery page to navigate to causes - Done
  * Add triangle back to search bar
- * Create separate page to clear session data instead of index page (Matt)
+ * Create separate page to clear session data instead of index page (Matt) - Done
 
 * Causes (Lindsey)
  * left-align front page text
