@@ -21,11 +21,12 @@ direct page to /clear.html to clear session data for development
  * Cart display should work
  * Add discovery page to navigate to causes - Done
  * Add triangle back to search bar
+ * Standardize menu tabs spacing
  * Create separate page to clear session data instead of index page (Matt) - Done
 
 * Causes (Lindsey)
- * left-align front page text
- * add padding to cause text
+ * left-align front page text - done
+ * add padding to cause text - done
 
 * Search Page (Mark)
  * Save search state across tabs
@@ -36,14 +37,17 @@ direct page to /clear.html to clear session data for development
  * Search from causes page
  * make sure the filters launch correctly from causes page
  * Format subcategories
- * User should click enter for search
+ * User can also click enter for search
  * Limit size of description for search results
  * Add visual cue to drop down for search results
  * Keep search query in search box
 
 * Donate Page (Lindsey)
- * Finalize slider display
- * Link to do actual session
+ * Finalize slider display - done
+ * Link to do actual session - done
+ * Center family images and update spacing
+ * get new image for family icon?
+ * change pie chart outer and inner labels?
  
 * Details (Matt)
  * At a glance - Done
@@ -53,7 +57,7 @@ direct page to /clear.html to clear session data for development
  
 * Comparison(Matt)
  * Default select first four charities - done
- * Fix z order of filter bar (Lindsey)
+ * Fix z order of filter bar (Lindsey) - done
  
 # Local Setup
 
