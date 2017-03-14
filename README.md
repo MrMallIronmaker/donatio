@@ -44,8 +44,8 @@ http://markromanmiller.com/donatio/
  
 * Details (Matt)
  * At a glance
- * Decrease the size of the display picture
- * Add padding to contentview of details page
+ * Decrease the size of the display picture - Done
+ * Add padding to contentview of details page - Done
  * Financials (Lindsey)
  
 * Comparison(Matt)
