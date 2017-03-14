@@ -71,18 +71,14 @@ function makeCharList() {
   var savedCharities = obj["savedCharities"];
   var charityDetails = getCharityDetails();
   var idx_name_map = {}
-  var new_list = {}
 
   for (var sc = 0; sc < savedCharities.length; sc++){
     text = charityDetails[savedCharities[sc]].name;
     idx_name_map[text] = sc;
     if (!(text in obj['allocationAmounts'])){
-        new_list[text] = 0;
-    }else{
-        new_list[text] = obj['allocationAmounts'][text]
+        obj['allocationAmounts'][text] = 0;
     }
   }
-  obj['allocationAmounts'] = new_list
 
     my_charities = obj['allocationAmounts']
 
