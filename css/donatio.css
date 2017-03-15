@@ -61,6 +61,45 @@ html, body {
 	display: inline;
 }
 
+.filter-cause-hidden {
+  display: none;
+}
+
+.filter-cause-visible {
+  display: inherit;
+  margin-left: 10px;
+}
+
+.filter-substring {
+  display: inline-block;
+  margin: 5px ;
+}
+
+.filter-substring-text {
+  background-color: #00786C;
+  box-shadow: 4px 4px 4px #b0b0b0;
+  display: inline-block;
+  color: #ffffff;
+  padding: 0 5px;
+}
+
+.filter-substring-x {
+  background-color: #00C4B1;
+  box-shadow: 4px 4px 4px #b0b0b0;
+  display: inline-block;
+  width: 1.4em;
+  text-align: center;
+}
+
+.results-page-link {
+  display: inline-block;
+  background: #ffffff;
+  box-shadow: 4px 4px 4px #b0b0b0;
+  width: 1.4em;
+  text-align: center;
+  margin: 0 5px 10px 5px;
+}
+
 .vertical-align {
   display: flex;
   align-items: center;

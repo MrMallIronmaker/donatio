@@ -38,7 +38,13 @@ var allCauses = [
   ["Social and Public Policy Research", "Research and Public Policy"]
 ];
 
-
+allScopes = [
+  "International",
+  "National",
+  "State",
+  "Regional",
+  "Local"
+]
 
 
 function initializePage(currentNavItem){
@@ -56,7 +62,7 @@ function getSessionObject(){
   var obj = JSON.parse(sessionStorage.getItem("state"));
   if (obj == null){
     obj = {
-      "searchString":"",
+      "searchStrings":[],
       "searchFilters":{},
       "savedCharities":[0,1,2,3],
       "comparisonMetrics":["BBB Rating", "Years of Operation", "Scope of Impact", "Fundraising Efficiency"],
@@ -217,7 +223,7 @@ function generateRandomCharityDetails(charityDetail){
   charityDetail = fillIn(charityDetail, "Years of Operation",
       Math.floor(Math.random()*100));
   charityDetail = fillIn(charityDetail, "Scope of Impact",
-      randomChoice(["International", "National", "Local"]));
+      randomChoice(allScopes));
   charityDetail = fillIn(charityDetail, "Fundraising Efficiency",
       Math.floor(Math.random()*100) + "%");
   return charityDetail;

@@ -32,98 +32,22 @@
     <div class="row">
         <div class="col-md-2 search-sidebar">
             <h3>Filters</h3>
-            <p id="filters"> 
-            </p>
+            <div class="filter-option-group" id="filters"> 
+            </div>
             <h3>Scope of Work</h3>
             <div class="filter-option-group" id="scopes"> 
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">Local</p>
-            		<p class="filter-results-count" id="Local">(114)</p>
-            	</div>
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">Regional</p>
-            		<p class="filter-results-count" id="Regional">(114)</p>
-            	</div>
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">State</p>
-            		<p class="filter-results-count" id="State">(114)</p>
-            	</div>
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">National</p>
-            		<p class="filter-results-count" id="National">(114)</p>
-            	</div>
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">International</p>
-            		<p class="filter-results-count" id="International">(114)</p>
-            	</div>
             </div>
             <h3>Category</h3>
             <div class="filter-option-group" id="category">
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">Health</p>
-            		<p class="filter-results-count" id="Health">(114)</p>
-            	</div>
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">Disease Research</p>
-            		<p class="filter-results-count" id="Disease Research">(114)</p>
-            	</div>
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">Vaccinations</p>
-            		<p class="filter-results-count" id="Vaccinations">(114)</p>
-            	</div>
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">Human Services</p>
-            		<p class="filter-results-count" id="Human Services">(114)</p>
-            	</div>
             </div>
             <h3>Rating</h3>
             <p> starzzz... </p>
             <h3>Type of Work</h3>
             <div class="filter-option-group" id="types">
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">Direct Service</p>
-            		<p class="filter-results-count" id="Direct Service">(114)</p>
-            	</div>
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">Philanthropy</p>
-            		<p class="filter-results-count" id="Philanthropy">(114)</p>
-            	</div>
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">Policy</p>
-            		<p class="filter-results-count" id="Policy">(114)</p>
-            	</div>
             </div>
             <h3>Organization</h3>
         	<div class="filter-option-group" id="organization">
-        		<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">Foundation</p>
-            		<p class="filter-results-count" id="Foundation">(114)</p>
-            	</div>
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">Public Charity</p>
-            		<p class="filter-results-count" id="Public Charity">(114)</p>
-            	</div>
-            	<div class="filter-option">
-            		<input type="checkbox">
-            		<p class="filter-name">Professional</p>
-            		<p class="filter-results-count" id="Professional">(114)</p>
-            	</div>
         	</div>
-
             <h3>Past Donations</h3>
             	<input type="checkbox"> Past Donations
         </div>
@@ -155,6 +79,7 @@
 
     <script>
         checkGETforQuery();
+        loadSidebar();
     </script>
   </body>
 </html>
