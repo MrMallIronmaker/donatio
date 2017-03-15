@@ -56,15 +56,6 @@
           <h3>My Charities</h3>
           <hr>
 
-          <div class="input-group stylish-input-group">
-              <input type="text" class="form-control" id="char-search" placeholder="Search your charities" >
-              <span class="input-group-addon">
-                  <button type="submit">
-                      <span class="glyphicon glyphicon-search"></span>
-                  </button>  
-              </span>
-          </div>
-
           <div id="myCharitiesList"></div>
 
         </div>
@@ -79,7 +70,6 @@
     <script>
       //sessionStorage.clear();
       initializePage("compare");
-      initializeFilter();
     loadSelectionMenu();
     var sessObj = getSessionObject();
     updateComparison(sessObj["comparisonCharities"]);
