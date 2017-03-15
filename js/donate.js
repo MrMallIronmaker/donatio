@@ -24,37 +24,34 @@ $('img').click(function(){
    $(this).addClass('selected'); // adds the class to the clicked image
 });
 
-function submit(){
-    obj = getSessionObject()
-    donation = obj['allocationAmounts']
-    charities = Object.keys(donation).sort()
-    modal_msg = document.getElementById('donation_summary')
-    sub_list = document.createElement('ul')
-    sub_list.style.listStyleType= 'none'
-    total = document.createElement('li')
-    total.innerHTML = "TOTAL DONATION: $" + (obj['totalFunds']*obj['percentAllocated'])/100.0.toFixed(2)
-    sub_list.appendChild(total)
-    for (var i=0; i<charities.length; i++){
-        ul = document.createElement('li')
-        ul.innerHTML = charities[i] + ": $" + donation[charities[i]]*60/100.0.toFixed(2)
-        sub_list.appendChild(ul)
-    }
-    modal_msg.appendChild(sub_list)
-
+function sent(){
     var modal = document.getElementById("submitModal");
-    modal.style.display = "block";
 
-  var modalCloseButton = document.getElementById("subCloseButton");
-  modalCloseButton.onclick = function(){
+    var header = document.getElementById('sum')
+    header.style.display = "none";
+
+    var modal_msg = document.getElementById('donation_summary')
+    modal_msg.style.display = "none";
+
+    var sent_but = document.getElementById('but1')
+    sent_but.style.display = "none";
+
+    var edit_but = document.getElementById('but2')
+    edit_but.style.display = "none";
+
+    var msg = document.getElementById("sent-msg");
+    msg.style.display = "block";
+
+    var modalCloseButton = document.getElementById("subCloseButton");
+    modalCloseButton.onclick = function(){
     modal.style.display = "none";
-    obj = getSessionObject()
+    var obj = getSessionObject()
     obj['allocationAmounts'] = {}
     obj['percentAllocated'] = 0
     setSessionObject(obj)
   };
 
-  // Click anywhere outside of modal causes it to close
-  window.onclick = function(event){
+    window.onclick = function(event){
     if (event.target == modal){
       modal.style.display = "none";
       obj = getSessionObject()
@@ -66,20 +63,65 @@ function submit(){
   }
 }
 
+function edit(){
+    var modal = document.getElementById("submitModal");
+    modal.style.display = "none";
+}
+
+function submit(){
+    var obj = getSessionObject()
+    var donation = obj['allocationAmounts']
+    var charities = Object.keys(donation).sort()
+    var modal_msg = document.getElementById('donation_summary')
+    modal_msg.innerHTML = ""
+    var sub_list = document.createElement('ul')
+    sub_list.style.listStyleType= 'none'
+    var total = document.createElement('li')
+    total.innerHTML = "TOTAL DONATION: $" + (obj['totalFunds']*obj['percentAllocated'])/100.0.toFixed(2)
+    sub_list.appendChild(total)
+    for (var i=0; i<charities.length; i++){
+        if (donation[charities[i]] > 0){
+        var ul = document.createElement('li')
+        ul.innerHTML = charities[i] + ": $" + donation[charities[i]]*60/100.0.toFixed(2)
+        sub_list.appendChild(ul)
+        }
+    }
+    modal_msg.appendChild(sub_list)
+
+    var modal = document.getElementById("submitModal");
+    modal.style.display = "block";
+
+  var modalCloseButton = document.getElementById("subCloseButton");
+  modalCloseButton.onclick = function(){
+    modal.style.display = "none";
+  };
+
+  // Click anywhere outside of modal causes it to close
+  window.onclick = function(event){
+    if (event.target == modal){
+      modal.style.display = "none";
+    }
+  }
+}
+
 function makeCharList() {
   var obj = getSessionObject();
   var savedCharities = obj["savedCharities"];
   var charityDetails = getCharityDetails();
   var idx_name_map = {}
+  var new_list = {}
 
   for (var sc = 0; sc < savedCharities.length; sc++){
     text = charityDetails[savedCharities[sc]].name;
     idx_name_map[text] = sc;
     if (!(text in obj['allocationAmounts'])){
         obj['allocationAmounts'][text] = 0;
+        new_list[text] = 0
+    }else{
+        new_list[text] = obj['allocationAmounts'][text]
     }
   }
-
+    obj['allocationAmounts'] = new_list
     my_charities = obj['allocationAmounts']
     setSessionObject(obj)
 

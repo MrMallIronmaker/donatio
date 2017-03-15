@@ -143,8 +143,8 @@ function update_pie(char_name, amount){
 }
 
 function change_pie(idx) {
-  users = ["The Family", "Dad\'s", "Mom\'s", 'My', "Sister\'s"]
-  document.getElementById("pie_title").innerHTML = users[idx] + " Allocation" 
+  //users = ["The Family", "Dad\'s", "Mom\'s", 'My', "Sister\'s"]
+  //document.getElementById("pie_title").innerHTML = users[idx] + " Allocation" 
 /*
   document.getElementById('icon'+current_pie).setAttribute("height", '75px');
   document.getElementById('icon'+current_pie).setAttribute("width", "auto")

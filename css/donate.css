@@ -252,3 +252,20 @@ hr{
   display: inline-block;
   margin-top:5px;
 }
+
+.but{
+  padding-left:0px;
+  padding-right:0px;
+  margin-right:10px;
+  margin-bottom:10px;
+ border-color: #00C0AC;
+ background-color: #00C0AC;
+ border-style: solid;
+ border-radius:10px;
+ font-size: 16px;
+ text-align: center;
+ display: inline-block;
+ height: 50px;
+ width: 100px;
+ color: white;
+}

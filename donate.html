@@ -34,18 +34,20 @@
      <div id="submitModal" class="modal col-md-9">
       <div class="modal-content">
         <div class="row">
-          <div class="col-md-1 col-md-offset-11">
-              <div id="subCloseButton" class="close"><a href = 'index.html'>&times;</a></div>
+          <div class="col-md-1 col-md-offset-11 sent-close">
+              <div id="subCloseButton" class="close">&times;</div>
           </div>
-          <div class="col-md-4 col-md-offset-4">
+          <div class="col-md-4 col-md-offset-4" id="sent-msg" style="display:none">
             <h2>Congratulations!</h2>
             <h3>Your donation has been sent.</h3>
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4 col-md-offset-4">
+          <div class="col-md-4 col-md-offset-4" id="sum">
               <h4>Donation Summary:</h4>
               <div id="donation_summary"></div>
+              <div class = "col-md-2 but" id='but1' onclick="sent()">Send Donation</div>
+              <div class = "col-md-2 but" id='but2' onclick='edit()'>Edit Donation</div>
           </div>    
         </div>
       </div>
@@ -84,7 +86,7 @@
       <div class = 'container visual col-sm-7'>
         
         <div class = 'row family_icons'>
-            <h4 id = "pie_title">View Family Allocations</h4>
+            <h4 id = "pie_title">View Donations</h4>
             <div class = 'col-sm-12 icons'>
               <span class="icon col-sm-1" onclick='change_pie(3)'><img class = 'selected' id="icon3" src="data/imgs/users/0.png" height="75" width="75"/><span class="caption">Me</span></span>
               <span class="icon col-sm-1" onclick='change_pie(1)'><img id="icon1" src="data/imgs/users/2.png" height="75" width="75"/><span class="caption">Dad</span></span>
