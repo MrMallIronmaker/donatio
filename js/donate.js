@@ -80,6 +80,7 @@ function submit(){
         modal_msg.innerHTML = ""
         var sub_list = document.createElement('ul')
         sub_list.style.listStyleType= 'none'
+        sub_list.style.paddingLeft = '0px';
         var total = document.createElement('li')
         total.innerHTML = "TOTAL DONATION: $" + (obj['totalFunds']*obj['percentAllocated'])/100.0.toFixed(2)
         sub_list.appendChild(total)
