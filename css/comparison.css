@@ -25,6 +25,11 @@ hr{
     padding-top:20px;
 }
 
+#myCharitiesList{
+  margin-left:10px;
+  margin-right: 10px;
+}
+
 .charity-element{
     padding-top:5px;
     padding-bottom:5px;
