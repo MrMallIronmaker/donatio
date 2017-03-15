@@ -112,6 +112,14 @@ html, body {
   font-size: 1.7em;
 }
 
+.view-all{
+  position: absolute;
+  float: right;
+  color: white;
+  margin-top: 33px;
+  margin-left: 300px;
+}
+
 .cause-subcategory {
   background-color: #C43E00;
   color: white;
@@ -174,6 +182,7 @@ html, body {
   font-size: .7em;
   padding-left: 10px;
   padding-right: 10px;
+  font-size: 13px;
 
 }
 
