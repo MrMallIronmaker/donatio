@@ -74,7 +74,7 @@ var user_data = [{"label":"Dave Thomas Foundation", "value":0, "person": ["Dad"]
 
 var current_pie = 3
 
-make_data();
+//make_data();
 var texts = svg.selectAll("text").data(user_data)
                 .attr("text-anchor", "middle")
                 .attr("id", "title")
@@ -92,7 +92,8 @@ var texts = svg.selectAll("text").data(user_data)
          .attr('x', -32)
         .attr('y', legendRectSize - legendSpacing+10)
          .text("$" + 0 +"/$"+60);
-change_pie(current_pie);
+
+//change_pie(current_pie);
 
 function make_data(){
   data = [family_data, dad_data, mom_data, user_data, sib_data]
