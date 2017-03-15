@@ -53,7 +53,7 @@ direct page to /clear.html to clear session data for development
  * At a glance - Done
  * Decrease the size of the display picture - Done
  * Add padding to contentview of details page - Done
- * Financials (Lindsey)
+ * Financials (Lindsey) - done
  
 * Comparison(Matt)
  * Default select first four charities - done

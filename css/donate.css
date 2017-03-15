@@ -109,7 +109,13 @@
   vertical-align: top;
     display: inline-block;
     text-align: center;
-  margin-top: 0px;
+  margin-top: 10px;
+}
+
+.icons{
+  position: relative;
+  width: 500px;
+  margin-left: -50px
 }
 
 .pie_title{
@@ -201,7 +207,7 @@ box-shadow:         0px 0px 30px 0px rgba(0,196,177, 0.8);
   overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  text-align: center
+  text-align: left
 }
 
 /* Modal Content/Box */
