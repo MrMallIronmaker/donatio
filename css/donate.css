@@ -204,7 +204,7 @@ box-shadow:         0px 0px 30px 0px rgba(0,196,177, 0.8);
   top: 0;
   width: 100%; /* Full width */
   height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
+  /*overflow: auto; /* Enable scroll if needed */
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
   text-align: left
@@ -268,4 +268,10 @@ hr{
  height: 50px;
  width: 100px;
  color: white;
+}
+
+#charity_list{
+  max-height: 300px;
+  overflow-y: auto;
+
 }
