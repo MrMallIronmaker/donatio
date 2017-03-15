@@ -156,6 +156,7 @@ function makeCharList() {
                     prog_bar.setAttribute('aria-valuenow', obj_slide['percentAllocated'])
                     prog_bar.setAttribute('style', "width:"+obj_slide['percentAllocated']+"%")
                     prog_bar.innerHTML = obj_slide['percentAllocated']+'%'
+                    update_pie(char_name, my_charities[char_name])
                     return false;
                 }else{
                     char_error.style.visibility = 'hidden'
@@ -168,8 +169,9 @@ function makeCharList() {
                     prog_bar.setAttribute('aria-valuenow', obj_slide['percentAllocated'])
                     prog_bar.setAttribute('style', "width:"+obj_slide['percentAllocated']+"%")
                     prog_bar.innerHTML = obj_slide['percentAllocated']+'%'
+                    update_pie(char_name, my_charities[char_name])
                 }
-                update_pie(char_name, my_charities[char_name])
+                
 
                 document.getElementById('funds').innerHTML = '$'+(obj_slide['percentAllocated']/100.0*obj_slide['totalFunds']).toFixed(2)+'/$'+obj_slide['totalFunds']+' allocated'
                 $("#"+this.getAttribute('id') +" .ui-slider-range").css( "background-color", '#C43E00' );
