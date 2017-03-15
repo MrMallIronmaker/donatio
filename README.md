@@ -47,7 +47,7 @@ direct page to /clear.html to clear session data for development
 * Donate Page (Lindsey)
  * Finalize slider display - done
  * Link to do actual session - done
- * Center family images and update spacing
+ * Center family images and update spacing - done
  * get new image for family icon?
  * change pie chart outer and inner labels?
  

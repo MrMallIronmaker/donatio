@@ -84,8 +84,16 @@
   fill: orange;
 }
 
+.bar-cap {
+  fill: orangered;
+}
+
 .bar:hover {
   fill: orangered ;
+}
+
+.bar-cap:hover {
+  fill: red ;
 }
 
 .x.axis path {
@@ -161,4 +169,12 @@ hr{
   height: 1px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.definition{
+  display: inline-block;
+}
+
+.definition2{
+  display: inline-block;
 }

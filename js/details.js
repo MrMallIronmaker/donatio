@@ -227,7 +227,7 @@ function showFinancialsView(){
   }
 
   var map = {1:['#efficiency-chart', char_commit_data, "Charitable Commitment (%)"], 2:['#efficiency-chart', fund_eff_data, "Fundraising Efficiency (%)"], 3:['#efficiency-chart', op_reliance_data, "Operating Reliance (%)"], 4:['#capacity-chart', current_ratio_data, "Current Ratio (%)"], 5:['#capacity-chart', net_assets_data, "Net Assets ($millions)"], 6:['#capacity-chart', op_margin_data, "Operating Margin (%)"], 7:['#capacity-chart', op_reserve_data, "Operating Reserve (%)"], 8:['#capacity-chart', quick_ratio_data, "Quick Ratio (%)"], 9:['#capacity-chart', vis_ratio_data, "Visibility Ratio (%)"]}
-
+  var defs = {1:"Charitable commitment measures how efficient a charity is in fulfilling its mission by comparing total program expenses directed towards the target causes to the total expenses", 2:"Fundraising efficiency measures of the amount of contributions that result from fundraising after accounting for the expenses incurred during the fundraising process.", 3: "Operating reliance measures the ability of a charity to pay for its total expenses exclusively with program revenues", 4: "Current ratio indicates a charity's ability to meet short-term financial obligations by comparing assests to liabilities.", 5:"Net Assets measures the financial performance of the charity", 6:"Operating margin is a forecasting ratio that illustrates a charity's ability to produce potential surplus funds which can be drawn upon in future years", 7:"Operating reserve measures whether a charity's resources are sufficient and flexible enough to support its mission by comparing expendable net assets to total expenses", 8:"Quick ratio gauges financial stability by comparing quick assets to curent liabilities", 9:"Visibility ratio indicates a charity's ability to cover its debt by comparing expendable net assets to long-term debt."}
 
   var contentView = document.getElementById("mainContentView");
   contentView.innerHTML = "";
@@ -262,6 +262,8 @@ function showFinancialsView(){
   leftSideToggle.appendChild(financialsLeftTogHeader);
   var hr1 = document.createElement("hr");
   leftSideToggle.appendChild(hr1);
+  
+
 
   var but1 = document.createElement("div");
   but1.className = "col-md-3 tog-button tog-button-selected eft";
@@ -273,7 +275,8 @@ function showFinancialsView(){
       make_chart(map[1][0], map[1][1], map[1][2])
       document.getElementById('but'+current_eff_metric).className = 'col-md-3 tog-button'
       this.className += ' tog-button-selected'
-      current_eff_metric = 1      
+      current_eff_metric = 1
+      document.getElementsByClassName('definition')[0].innerHTML=defs[1]      
     }
   }
   var but2 = document.createElement("div");
@@ -287,6 +290,7 @@ function showFinancialsView(){
       document.getElementById('but'+current_eff_metric).className = 'col-md-3 tog-button'
       this.className += ' tog-button-selected'
       current_eff_metric = 2      
+      document.getElementsByClassName('definition')[0].innerHTML=defs[2] 
     }
   }
   var but3 = document.createElement("div");
@@ -300,8 +304,13 @@ function showFinancialsView(){
       document.getElementById('but'+current_eff_metric).className = 'col-md-3 tog-button'
       this.className += ' tog-button-selected'
       current_eff_metric = 3      
+      document.getElementsByClassName('definition')[0].innerHTML=defs[3] 
     }
   }
+  var definition = document.createElement("p");
+  definition.className = "definition"
+  definition.innerHTML = defs[1]
+  leftSideToggle.appendChild(definition)
 
   var rightSideToggle = document.createElement("div");
   rightSideToggle.className = "col-md-5";
@@ -325,6 +334,7 @@ function showFinancialsView(){
       document.getElementById('but'+current_cap_metric).className = 'col-md-3 tog-button'
       this.className += ' tog-button-selected'
       current_cap_metric = 4      
+      document.getElementsByClassName('definition2')[0].innerHTML=defs[4] 
     }
   }
   var but5 = document.createElement("div");
@@ -337,7 +347,8 @@ function showFinancialsView(){
       make_chart(map[5][0], map[5][1], map[5][2])
       document.getElementById('but'+current_cap_metric).className = 'col-md-3 tog-button'
       this.className += ' tog-button-selected'
-      current_cap_metric = 5      
+      current_cap_metric = 5   
+      document.getElementsByClassName('definition2')[0].innerHTML=defs[5]   
     }
   }
   var but6 = document.createElement("div");
@@ -350,7 +361,8 @@ function showFinancialsView(){
       make_chart(map[6][0], map[6][1], map[6][2])
       document.getElementById('but'+current_cap_metric).className = 'col-md-3 tog-button'
       this.className += ' tog-button-selected'
-      current_cap_metric = 6      
+      current_cap_metric = 6 
+      document.getElementsByClassName('definition2')[0].innerHTML=defs[6]     
     }
   }
   var but7 = document.createElement("div");
@@ -363,7 +375,8 @@ function showFinancialsView(){
       make_chart(map[7][0], map[7][1], map[7][2])
       document.getElementById('but'+current_cap_metric).className = 'col-md-3 tog-button'
       this.className += ' tog-button-selected'
-      current_cap_metric = 7      
+      current_cap_metric = 7 
+      document.getElementsByClassName('definition2')[0].innerHTML=defs[7]     
     }
   }
   var but8 = document.createElement("div");
@@ -376,7 +389,8 @@ function showFinancialsView(){
       make_chart(map[8][0], map[8][1], map[8][2])
       document.getElementById('but'+current_cap_metric).className = 'col-md-3 tog-button'
       this.className += ' tog-button-selected'
-      current_cap_metric = 8      
+      current_cap_metric = 8   
+      document.getElementsByClassName('definition2')[0].innerHTML=defs[8]   
     }
   }
   var but9 = document.createElement("div");
@@ -389,9 +403,14 @@ function showFinancialsView(){
       make_chart(map[9][0], map[9][1], map[9][2])
       document.getElementById('but'+current_cap_metric).className = 'col-md-3 tog-button'
       this.className += ' tog-button-selected'
-      current_cap_metric = 9      
+      current_cap_metric = 9  
+      document.getElementsByClassName('definition2')[0].innerHTML=defs[9]    
     }
   }
+  var definition2 = document.createElement("p");
+  definition2.className = "definition2"
+  definition2.innerHTML = defs[5]
+  rightSideToggle.appendChild(definition2)
 
   var stmtRow = document.createElement("div");
   stmtRow.className = "row fin_stmt";
@@ -409,8 +428,8 @@ function make_chart(location, data, label){
   console.log(document.getElementById(in_loc))
   document.getElementById(in_loc).innerHTML = "";
   var margin = {top: 40, right: 20, bottom: 30, left: 40},
-      width = 400 - margin.left - margin.right,
-      height = 400 - margin.top - margin.bottom;
+      width = 300 - margin.left - margin.right,
+      height = 300 - margin.top - margin.bottom;
 
   var formatPercent = d3.format(".0%");
 
@@ -468,12 +487,17 @@ function make_chart(location, data, label){
         .attr("y", -20)
         .attr("dy", ".71em")
         .style("text-anchor", "left")
-        .text(label);
+        .text(label)
+        .style('font-size', '16px');
 
+    classname = "bar"
+    if (location == '#capacity-chart'){
+      classname = "bar-cap"
+    }
     svg.selectAll(".bar")
         .data(data)
       .enter().append("rect")
-        .attr("class", "bar")
+        .attr("class", classname)
         .attr("x", function(d) { return x(d.year); })
         .attr("width", x.rangeBand())
         .attr("y", function(d) { return y(d.value); })
