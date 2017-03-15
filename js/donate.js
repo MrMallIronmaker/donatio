@@ -81,6 +81,7 @@ function makeCharList() {
   }
 
     my_charities = obj['allocationAmounts']
+    setSessionObject(obj)
 
     // Create the list element:
     charities = Object.keys(my_charities).sort()
