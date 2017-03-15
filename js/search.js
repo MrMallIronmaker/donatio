@@ -136,3 +136,44 @@ function checkGETforQuery() {
 		onSearchClick();
 	}
 }
+
+function loadSidebar() {
+	// inside #scopes, #category, 
+	// ignore #types, #organization for the moment.
+
+	var allCategoriesDiv = $("#category");
+	// for each cause: [#category]
+	var currentCategory = "";
+	var categoryDiv = null;
+	for (i in allCauses) {
+		// if it's a new category, make a new big div and checkbox
+		if (allCauses[i][1] !== currentCategory) {
+			// make a new big div and checkbox
+			currentCategory = allCauses[i][1];
+			categoryDiv = $('<div class="filter-option filter-category"> \
+	            				<input type="checkbox">\
+	            				<p class="filter-name">' + currentCategory + '</p>\
+	            				<p class="filter-results-count" id="' + currentCategory + '">(--)</p>\
+	            			</div>');
+			allCategoriesDiv.append(categoryDiv);
+		}
+		// make a checkbox for the cause
+		categoryDiv.append('<div class="filter-option filter-cause-hidden"> \
+	            				<input type="checkbox">\
+	            				<p class="filter-name">' + allCauses[i][0] + '</p>\
+	            				<p class="filter-results-count" id="' + allCauses[i][0] + '">(--)</p>\
+	            			</div>')
+	}
+	
+	var scopesDiv = $("#scopes");
+	for (i in allScopes) {
+		scopesDiv.append('<div class="filter-option filter-scope"> \
+	            				<input type="checkbox">\
+	            				<p class="filter-name">' + allScopes[i] + '</p>\
+	            				<p class="filter-results-count" id="' + allScopes[i] + '">(--)</p>\
+	            			</div>')
+		
+	}
+	// for each scope: [#scopes]
+	// make a checkbox for the scope
+}

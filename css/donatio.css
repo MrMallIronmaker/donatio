@@ -61,6 +61,10 @@ html, body {
 	display: inline;
 }
 
+.filter-cause-hidden {
+  display: none;
+}
+
 .vertical-align {
   display: flex;
   align-items: center;
