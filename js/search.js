@@ -5,9 +5,7 @@ function getSubstringCount(needle, haystack) {
 }
 
 // Given a string, search all the charity data for particular results.
-function getPointsMap(charityDetails, inputString){
-	// ignore capitals
-	inputString = inputString.toLowerCase();
+function getPointsMap(charityDetails){
 	// ensure we have the charity data
 	var pointsMap = {}; // pointsMap[points] -> [index, index, index]
 
@@ -30,30 +28,65 @@ function getPointsMap(charityDetails, inputString){
 		}
 
 		var points = 0;
-		// if it's in the name, give it 10 credits
-		points += getSubstringCount(inputString, charityDetails[i].name.toLowerCase()) * 5;
-		// if it's in the category or cause, give it three credits
-		points += getSubstringCount(inputString, charityDetails[i].cause.toLowerCase()) * 3;
-		points += getSubstringCount(inputString, charityDetails[i].category.toLowerCase()) * 3;
-		// if it's in the mission, give it one credit.
-		points += getSubstringCount(inputString, charityDetails[i].mission.toLowerCase()) * 1;
+		for (j in sessionObject["searchStrings"]) {
+			var inputString = sessionObject["searchStrings"][j].toLowerCase();
+			// if it's in the name, give it 10 credits
+			points += getSubstringCount(inputString, charityDetails[i].name.toLowerCase()) * 5;
+			// if it's in the category or cause, give it three credits
+			points += getSubstringCount(inputString, charityDetails[i].cause.toLowerCase()) * 3;
+			points += getSubstringCount(inputString, charityDetails[i].category.toLowerCase()) * 3;
+			// if it's in the mission, give it one credit.
+			points += getSubstringCount(inputString, charityDetails[i].mission.toLowerCase()) * 1;
 
-		if (points > 0) {
-			if (pointsMap[points]) {
-				pointsMap[points] = pointsMap[points].concat(i);
-			}
-			else {
-				pointsMap[points] = [i];
+			if (points > 0) {
+				if (pointsMap[points]) {
+					pointsMap[points] = pointsMap[points].concat(i);
+				}
+				else {
+					pointsMap[points] = [i];
+				}
 			}
 		}
 	}
 	return pointsMap;
 }
 
+function addSubstringFilter(filterText) {
+	var sessionObject = getSessionObject();
+	sessionObject["searchStrings"].push(filterText);
+	setSessionObject(sessionObject);
+
+	$("#filters").append(
+		'<div class="filter-option filter-substring">' +
+			'<div class="filter-substring-x" onclick="removeSubstringFilter(this)">&#10006;</div>' +
+			'<div class="filter-substring-text">' + filterText + '</div>' + 
+		'</div>');
+}
+
+function removeSubstringFilter(element) {
+	var sessionObject = getSessionObject();
+	var currentSearchStrings = sessionObject["searchStrings"];
+	var filterValue = $(element).siblings(".filter-substring-text")[0].innerHTML;
+
+	currentSearchStrings = currentSearchStrings.filter(function(e) { return e !== filterValue });
+
+	sessionObject["searchStrings"] = currentSearchStrings;
+	setSessionObject(sessionObject);
+
+	$(element).parent().remove();
+	updateSearch();
+}
+
 function onSearchClick() {
-	var charityDetails = getCharityDetails();
+	// add the current searchbar contents to the filter list
 	var searchbar = $("#searchBar").val();
-	var pointsMap = getPointsMap(charityDetails, searchbar);
+	addSubstringFilter(searchbar);
+	updateSearch();
+}
+
+function updateSearch() {
+	var charityDetails = getCharityDetails();
+	var pointsMap = getPointsMap(charityDetails);
 
 	var search_results = $("#search-results");
 	search_results.empty();
@@ -101,6 +134,13 @@ function onSearchClick() {
 			</div>'
 		)
 	}
+
+	// add links to other pages of results
+	search_results.append('<div> \
+		<div class="results-page-link"> <a href="search.html"> 1 </a> </div>\
+		<div class="results-page-link"> <a href="search.html?start=10"> 2 </a> </div>\
+		<div class="results-page-link"> <a href="search.html?start=20"> 3 </a> </div>\
+		</div>')
 }
 
 function loadDetailsPage(pageIndex) {
@@ -131,7 +171,8 @@ function checkGETforQuery() {
 	var query = checkGETfor("q");
 	if (query) {
 		$("#searchBar").val(query);
-		onSearchClick();
+		//TODO: update this lol
+		updateSearch();
 	}
 }
 
@@ -169,7 +210,7 @@ function toggleFilter(element, isChecked, filterType, filterValue) {
 	}
 	setSessionObject(sessionObject);
 	// trigger another onSearchClick
-	onSearchClick();
+	updateSearch();
 }
 
 function loadSidebar() {

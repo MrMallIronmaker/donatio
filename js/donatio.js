@@ -62,7 +62,7 @@ function getSessionObject(){
   var obj = JSON.parse(sessionStorage.getItem("state"));
   if (obj == null){
     obj = {
-      "searchString":"",
+      "searchStrings":[],
       "searchFilters":{},
       "savedCharities":[0,1,2,3],
       "comparisonMetrics":["BBB Rating", "Years of Operation", "Scope of Impact", "Fundraising Efficiency"],

@@ -35,10 +35,11 @@ direct page to /clear.html to clear session data for development
  * [x] Dynamically generate filter list - Done
  * [x] Format subcategories - Done
  * [x] Search from causes page - Done
- * [ ] Add link to other pages of results - .3h
- * [ ] add substring search filter tags - .3h
+ * [x] Add link to other pages of results - Done
+ * [x] add substring search filter tags - Done
  * [ ] make sure the filters launch correctly from causes page - .5h
  * ---- the rest of this is unordered ---
+ * [ ] Dynamically generate the links to other pages of results - .3h
  * [ ] Save search state across tabs - .3h
  * [ ] Implement filter charity counts - .5h
  * [ ] Add to cart from search page - .3h
