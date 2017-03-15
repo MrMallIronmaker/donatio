@@ -18,15 +18,15 @@ direct page to /clear.html to clear session data for development
 
 # TODO  - Demo Day
 * General (All)
- * Cart display should work
- * Add discovery page to navigate to causes - Done
- * Add triangle back to search bar
- * Standardize menu tabs spacing
- * Create separate page to clear session data instead of index page (Matt) - Done
+ * [ ] Cart display should work
+ * [x] Add discovery page to navigate to causes - Done
+ * [ ] Add triangle back to search bar
+ * [ ] Standardize menu tabs spacing
+ * [x] Create separate page to clear session data instead of index page (Matt) - Done
 
 * Causes (Lindsey)
- * left-align front page text - done
- * add padding to cause text - done
+ * [x] left-align front page text - done
+ * [x] add padding to cause text - done
 
 * Search Page (Mark)
  * [x] Limit results to 10 per page - Done
@@ -39,6 +39,8 @@ direct page to /clear.html to clear session data for development
  * [x] add substring search filter tags - Done
  * [ ] make sure the filters launch correctly from causes page - .5h
  * ---- the rest of this is unordered ---
+ * [ ] remove the filters section - .2h
+ * [ ] have a short description of all active filters - .3h
  * [ ] Dynamically generate the links to other pages of results - .3h
  * [ ] Save search state across tabs - .3h
  * [ ] Implement filter charity counts - .5h
@@ -46,26 +48,27 @@ direct page to /clear.html to clear session data for development
  * [ ] User can also click enter for search - .2h
  * [ ] Limit size of description for search results - .2h
  * [ ] Add visual cue to drop down for search results - .2h
+ * [ ] Add link to "more details" page - .2h
  * [ ] Keep search query in search box - .2h
  * [ ] Format such that box extends to the bottom of the window - .3h
  * [ ] Stars filter should work - .3h
 
 * Donate Page (Lindsey)
- * Finalize slider display - done
- * Link to do actual session - done
- * Center family images and update spacing - done
- * get new image for family icon?
- * change pie chart outer and inner labels?
+ * [x] Finalize slider display - done
+ * [x] Link to do actual session - done
+ * [x] Center family images and update spacing - done
+ * [ ] get new image for family icon?
+ * [ ] change pie chart outer and inner labels?
  
 * Details (Matt)
- * At a glance - Done
- * Decrease the size of the display picture - Done
- * Add padding to contentview of details page - Done
- * Financials (Lindsey) - done
+ * [x] At a glance - Done
+ * [x] Decrease the size of the display picture - Done
+ * [x] Add padding to contentview of details page - Done
+ * [x] Financials (Lindsey) - done
  
 * Comparison(Matt)
- * Default select first four charities - done
- * Fix z order of filter bar (Lindsey) - done
+ * [x] Default select first four charities - done
+ * [x] Fix z order of filter bar (Lindsey) - done
  
 # Local Setup
 
