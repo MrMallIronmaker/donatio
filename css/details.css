@@ -32,13 +32,22 @@
  border-radius:10px;
 }
 
+#addCharityButton:hover{
+  background-color: #6FCF97;
+}
+
 .side-nav-elem{
   padding-left:20px;
   padding-top:10px;
   padding-bottom:10px;
 }
 
-.side-nav-elem-selected{
+.side-nav-elem:hover{
+    background-color: #6FCF97;
+}
+
+.side-nav-elem-selected,
+.side-nav-elem-selected:hover{
   background-color: #00C0AC;
 }
 
