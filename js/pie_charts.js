@@ -99,7 +99,7 @@ function make_data(){
   data = [family_data, dad_data, mom_data, user_data, sib_data]
   var obj = getSessionObject()
   var user_charities = obj['allocationAmounts']
-  char_names = Object.keys(user_charities);
+  char_names = Object.keys(user_charities).sort();
   for (var i=0; i<char_names.length; i++){
     name = char_names[i]
     for (var j=0; j<data.length; j++){

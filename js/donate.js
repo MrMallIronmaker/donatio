@@ -70,37 +70,42 @@ function edit(){
 
 function submit(){
     var obj = getSessionObject()
-    var donation = obj['allocationAmounts']
-    var charities = Object.keys(donation).sort()
-    var modal_msg = document.getElementById('donation_summary')
-    modal_msg.innerHTML = ""
-    var sub_list = document.createElement('ul')
-    sub_list.style.listStyleType= 'none'
-    var total = document.createElement('li')
-    total.innerHTML = "TOTAL DONATION: $" + (obj['totalFunds']*obj['percentAllocated'])/100.0.toFixed(2)
-    sub_list.appendChild(total)
-    for (var i=0; i<charities.length; i++){
-        if (donation[charities[i]] > 0){
-        var ul = document.createElement('li')
-        ul.innerHTML = charities[i] + ": $" + donation[charities[i]]*60/100.0.toFixed(2)
-        sub_list.appendChild(ul)
+    if(obj['percentAllocated']==0){
+        document.getElementById('no_donation').style.display='block';
+
+    } else{
+        var donation = obj['allocationAmounts']
+        var charities = Object.keys(donation).sort()
+        var modal_msg = document.getElementById('donation_summary')
+        modal_msg.innerHTML = ""
+        var sub_list = document.createElement('ul')
+        sub_list.style.listStyleType= 'none'
+        var total = document.createElement('li')
+        total.innerHTML = "TOTAL DONATION: $" + (obj['totalFunds']*obj['percentAllocated'])/100.0.toFixed(2)
+        sub_list.appendChild(total)
+        for (var i=0; i<charities.length; i++){
+            if (donation[charities[i]] > 0){
+            var ul = document.createElement('li')
+            ul.innerHTML = charities[i] + ": $" + donation[charities[i]]*60/100.0.toFixed(2)
+            sub_list.appendChild(ul)
+            }
         }
-    }
-    modal_msg.appendChild(sub_list)
+        modal_msg.appendChild(sub_list)
 
-    var modal = document.getElementById("submitModal");
-    modal.style.display = "block";
+        var modal = document.getElementById("submitModal");
+        modal.style.display = "block";
 
-  var modalCloseButton = document.getElementById("subCloseButton");
-  modalCloseButton.onclick = function(){
-    modal.style.display = "none";
-  };
+      var modalCloseButton = document.getElementById("subCloseButton");
+      modalCloseButton.onclick = function(){
+        modal.style.display = "none";
+      };
 
-  // Click anywhere outside of modal causes it to close
-  window.onclick = function(event){
-    if (event.target == modal){
-      modal.style.display = "none";
-    }
+      // Click anywhere outside of modal causes it to close
+      window.onclick = function(event){
+        if (event.target == modal){
+          modal.style.display = "none";
+        }
+      }
   }
 }
 
@@ -180,6 +185,7 @@ function makeCharList() {
             max: 100,
             value: init_obj,
             slide: function( event, ui ) {
+                document.getElementById('no_donation').style.display='none';
                 var amount = ui.value;
                 char_name = this.parentNode.childNodes[0].innerHTML
                 my_charities[char_name] = amount
@@ -236,6 +242,7 @@ function makeCharList() {
         trash.setAttribute('class', 'glyphicon glyphicon-trash');
         button.appendChild(trash)
         button.onclick = function(){ 
+            document.getElementById('no_donation').style.display='none';
             obj_del = getSessionObject()
             obj_del['percentAllocated'] -= my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
             delete my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
