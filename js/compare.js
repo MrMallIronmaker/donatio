@@ -152,7 +152,7 @@ function updateComparison(charityIds){
     comparisonView.appendChild(row);
     var nameColumn = document.createElement("div");
     nameColumn.className = "col-md-2";
-    nameColumn.innerHTML = comparisonMetric;
+    nameColumn.appendChild(createText(comparisonMetric, "metric-names"));
     row.appendChild(nameColumn); 
     for (var j = 0; j < numComparisons; j++){
       var column = document.createElement("div");

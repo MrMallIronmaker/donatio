@@ -48,6 +48,7 @@ hr{
 .charity-element-selected:hover{
     color: white;
     background-color: #C43E00;
+    box-shadow: 4px 4px 4px #888888;
 }
 
 .comparison-content{
@@ -149,4 +150,8 @@ hr{
 .metric-elem-selected:hover{
   color: white;
   background-color: #C43E00;
+}
+
+.metric-names{
+  font-weight: bold;
 }
