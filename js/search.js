@@ -15,8 +15,6 @@ function getPointsMap(charityDetails, inputString){
 	var sessionObject = getSessionObject();
 	var filters = sessionObject["searchFilters"];
 
-	console.log(filters);
-
 	//filters = {"cause": ["Museums", "Social Services"]};
 
 	// loop over all charities [N is small, so this is OK]
@@ -137,7 +135,7 @@ function checkGETforQuery() {
 	}
 }
 
-function toggleFilter(isChecked, filterType, filterValue) {
+function toggleFilter(element, isChecked, filterType, filterValue) {
 	var sessionObject = getSessionObject();
 	var currentFilterList = sessionObject["searchFilters"][filterType];
 	// if it's checked, add the filter to the current filter list
@@ -160,6 +158,15 @@ function toggleFilter(isChecked, filterType, filterValue) {
 		}
 	}
 
+	// if it's a category, hide / show the causes
+	if (filterType === "category") {
+		var categoryDiv = $(element).parent();
+		if (isChecked) {
+			categoryDiv.children(".filter-cause-hidden").addClass("filter-cause-visible").removeClass("filter-cause-hidden");
+		} else {
+			categoryDiv.children(".filter-cause-visible").removeClass("filter-cause-visible").addClass("filter-cause-hidden");
+		}
+	}
 	setSessionObject(sessionObject);
 	// trigger another onSearchClick
 	onSearchClick();
@@ -178,8 +185,8 @@ function loadSidebar() {
 		if (allCauses[i][1] !== currentCategory) {
 			// make a new big div and checkbox
 			currentCategory = allCauses[i][1];
-			categoryDiv = $('<div class="filter-option filter-category"> \
-	            				<input type="checkbox" onchange="toggleFilter(this.checked, \'category\',\'' + currentCategory + '\')">\
+			categoryDiv = $('<div class="filter-option"> \
+	            				<input type="checkbox" onchange="toggleFilter(this, this.checked, \'category\',\'' + currentCategory + '\')">\
 	            				<p class="filter-name">' + currentCategory + '</p>\
 	            				<p class="filter-results-count" id="' + currentCategory + '">(--)</p>\
 	            			</div>');
@@ -187,7 +194,7 @@ function loadSidebar() {
 		}
 		// make a checkbox for the cause
 		categoryDiv.append('<div class="filter-option filter-cause-hidden"> \
-	            				<input type="checkbox" onchange="toggleFilter(this.checked, \'cause\',\'' + allCauses[i][0] + '\')">\
+	            				<input type="checkbox" onchange="toggleFilter(this, this.checked, \'cause\',\'' + allCauses[i][0] + '\')">\
 	            				<p class="filter-name">' + allCauses[i][0] + '</p>\
 	            				<p class="filter-results-count" id="' + allCauses[i][0] + '">(--)</p>\
 	            			</div>')
@@ -196,7 +203,7 @@ function loadSidebar() {
 	var scopesDiv = $("#scopes");
 	for (i in allScopes) {
 		scopesDiv.append('<div class="filter-option filter-scope"> \
-	            				<input type="checkbox" onchange="toggleFilter(this.checked, \'Scope of Impact\',\'' + allScopes[i] + '\')">\
+	            				<input type="checkbox" onchange="toggleFilter(this, this.checked, \'Scope of Impact\',\'' + allScopes[i] + '\')">\
 	            				<p class="filter-name">' + allScopes[i] + '</p>\
 	            				<p class="filter-results-count" id="' + allScopes[i] + '">(--)</p>\
 	            			</div>')

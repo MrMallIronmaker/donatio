@@ -29,24 +29,25 @@ direct page to /clear.html to clear session data for development
  * add padding to cause text - done
 
 * Search Page (Mark)
- * [ ] Save search state across tabs - .3h
  * [x] Limit results to 10 per page - Done
  * [x] Search can be filtered - Done
- * [x] activate filter buttons - .5h
+ * [x] activate filter buttons - Done
  * [x] Dynamically generate filter list - Done
+ * [x] Format subcategories - Done
+ * [x] Search from causes page - Done
+ * [ ] Add link to other pages of results - .3h
+ * [ ] add substring search filter tags - .3h
+ * [ ] make sure the filters launch correctly from causes page - .5h
+ * ---- the rest of this is unordered ---
+ * [ ] Save search state across tabs - .3h
  * [ ] Implement filter charity counts - .5h
  * [ ] Add to cart from search page - .3h
- * [x] Search from causes page - Done
- * [ ] make sure the filters launch correctly from causes page - .5h
- * [1] Format subcategories - .3h
  * [ ] User can also click enter for search - .2h
  * [ ] Limit size of description for search results - .2h
  * [ ] Add visual cue to drop down for search results - .2h
  * [ ] Keep search query in search box - .2h
- * [2] Add link to other pages of results - .3h
  * [ ] Format such that box extends to the bottom of the window - .3h
  * [ ] Stars filter should work - .3h
- * [3] add substring search filter tags - .3h
 
 * Donate Page (Lindsey)
  * Finalize slider display - done
