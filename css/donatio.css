@@ -34,17 +34,12 @@ html, body {
   background-color: #ffffff;
 }
 
-.search-column {
-  background-color: #e7e6e6;
-  box-shadow: 4px 4px 4px #b0b0b0 inset;
-}
 
 .search-result {
 	background-color: #ffffff;
 	margin: 10px 0px;
 	padding: 0px 20px;
 	overflow: hidden;
-	box-shadow: 4px 4px 4px #b0b0b0;
 }
 
 .search-result-title {
@@ -83,8 +78,6 @@ html, body {
 }
 
 .filter-substring-text {
-  background-color: #00786C;
-  box-shadow: 4px 4px 4px #b0b0b0;
   display: inline-block;
   color: #ffffff;
   padding: 0 5px;
@@ -101,7 +94,6 @@ html, body {
 .results-page-link {
   display: inline-block;
   background: #ffffff;
-  box-shadow: 4px 4px 4px #b0b0b0;
   width: 1.4em;
   text-align: center;
   margin: 0 5px 10px 5px;
