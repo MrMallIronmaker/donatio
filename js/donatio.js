@@ -319,6 +319,7 @@ function generateRandomCharityDetails(charityDetail){
         randomChoice(allScopes));
     charityDetail = fillIn(charityDetail, "Fundraising Efficiency",
         Math.floor(Math.random()*100) + "%");
+  }
   return charityDetail; 
 }
 
