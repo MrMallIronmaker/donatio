@@ -30,6 +30,7 @@ function initializeDetails(){
                 sessObj["savedCharities"].push(sessObj["detailsCharity"]);
                 sessObj["allocationAmounts"][charityDetails[detailsCharity]["name"]] = 0
                 elem.innerHTML = "Remove Charity";
+                elem.className = "added"
             }else{
                 var removeIndex = sessObj["savedCharities"].indexOf(sessObj["detailsCharity"]);
                 sessObj["savedCharities"].splice(removeIndex, 1);
@@ -37,6 +38,7 @@ function initializeDetails(){
                 sessObj["percentAllocated"] -= alloc;
                 delete sessObj["allocationAmounts"][charityDetails[detailsCharity]];
                 elem.innerHTML = "Add Charity";
+                elem.className = "unadded"
             }
             setSessionObject(sessObj);
         };

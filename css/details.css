@@ -27,13 +27,29 @@
   padding-bottom:10px;
   padding-left:20px;
   margin-bottom:50px;
- background-color: #00C0AC;
+ /*background-color: #00C0AC;*/
  color: white;
  border-radius:10px;
 }
 
-#addCharityButton:hover{
+.unadded{
+ background-color: #00C0AC;
+}
+
+.added{
+  background-color: #C43E00;
+}
+
+.uadded:hover{
   background-color: #6FCF97;
+}
+
+.added:hover{
+  background-color: #CD6F43;
+}
+
+#addCharityButton:hover{
+  /*background-color: #6FCF97;*/
   cursor: pointer;
 }
 
