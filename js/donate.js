@@ -125,7 +125,7 @@ function makeCharList() {
 
   for (var sc = 0; sc < savedCharities.length; sc++){
     text = charityDetails[savedCharities[sc]].name;
-    idx_name_map[text] = sc;
+    idx_name_map[text] = savedCharities[sc];
     if (!(text in obj['allocationAmounts'])){
         obj['allocationAmounts'][text] = 0;
         new_list[text] = 0
