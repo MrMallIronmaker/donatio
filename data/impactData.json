@@ -13,5 +13,35 @@
     "title":"Malaria",
     "description":"Malaria occurs in nearly 100 countries worldwide, exacting a huge toll on human health and imposing a heavy social and economic burden in developing countries, particularly in Sub-Saharan Africa and South Asia.",
     "photoUrl":"data/imgs/impact/2.png"
+  },
+  {
+    "title":"Advocacy and Public Policy",
+    "description":"Our Public Policy and Advocacy Office works across party lines with Congress and the Executive Branch to educate and raise awareness about issues important to girls and young women and promote leadership opportunities including economic and healthy opportunities as well as global citizenship and a global voice for girls",
+    "photoUrl":"data/imgs/impact/3.jpg"
+  },
+  {
+    "title":"Lead like a G.I.R.L.",
+    "description":"Girl Scouts are big thinkers, groundbreakers, and role models. They design robots, start garage bands, and improve their communities—and yes, they sell the best cookies on the planet. When a girl's a Girl Scout, she’s also a G.I.R.L. (Go-getter, Innovator, Risk-taker, Leader) and our program centers on what we call the Girl Scout Leadership Experience—a collection of activities and experiences during which girl Scouts find out who they are, what they care about, and what they talents are; collaborate with other people, locally and globally, to make a difference in the world; and do something to make the world a better place.",
+    "photoUrl":"data/imgs/impact/4.jpg"
+  },
+  {
+    "title":"Research",
+    "description":"The Girl Scout Research Institute delivers customer-centric, data-driven insights across the Girl Scout Movement and beyond. Our team measures the impact of Girl Scout programming and leads national conversations about girls and their development via groundbreaking original studies. These findings are then used to inform program, public policy, and advocacy for Girl Scouting",
+    "photoUrl":"data/imgs/impact/5.jpg"
+  },
+  {
+    "title":"Roots and Shoots",
+    "description":"Founded in 1991 by Dr. Jane Goodall, Jane Goodall’s Roots & Shoots is a youth service program for young people of all ages. Our mission is to foster respect and compassion for all living things, to promote understanding of all cultures and beliefs, and to inspire each individual to take action to make the world a better place for people, other animals, and the environment.",
+    "photoUrl":"data/imgs/impact/6.jpg"
+  },
+  {
+    "title":"Protecting Great Apes",
+    "description":"Together with our friends around the world, JGI is working for the day when chimpanzees can live in the wild without the threats of illegal trafficking and hunting. Until that day comes, there is Tchimpounga. For nearly 25 years, the Tchimpounga Chimpanzee Rehabilitation Center has provided life-saving rehabilitation and sanctuary to sick, malnourished and injured orphan chimpanzees rescued from markets and homes by local authorities in the fight against wildlife trafficking and poaching in the Republic of Congo.",
+    "photoUrl":"data/imgs/impact/7.jpg"
+  },
+  {
+    "title":"conservation",
+    "description":"True to the visionary work of our founder, JGI puts people at the center of conservation. We make innovative use of advanced science and technology to help local communities identify their needs and develop conservation action plans (CAPs) they can implement with success. Over the years, Dr. Goodall developed an ethic of scientific-based decision-making to make use of tools and protocols that raise the bar in conservation. These tools and practices provide the accurate, up-to-date information local communities need to create, monitor and evaluate their own conservation action plans.",
+    "photoUrl":"data/imgs/impact/8.jpg"
   }
 ]

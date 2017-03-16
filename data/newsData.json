@@ -1,5 +1,11 @@
 [
   {"id":0, "date":"01/20/17", "headline":"Bill & Melinda Gates Foundation boosts vital work of the University of Washington’s Institute for Health Metrics and Evaluation"},
   {"id":1, "date":"10/27/16", "headline":"Bill Gates backs British innovation, challenges UK government to step up investment in science and R&D"},
-  {"id":2, "date":"09/17/16","headline":"Bill Gates’ statement on the outcome of the 5th Global Fund Replenishment Conference for 2017-2019"}
+  {"id":2, "date":"09/17/16","headline":"Bill Gates’ statement on the outcome of the 5th Global Fund Replenishment Conference for 2017-2019"},
+  {"id":3, "date":"02/22/2017", "headline":"Girl Scouts of the USA Celebrates the Power of Cookies During National Girl Scout Cookie Weekend 2017"},
+  {"id":4, "date":"02/06/2017", "headline":"The State of Girls Report Shows Increasing Need for Investment in Girls"},
+  {"id":5, "date":"01/03/2017","headline":"Girl Scouts of the USA Celebrates 100 Years of Girl Scouts Selling Cookies"},
+  {"id":6, "date":"05/31/2016", "headline":"Memo Re: Shooting of Harambe at Cincinnati Zoo and Botanical Gardens"},
+  {"id":7, "date":"03/31/2016", "headline":"Cardiff Met Research Project Provides Insights Into Heart Health of Chimpanzees"},
+  {"id":8, "date":"02/18/2016","headline":"Environmentalist Jane Goodall Marks 25th Anniversary of Youth Program"}
 ]

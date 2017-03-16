@@ -134,6 +134,12 @@ html, body {
   margin-bottom: 10px;
 }
 
+.small-img{
+  display: block;
+  width: 600px;
+  height: 400px;
+}
+
 .long-caption {
   margin-top: 80%;
   /*margin-top: 110%;*/

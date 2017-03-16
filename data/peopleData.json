@@ -29,5 +29,58 @@
     "photoUrl":"data/imgs/people/4.png",
     "position":"COO",
     "tenure":"Sept. 2014 - present"
+  },
+  {
+    "id":5,
+    "name": "Juliette Gordon",
+    "photoUrl":"data/imgs/people/5.jpg",
+  },
+  {
+    "id":6,
+    "name": "Sylvia Acevedo",
+    "photoUrl":"data/imgs/people/6.jpg",
+    "position":"Interim CEO",
+    "tenure":"June. 2016 - present"
+  },
+  {
+    "id":7,
+    "name": "Angela Olden",
+    "photoUrl":"data/imgs/people/7.jpg",
+    "position":"CFO",
+    "tenure":"Sept 2013 - present"
+  },
+  {
+    "id":8,
+    "name": "Anthony Doyle",
+    "photoUrl":"data/imgs/people/8.jpg",
+    "position":"COO",
+    "tenure":"April 2015 - present"
+  },
+  {
+    "id":9,
+    "name": "Dr. Jane Goodall",
+    "photoUrl":"data/imgs/people/9.jpg",
+  },
+  {
+    "id":10,
+    "name": "Carol Irwin",
+    "photoUrl":"data/imgs/people/10.jpg",
+    "position":"Interim CEO",
+    "tenure":"June. 2016 - present"
+  },
+  {
+    "id":11,
+    "name": "Brian Graff",
+    "photoUrl":"data/imgs/people/11.jpg",
+    "position":"Board Chair",
+    "tenure":"Sept 2013 - present"
+  },
+  {
+    "id":12,
+    "name": "Ellen Balaguer",
+    "photoUrl":"data/imgs/people/12.jpg",
+    "position":"Board Treasurer",
+    "tenure":"April 2015 - present"
   }
+
 ]

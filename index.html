@@ -26,14 +26,14 @@
     <!-- header -->
 
     <!-- search bar -->
-    <div class="container-fluid"> 
+    <div id="contianer-fluid"> 
         <div id='menu'></div>
-        <div class="container-fluid"><h1><div class="input-group stylish-input-group col-sm-12">
+        <div class="container"><h1><div class="input-group stylish-input-group col-sm-12">
             <input type="text" class="form-control" id ='searchBar' placeholder="I would like to donate to..." >
             <span class="input-group-btn"><button class="btn btn-default" type="button" onclick='query_search()' >Search</button></span> 
         </div></h1></div>
         <!-- causes -->
-    <div class="container-fluid">
+    <div class="container">
         <div class="row">
             <div class="col-sm-12">
                 <h1>Discover Causes </h1>
@@ -41,33 +41,34 @@
         </div>
         <div class="row">
             <div class="col-sm-6">
-                <h2 class="cause-category" onmouseover="viewAll(this)">Animals</h2>
+                <h2 class="cause-category">Animals</h2>
                 <div class="row">
                     <div class="col-sm-6 img-col">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)" onclick="searchCharities('', 'Wildlife Conservation')">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Wildlife conservation seeks to maintain a world where wildlife thrives and is valued by societies through wildlife refuges and sanctuaries, as well as wildlife protection and conservation research.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Wildlife conservation seeks to maintain a world where wildlife thrives and is valued by societies through wildlife refuges and sanctuaries, as well as wildlife protection and conservation research. >></span></div>
                                 <span><h3 class="cause-subcategory">Wildlife Conservation</h3></span>
                                 <img src="imgs/animal_conservation.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Zoos and aquariums are committed to saving species worldwide by uniting expertise in animal care and conservation science with a dedication to inspiring passion for nature.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Zoos and aquariums are committed to saving species worldwide by uniting expertise in animal care and conservation science with a dedication to inspiring passion for nature. >></span></div>
                                 <span><h3 class="cause-subcategory">Zoos and Aquariums</h3></span>
-                                <img src="imgs/zoo.jpg" width="600" height="400" class="img-responsive cause-img img-row-2">
+                                <img src="imgs/zoo.jpg" class="img-responsive cause-img sml-img img-row-2">
                             </div>
                         </a>
                     </div>
                     <div class="col-sm-6">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Animal Rights, Welfare, and Serivces charities protect, defend, and provide needed services to domestic animals through veterinary services; humane societies; organizations protecting animals from cruelty, exploitation and other abuses; and animal training and specialty services</span></div>
+                                <div class="centeredOverlay"><span class="preview">Animal Rights, Welfare, and Serivces charities protect, defend, and provide needed services to domestic animals through veterinary services; humane societies; organizations protecting animals from cruelty, exploitation and other abuses; and animal training and specialty services. >></span></div>
                                 <span><h3 class="cause-subcategory long-caption">Rights, Welfare, and Services</h3></span>
-                                <img src="imgs/animal_rights.jpg" width="600" height="800" class="img-responsive cause-img img-row-1">
+                                <img src="imgs/animal_rights.jpg" width="600" height="810" class="img-responsive cause-img img-row-1">
                             </div>
                         </a>
                     </div>
+                    <div class="see-all col-sm-12">View all animal charities >></div>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -76,14 +77,14 @@
                     <div class="col-sm-6 img-col">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Libraries, Historical Societies, and Landmark Preservation Charities preserve and commemorate the events, places, and cultures that created and continue to shape different cultures.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Libraries, Historical Societies, and Landmark Preservation Charities preserve and commemorate the events, places, and cultures that created and continue to shape different cultures. >></span></div>
                                 <span><h3 class="cause-subcategory">Libraries, Historical Societies, and Landmarks</h3></span>
                                 <img src="imgs/landmark.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Museums aim to inspire discovery and responsibility for our world. throught traditional museums, as well as academies and institutes that provide training to practitioners and collection maintenance.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Museums aim to inspire discovery and responsibility for our world. throught traditional museums, as well as academies and institutes that provide training to practitioners and collection maintenance. >></span></div>
                                 <span><h3 class="cause-subcategory">Museums</h3></span>
                                 <img src="imgs/museums.jpg" width="600" height="400" class="img-responsive cause-img img-row-2">
                             </div>
@@ -92,19 +93,20 @@
                     <div class="col-sm-6">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Performing Arts charities bring the arts to the public through major theatrical venues, arts festivals, performance halls and cultural centers, and arts programs that promote scholastic achievement.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Performing Arts charities bring the arts to the public through major theatrical venues, arts festivals, performance halls and cultural centers, and arts programs that promote scholastic achievement. >></span></div>
                                 <span><h3 class="cause-subcategory">Performing Arts</h3></span>
                                 <img src="imgs/perf_arts.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Public Broadcasting and Media charities promote the distribution of ideas by operating and supporting both major public and independend local-access media and communications services.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Public Broadcasting and Media charities promote the distribution of ideas by operating and supporting both major public and independend local-access media and communications services. >></span></div>
                                 <span><h3 class="cause-subcategory">Public Broadcasting and Media</h3></span>
                                 <img src="imgs/broadcast.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                     </div>
+                    <div class="see-all col-sm-12">View all arts, culture, humanities charities >></div>
                 </div>
             </div>
         </div>
@@ -115,14 +117,14 @@
                     <div class="col-sm-6 img-col">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Housing and Neighborhood Development charities invest in and improve local communities by providing utility assistance, small business support programs, and other revitalization projects.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Housing and Neighborhood Development charities invest in and improve local communities by providing utility assistance, small business support programs, and other revitalization projects. >></span></div>
                                 <span><h3 class="cause-subcategory">Housing and Neighborhood Development</h3></span>
                                 <img src="imgs/garden.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">The United Way is a global organization composed of local chapters which provide funds and support to local orgranizations who support education, economic growth and stability, and health advancments.</span></div>
+                                <div class="centeredOverlay"><span class="preview">The United Way is a global organization composed of local chapters which provide funds and support to local orgranizations who support education, economic growth and stability, and health advancments. >></span></div>
                                 <span><h3 class="cause-subcategory">United Ways</h3></span>
                                 <img src="imgs/united_way.jpg" class="img-responsive cause-img img-row-2">
                             </div>
@@ -131,12 +133,13 @@
                     <div class="col-sm-6">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Community Foundations promote giving by managing long-term donor-advised charitable funds for individual givers, much like a mutual fund for giving, and by distributing those funds to community-based charities over time on behalf of givers.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Community Foundations promote giving by managing long-term donor-advised charitable funds for individual givers, much like a mutual fund for giving, and by distributing those funds to community-based charities over time on behalf of givers. >></span></div>
                                 <span><h3 class="cause-subcategory long-caption">Community Foundations</h3></span>
                                 <img src="imgs/community.jpg" class="img-responsive cause-img img-row-1">
                             </div>
                         </a>
                     </div>
+                    <div class="see-all col-sm-12">View all community development charities >></div>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -145,14 +148,14 @@
                     <div class="col-sm-6 img-col">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Early Childhood and Youth Education Programs provide foundation-level learning and literacy, classroom support, and instruction as well as, preparation for semiskilled, skilled, technical or professional occupations.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Early Childhood and Youth Education Programs provide foundation-level learning and literacy, classroom support, and instruction as well as, preparation for semiskilled, skilled, technical or professional occupations. >></span></div>
                                 <span><h3 class="cause-subcategory">Early Childhood and Youth Programs</h3></span>
                                 <img src="imgs/headstart.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Adult Education Programs provide an opportunities for adults to develop their leadership skills or expand their knowledge in a particular discipline outside the formal educational system.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Adult Education Programs provide an opportunities for adults to develop their leadership skills or expand their knowledge in a particular discipline outside the formal educational system. >></span></div>
                                 <span><h3 class="cause-subcategory">Adult Education Programs</h3></span>
                                 <img src="imgs/adult_ed.png" class="img-responsive cause-img img-row-2">
                             </div>
@@ -161,19 +164,20 @@
                     <div class="col-sm-6">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Special Education charities provide placement and individualized instruction, and support services for gifted or disabled youths who require modified curricula or teaching methodologies in order to learn.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Special Education charities provide placement and individualized instruction, and support services for gifted or disabled youths who require modified curricula or teaching methodologies in order to learn. >></span></div>
                                 <span><h3 class="cause-subcategory">Special Education</h3></span>
                                 <img src="imgs/special_ed.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Education Policy and Reform charities promote and provide research, policy, and reform of the management of educational institutions, educational systems, and education policy.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Education Policy and Reform charities promote and provide research, policy, and reform of the management of educational institutions, educational systems, and education policy. >></span></div>
                                 <span><h3 class="cause-subcategory">Education Policy and Reform</h3></span>
                                 <img src="imgs/ed_policy.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                     </div>
+                    <div class="see-all col-sm-12">View all education charities >></div>
                 </div>
             </div>
         </div>
@@ -184,7 +188,7 @@
                     <div class="col-sm-6 img-col">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Environmental Protection and Conservation charities develop ways to combat pollution; promote conservation and sustainable management of land, water, plant and energy resources; purchase and protect land; and develop more efficient uses of both energy and waste materials through direct action and scientific research.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Environmental Protection and Conservation charities develop ways to combat pollution; promote conservation and sustainable management of land, water, plant and energy resources; purchase and protect land; and develop more efficient uses of both energy and waste materials through direct action and scientific research. >></span></div>
                                 <span><h3 class="cause-subcategory long-caption">Protection and Conservation</h3></span>
                                 <img src="imgs/conservation.jpg" class="img-responsive cause-img img-row-1">
                             </div>
@@ -193,12 +197,13 @@
                     <div class="col-sm-6">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Botanical Gardens, Parks, and Nature Centers promote preservation and appreciation of the environment, as well as lead anti-litter, tree planting and other environmental beautification campaigns.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Botanical Gardens, Parks, and Nature Centers promote preservation and appreciation of the environment, as well as lead anti-litter, tree planting and other environmental beautification campaigns. >></span></div>
                                 <span><h3 class="cause-subcategory long-caption">Gardens, Parks, and Nature Centers</h3></span>
                                 <img src="imgs/yellowstone.jpg" class="img-responsive cause-img img-row-1">
                             </div>
                         </a>
                     </div>
+                    <div class="see-all col-sm-12">View all environment charities >></div>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -207,14 +212,14 @@
                     <div class="col-sm-6 img-col">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Diseases, Disorders, and Disciplines charities seek cures for diseases, provide direct services, advocate for public understanding, and support targeted medical research.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Diseases, Disorders, and Disciplines charities seek cures for diseases, provide direct services, advocate for public understanding, and support targeted medical research. >></span></div>
                                 <span><h3 class="cause-subcategory">Diseases, Disorders, and Disciplines</h3></span>
                                 <img src="imgs/disease.jpeg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class = "preview">Patient and Family Support organizations offer wish granting programs, camping programs, housing or travel assistance and other services for family members and patients that are diagnosed with a serious illness.</span></div>
+                                <div class="centeredOverlay"><span class = "preview">Patient and Family Support organizations offer wish granting programs, camping programs, housing or travel assistance and other services for family members and patients that are diagnosed with a serious illness. >></span></div>
                                 <span><h3 class="cause-subcategory">Patient and Family Support</h3></span>
                                 <img src="imgs/support.jpg" class="img-responsive cause-img img-row-2">
                             </div>
@@ -223,19 +228,20 @@
                     <div class="col-sm-6">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Treatment and Prevention Services charities are provide direct medical services to the public, as well as promote public understanding and awareness of the prevention of healthe risks, diseases, disabilities.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Treatment and Prevention Services charities are provide direct medical services to the public, as well as promote public understanding and awareness of the prevention of healthe risks, diseases, disabilities. >></span></div>
                                 <span><h3 class="cause-subcategory">Treatment and Prevention Services</h3></span>
                                 <img src="imgs/treatement.jpeg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Medical Research organizations are scientific or academic based groups that research causes and cures of disease and develope new treatments.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Medical Research organizations are scientific or academic based groups that research causes and cures of disease and develope new treatments. >></span></div>
                                 <span><h3 class="cause-subcategory">Medical Research</h3></span>
                                 <img src="imgs/med_research.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                     </div>
+                    <div class="see-all col-sm-12">View all health charities >></div>
                 </div>
             </div>
         </div>
@@ -246,7 +252,7 @@
                     <div class="col-sm-6 img-col">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Voter Education and Reform ogranizations seek to improve voter experience, knowldege, and participation as well as the electoral process</span></div>
+                                <div class="centeredOverlay"><span class="preview">Voter Education and Reform ogranizations seek to improve voter experience, knowldege, and participation as well as the electoral process. >></span></div>
                                 <span><h3 class="cause-subcategory long-caption">Voter Education and Reform</h3></span>
                                 <img src="imgs/vote.jpg" class="img-responsive cause-img img-row-1">
                             </div>
@@ -255,12 +261,13 @@
                     <div class="col-sm-6">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Advocacy charities defend civil rights as well as engage in and advance social action which supports the passage and enforcement of laws and other social measures designed to protect and promote reform. These organizations include government watchdogs, organizations protecting civil and legal rights, and those promoting tolerance and understanding among racial, ethnic and cultural groups.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Advocacy charities defend civil rights as well as engage in and advance social action which supports the passage and enforcement of laws and other social measures designed to protect and promote reform. These organizations include government watchdogs, organizations protecting civil and legal rights, and those promoting tolerance and understanding among racial, ethnic and cultural groups. >></span></div>
                                 <span><h3 class="cause-subcategory long-caption">Advocacy</h3></span>
                                 <img src="imgs/advocacy.jpg" class="img-responsive cause-img img-row-1">
                             </div>
                         </a>
                     </div>
+                    <div class="see-all col-sm-12">View all human civil rights charities >></div>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -269,14 +276,14 @@
                     <div class="col-sm-6 img-col">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Children's and Family Services strengthen families and promote child welfare through foster care, adoption services, youth shelter and recreation programs, family counseling, and parenting education.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Children's and Family Services strengthen families and promote child welfare through foster care, adoption services, youth shelter and recreation programs, family counseling, and parenting education. >></span></div>
                                 <span><h3 class="cause-subcategory">Children's and Family Services</h3></span>
                                 <img src="imgs/children.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Food Banks, Pantries, and Distribution Organizations provide hunger relief in communities throughout our world.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Food Banks, Pantries, and Distribution Organizations provide hunger relief in communities throughout our world. >></span></div>
                                 <span><h3 class="cause-subcategory">Food Banks, Pantries, and Distribution</h3></span>
                                 <img src="imgs/foodbank.jpg" class="img-responsive cause-img img-row-2">
                             </div>
@@ -285,19 +292,20 @@
                     <div class="col-sm-6">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Homeless Services provide assistance to homeless individuals and families through direct social services as well as advocacy.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Homeless Services provide assistance to homeless individuals and families through direct social services as well as advocacy. >></span></div>
                                 <span><h3 class="cause-subcategory">Homelessness Services</h3></span>
                                 <img src="imgs/homeless.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Social Service charities advocate for the underemployed, the elderly and disabled, and other disadvantaged populations through community centers and multipurpose organizations that promote volunteerism.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Social Service charities advocate for the underemployed, the elderly and disabled, and other disadvantaged populations through community centers and multipurpose organizations that promote volunteerism. >></span></div>
                                 <span><h3 class="cause-subcategory">Social Services</h3></span>
                                 <img src="imgs/social.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                     </div>
+                    <div class="see-all col-sm-12">View all human services charities >></div>
                 </div>
             </div>
         </div>
@@ -308,14 +316,14 @@
                     <div class="col-sm-6 img-col">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">International Peace, Security, and Affairs charities promote sponsor exchange programs; human rights groups; foreign policy research and advocacy; and United Nations-related support.</span></div>
+                                <div class="centeredOverlay"><span class="preview">International Peace, Security, and Affairs charities promote sponsor exchange programs; human rights groups; foreign policy research and advocacy; and United Nations-related support. >></span></div>
                                 <span><h3 class="cause-subcategory">International Peace, Security, and Affairs</h3></span>
                                 <img src="imgs/un.jpg" class="img-responsive cause-img img-row-2">
                             </div>
                         </a>
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Humanitarian Relief Supplies organizations specialize in collecting donated medical, food, agriculture, and other supplies and distributing them overseas to those in need.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Humanitarian Relief Supplies organizations specialize in collecting donated medical, food, agriculture, and other supplies and distributing them overseas to those in need. >></span></div>
                                 <span><h3 class="cause-subcategory">Humanitarian Relief Supplies</h3></span>
                                 <img src="imgs/supplies.jpg" class="img-responsive cause-img img-row-2">
                             </div>
@@ -324,12 +332,13 @@
                     <div class="col-sm-6">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Development and Relief Service charities provide medical care and other human services as well as economic, educational, and agricultural development services to people around the world.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Development and Relief Service charities provide medical care and other human services as well as economic, educational, and agricultural development services to people around the world. >></span></div>
                                 <span><h3 class="cause-subcategory long-caption">Development and Relief Services</h3></span>
                                 <img src="imgs/relief.jpg" class="img-responsive cause-img img-row-1">
                             </div>
                         </a>
                     </div>
+                    <div class="see-all col-sm-12">View all international charities</div>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -338,7 +347,7 @@
                     <div class="col-sm-6 img-col">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Non-Medical Science and Technology Research charities include those institutions providing research and services in a variety of scientific disciplines. These charities advance the knowledge and understanding of areas such as energy efficiency, environmental and trade policies, and agricultural sustainability.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Non-Medical Science and Technology Research charities include those institutions providing research and services in a variety of scientific disciplines. These charities advance the knowledge and understanding of areas such as energy efficiency, environmental and trade policies, and agricultural sustainability. >></span></div>
                                 <span><h3 class="cause-subcategory long-caption">Non-Medical Science and Technology Research</h3></span>
                                 <img src="imgs/ag_research.jpg" class="img-responsive cause-img img-row-1">
                             </div>
@@ -347,12 +356,13 @@
                     <div class="col-sm-6">
                         <a href="search.html" onmouseover="preview(this)" onmouseout="close_preview(this)">
                             <div class="wrapper">
-                                <div class="centeredOverlay"><span class="preview">Social and Public Policy Research charities include those that advance both economic and social issues impacting our country today. These charities educate the public and influence policy regarding healthcare, employment rights, taxation, and other civic ventures.</span></div>
+                                <div class="centeredOverlay"><span class="preview">Social and Public Policy Research charities include those that advance both economic and social issues impacting our country today. These charities educate the public and influence policy regarding healthcare, employment rights, taxation, and other civic ventures. >></span></div>
                                 <span><h3 class="cause-subcategory long-caption">Social and Public Policy Research</h3></span>
                                 <img src="imgs/capitol.jpg" class="img-responsive cause-img img-row-1">
                             </div>
                         </a>
                     </div>
+                    <div class="see-all col-sm-12">View all research and public policy charities >></div>
                 </div>
             </div>
         </div>
