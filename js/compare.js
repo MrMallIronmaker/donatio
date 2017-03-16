@@ -7,28 +7,6 @@ var financialMetrics = ["Administrative Overhead", "Charitable Commitment",
     "Tax Status", "Total Expenses"];
 
 
-function initializeFilter(){
-    $("#char-search").on('change keydown paste input', function(){
-        search=document.getElementById('char-search').value.toLowerCase();
-        if (search == ''){
-            chars=document.getElementsByClassName('charity-element');
-            for (var c =0; c<chars.length; c++){
-                chars[c].style.display = 'block';
-            }
-        }else{
-            chars=document.getElementsByClassName('charity-element');
-            for (var c =0; c<chars.length; c++){
-                if (chars[c].childNodes[0].innerHTML.toLowerCase().match(search)==null){
-                    chars[c].style.display = 'none';
-                }else{
-                    chars[c].style.display = 'block';
-                }
-            }        
-        }
-
-
-    })
-}
 function loadSelectionMenu(){
   var obj = getSessionObject();
   var savedCharities = obj["savedCharities"];
@@ -152,7 +130,7 @@ function updateComparison(charityIds){
     comparisonView.appendChild(row);
     var nameColumn = document.createElement("div");
     nameColumn.className = "col-md-2";
-    nameColumn.innerHTML = comparisonMetric;
+    nameColumn.appendChild(createText(comparisonMetric, "metric-names"));
     row.appendChild(nameColumn); 
     for (var j = 0; j < numComparisons; j++){
       var column = document.createElement("div");

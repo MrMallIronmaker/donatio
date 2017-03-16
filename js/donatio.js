@@ -316,3 +316,11 @@ function deleteElemFromList(list, elem){
     return list;
 }
 
+function createText(text, class_name){
+  /** Return text <p> element with class class_name */
+  var elem = document.createElement("p");
+  elem.className = class_name;
+  var textNode = document.createTextNode(text);
+  elem.appendChild(textNode);
+  return elem;
+}
