@@ -48,7 +48,10 @@ function sent(){
     var obj = getSessionObject()
     obj['allocationAmounts'] = {}
     obj['percentAllocated'] = 0
+    obj['totalFunds'] = 0
+    obj['savedCharities'] = []
     setSessionObject(obj)
+    window.location.href = "./index.html";
   };
 
     window.onclick = function(event){
@@ -57,6 +60,8 @@ function sent(){
       obj = getSessionObject()
       obj['allocationAmounts'] = {}
       obj['percentAllocated'] = 0
+      obj['totalFunds'] = 0
+      obj['savedCharities'] = []
       setSessionObject(obj)
       window.location.href = "./index.html";
     }
@@ -70,7 +75,7 @@ function edit(){
 
 function submit(){
     var obj = getSessionObject()
-    if(obj['percentAllocated']==0){
+    if(obj['percentAllocated']!=100){
         document.getElementById('no_donation').style.display='block';
 
     } else{
@@ -248,11 +253,15 @@ function makeCharList() {
             obj_del = getSessionObject()
             obj_del['percentAllocated'] -= my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
             delete my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
+            console.log(idx_name_map)
+            console.log(this.parentNode.childNodes[0].childNodes[0].nodeValue)
+            console.log(obj_del['savedCharities'])
             var index = obj_del['savedCharities'].indexOf(idx_name_map[this.parentNode.childNodes[0].childNodes[0].nodeValue])
             console.log(index)
             if (index > -1) {
                 obj_del['savedCharities'].splice(index, 1);
             }
+            console.log(obj_del['savedCharities'])
             obj_del['allocationAmounts'] = my_charities;
             setSessionObject(obj_del);
             update_pie(this.parentNode.childNodes[0].childNodes[0].nodeValue, 0);
