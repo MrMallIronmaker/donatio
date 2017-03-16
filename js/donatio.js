@@ -258,7 +258,7 @@ function generateRandomCharityDetails(charityDetail){
        "Global");
     charityDetail = fillIn(charityDetail, "Fundraising Efficiency",
         "36%");
-  }else if (charityDetail.name== "Bill and Melinda Gates Foundation"){
+  }else if (charityDetail.name== "Bill & Melinda Gates Foundation"){
     charityDetail = fillIn(charityDetail, "website", "www.google.com");
     charityDetail = fillIn(charityDetail, "rating", 5);
     charityDetail = fillIn(charityDetail, "headquarters", "Seattle, Washington");
