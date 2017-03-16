@@ -36,3 +36,13 @@ function searchFromDiscover(element) {
 	sessionObject["searchStrings"] = [""];
 	setSessionObject(sessionObject);
 }
+
+function searchAllFromDiscover(element) {
+	var searchCategory = $(element).closest(":has(h2)").find("h2").html();
+	console.log(searchCategory)
+	var sessionObject = getSessionObject();
+	sessionObject["searchFilters"]["category"] = [searchCategory];
+	sessionObject["searchStrings"] = [""];
+	setSessionObject(sessionObject);
+	window.location.href = "./search.html";
+}
