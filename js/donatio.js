@@ -297,7 +297,7 @@ function generateRandomCharityDetails(charityDetail){
     charityDetail = fillIn(charityDetail, "charitableCommitment", "$2.19B");
     charityDetail = fillIn(charityDetail, "mission", "Fillter mission text");
     charityDetail = fillIn(charityDetail, "impact", [0,1,2]);
-    charityDetail = fillIn(charityDetail, "leadershipTeam", [3,2,4]);
+    charityDetail = fillIn(charityDetail, "leadershipTeam", [2,3,4]);
     charityDetail = fillIn(charityDetail, "founders", [0,1]);
     charityDetail = fillIn(charityDetail, "news", [0,1,2]);
 
