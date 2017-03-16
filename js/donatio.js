@@ -229,7 +229,7 @@ function generateRandomCharityDetails(charityDetail){
        "National");
     charityDetail = fillIn(charityDetail, "Fundraising Efficiency",
         "36%");
-  }else if (charity.Detail.name== "Jane Goodall Institute"){
+  }else if (charityDetail.name== "Jane Goodall Institute"){
     charityDetail = fillIn(charityDetail, "website", "http://www.janegoodall.org/");
     charityDetail = fillIn(charityDetail, "rating", 4);
     charityDetail = fillIn(charityDetail, "headquarters", "Vienna, Virginia");
@@ -258,7 +258,7 @@ function generateRandomCharityDetails(charityDetail){
        "Global");
     charityDetail = fillIn(charityDetail, "Fundraising Efficiency",
         "36%");
-  }else if (charity.Detail.name== "Bill and Melinda Gates Foundation"){
+  }else if (charityDetail.name== "Bill and Melinda Gates Foundation"){
     charityDetail = fillIn(charityDetail, "website", "www.google.com");
     charityDetail = fillIn(charityDetail, "rating", 5);
     charityDetail = fillIn(charityDetail, "headquarters", "Seattle, Washington");
