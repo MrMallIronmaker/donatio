@@ -92,6 +92,10 @@ html, body {
   text-align: center;
 }
 
+.filter-rating-star {
+  height: 1.2em;
+}
+
 .results-page-link {
   display: inline-block;
   background: #ffffff;
