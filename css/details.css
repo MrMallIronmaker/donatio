@@ -34,6 +34,7 @@
 
 #addCharityButton:hover{
   background-color: #6FCF97;
+  cursor: pointer;
 }
 
 .side-nav-elem{
@@ -44,6 +45,7 @@
 
 .side-nav-elem:hover{
     background-color: #6FCF97;
+    cursor: pointer
 }
 
 .side-nav-elem-selected,
@@ -153,6 +155,7 @@
 .tog-button:hover{
  background-color: #00C0AC;
  color: white;
+ cursor: pointer;
 }
 
 #cap-toggles{
