@@ -32,7 +32,11 @@ function getPointsMap(charityDetails){
 		// ensure it passes all filters
 		var passedFilters = true;
 		for (var filterKey in filters) {
-			passedFilters &= (-1 !== filters[filterKey].indexOf(charityDetails[i][filterKey]))
+			if (filterKey === "rating") {
+				passedFilters &= (+charityDetails[i]["rating"] >= +filters["rating"] );
+			} else {
+				passedFilters &= (-1 !== filters[filterKey].indexOf(charityDetails[i][filterKey]));
+			}
 		}
 		if (!passedFilters) {
 			continue;
@@ -49,13 +53,14 @@ function getPointsMap(charityDetails){
 			// if it's in the mission, give it one credit.
 			points += getSubstringCount(inputString, charityDetails[i].mission.toLowerCase()) * 1;
 
-			if (points > 0) {
-				if (pointsMap[points]) {
-					pointsMap[points] = pointsMap[points].concat(i);
-				}
-				else {
-					pointsMap[points] = [i];
-				}
+		}
+
+		if (points > 0) {
+			if (pointsMap[points]) {
+				pointsMap[points] = pointsMap[points].concat(i);
+			}
+			else {
+				pointsMap[points] = [i];
 			}
 		}
 	}
@@ -112,13 +117,13 @@ function updateSearch() {
 					+ charityDetails[result_indeces[i]].name + 
 				'</h3>\
 				<p class="search-result-body details-table-visible" onclick="toggleDetailsTable(this)">' 
-					+ wordLimit(charityDetails[result_indeces[i]].mission, 20) + '... </p>\
+					+ wordLimit(charityDetails[result_indeces[i]].mission, 18) + '... <a>continue</a> </p>\
 					<p class="search-result-body details-table-hidden" onclick="toggleDetailsTable(this)">' 
 					+ charityDetails[result_indeces[i]].mission + ' </p>\
 				<table class="details-table-hidden" class="details-table">\
 					<tr>\
 						<td class="details-table-label">Rating:</td> \
-						<td class="details-table-data">starzzz...</td>\
+						<td class="details-table-data">' + buildRating(charityDetails[result_indeces[i]].rating) + '</td>\
 						<td class="details-table-label">Headquarters:</td> \
 						<td class="details-table-data">Seattle, Washington</td>\
 						<td class="details-table-label">Cause:</td> \
@@ -224,6 +229,43 @@ function toggleFilter(element, isChecked, filterType, filterValue) {
 	setSessionObject(sessionObject);
 	// trigger another onSearchClick
 	updateSearch();
+}
+
+function onStarClick(el, val) {
+	// set the rating filter
+	var sessionObject = getSessionObject();
+	var ratingFilter = sessionObject.searchFilters["rating"];
+	if (ratingFilter === val) {
+		delete sessionObject.searchFilters["rating"];
+		val = undefined;
+	} else {
+		sessionObject.searchFilters["rating"] = val;
+	}
+	setSessionObject(sessionObject);
+
+	// update the images
+	val = val || "0";
+	for (var i = 1; i <= 5; i++) {
+		var img_src = 'imgs/star_empty.png';
+		if (+val >= i) {
+			img_src = 'imgs/star_fill.png';
+		}
+		$(el).siblings().add(el).filter(".filter-rating-star-" + i).attr('src', img_src);
+	}
+
+	updateSearch();
+}
+
+function buildRating(val) {
+	var htmlBuilder = "";
+	for (var i = 1; i <= 5; i++) {
+		var img_src = "imgs/star_empty.png";
+		if (val >= i) {
+			img_src = "imgs/star_fill.png";
+		}
+		htmlBuilder += "<img class='filter-rating-star' src='" + img_src + "'>";
+	}
+	return htmlBuilder;
 }
 
 function loadSidebar() {

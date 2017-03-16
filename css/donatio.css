@@ -44,6 +44,7 @@ html, body {
 
 .search-result-title {
 	color: #2F80ED;
+  cursor: pointer;
 }
 
 .details-table-hidden {
@@ -89,6 +90,10 @@ html, body {
   display: inline-block;
   width: 1.4em;
   text-align: center;
+}
+
+.filter-rating-star {
+  height: 1.2em;
 }
 
 .results-page-link {

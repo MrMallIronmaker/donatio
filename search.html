@@ -29,14 +29,20 @@
 
     <div class="row">
         <div class="col-md-2 search-sidebar">
-            <h3>Scope of Work</h3>
-            <div class="filter-option-group" id="scopes"> 
-            </div>
+            <h3>Rating</h3>
+            <p>
+                <img class="filter-rating-star filter-rating-star-1" src="imgs/star_empty.png" onclick="onStarClick(this, '1')">
+                <img class="filter-rating-star filter-rating-star-2" src="imgs/star_empty.png" onclick="onStarClick(this, '2')">
+                <img class="filter-rating-star filter-rating-star-3" src="imgs/star_empty.png" onclick="onStarClick(this, '3')">
+                <img class="filter-rating-star filter-rating-star-4" src="imgs/star_empty.png" onclick="onStarClick(this, '4')">
+                <img class="filter-rating-star filter-rating-star-5" src="imgs/star_empty.png" onclick="onStarClick(this, '5')">
+            </p>
             <h3>Category</h3>
             <div class="filter-option-group" id="category">
             </div>
-            <h3>Rating</h3>
-            <p> starzzz... </p>
+            <h3>Scope of Work</h3>
+            <div class="filter-option-group" id="scopes"> 
+            </div>
             <h3>Type of Work</h3>
             <div class="filter-option-group" id="types">
             </div>
@@ -54,7 +60,7 @@
                 <button type="submit" class="btn btn-default" id="searchButton" onclick="onSearchClick()">Search</button>
                 </div>
             <!--/form-->
-            <p> Displaying results 1-10 of 1024 </p>
+            <!--p> Displaying results 1-10 of 1024 </p-->
         	<div id="search-results">
 	        	
 	        </div>

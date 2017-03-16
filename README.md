@@ -41,12 +41,12 @@ direct page to /clear.html to clear session data for development
  * [x] remove the filters section - .2h
  * [x] Limit size of description for search results - .2h
  * [x] Add link to "more details" page - .2h 
- * [ ] Add visual cue to drop down for search results - .2h - is the current setup OK?
+ * [x] Add visual cue to drop down for search results - done
  * [x] Dynamically generate the links to other pages of results - .3h
  * [x] User can also click enter for search - .2h
+ * [x] Stars filter should work - .5h
  * ---- the rest of this is unordered ---
  * [ ] Save search state across tabs - .3h
- * [ ] Stars filter should work - .5h
  * [ ] Generated details table data should be somewhat sensible - .5h
  * ---- nice to have ----
  * [ ] Add to cart from search page - .3h
