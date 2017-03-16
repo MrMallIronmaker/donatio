@@ -37,7 +37,7 @@ direct page to /clear.html to clear session data for development
  * [x] Search from causes page - Done
  * [x] Add link to other pages of results - Done
  * [x] add substring search filter tags - Done
- * [ ] make sure the filters launch correctly from causes page - .5h
+ * [x] make sure the filters launch correctly from causes page - .5h
  * ---- the rest of this is unordered ---
  * [ ] remove the filters section - .2h
  * [ ] have a short description of all active filters - .3h

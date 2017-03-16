@@ -54,6 +54,10 @@ function initializePage(currentNavItem){
   loadMenu(currentNavItem);
 }
 
+function escapeSpaces(str) {
+  return str.replace(" ", "_");
+}
+
 
 function getSessionObject(){
   /**

@@ -229,7 +229,7 @@ function loadSidebar() {
 			categoryDiv = $('<div class="filter-option"> \
 	            				<input type="checkbox" onchange="toggleFilter(this, this.checked, \'category\',\'' + currentCategory + '\')">\
 	            				<p class="filter-name">' + currentCategory + '</p>\
-	            				<p class="filter-results-count" id="' + currentCategory + '">(--)</p>\
+	            				<p class="filter-results-count" id="' + escapeSpaces(currentCategory) + '">(--)</p>\
 	            			</div>');
 			allCategoriesDiv.append(categoryDiv);
 		}
@@ -237,19 +237,29 @@ function loadSidebar() {
 		categoryDiv.append('<div class="filter-option filter-cause-hidden"> \
 	            				<input type="checkbox" onchange="toggleFilter(this, this.checked, \'cause\',\'' + allCauses[i][0] + '\')">\
 	            				<p class="filter-name">' + allCauses[i][0] + '</p>\
-	            				<p class="filter-results-count" id="' + allCauses[i][0] + '">(--)</p>\
+	            				<p class="filter-results-count" id="' + escapeSpaces(allCauses[i][0]) + '">(--)</p>\
 	            			</div>')
 	}
-	
+	// for each scope: [#scopes]
+	// make a checkbox for the scope
 	var scopesDiv = $("#scopes");
 	for (i in allScopes) {
 		scopesDiv.append('<div class="filter-option filter-scope"> \
 	            				<input type="checkbox" onchange="toggleFilter(this, this.checked, \'Scope of Impact\',\'' + allScopes[i] + '\')">\
 	            				<p class="filter-name">' + allScopes[i] + '</p>\
-	            				<p class="filter-results-count" id="' + allScopes[i] + '">(--)</p>\
+	            				<p class="filter-results-count" id="' + escapeSpaces(allScopes[i]) + '">(--)</p>\
 	            			</div>')
 		
 	}
-	// for each scope: [#scopes]
-	// make a checkbox for the scope
+	
+	// for each active filter:
+	var sessionObject = getSessionObject();
+	var searchFilters = sessionObject["searchFilters"];
+	for (i in searchFilters) {
+		for (j in searchFilters[i]) {
+			var el = $("#" + escapeSpaces(searchFilters[i][j])).siblings("input")[0];
+		    el.checked = true;
+		    el.onchange();
+		}
+	}
 }
