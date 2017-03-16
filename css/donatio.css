@@ -212,3 +212,7 @@ html, body {
 #logo-text{
   text-decoration: none;
 }
+
+.see-all:hover {
+  cursor: pointer;
+}
