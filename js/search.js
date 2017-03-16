@@ -8,6 +8,13 @@ function wordLimit(string, wordCount) {
 	return string.split(/\s+/).slice(0,wordCount).join(" ");
 }
 
+// give the search bar a submit on enter functionality
+$("#searchBar").keyup(function(event){
+    if(event.keyCode == 13){ // enter key
+        $("#searchButton").click();
+    }
+});
+
 // Given a string, search all the charity data for particular results.
 function getPointsMap(charityDetails){
 	// ensure we have the charity data
@@ -136,11 +143,16 @@ function updateSearch() {
 	}
 
 	// add links to other pages of results
-	search_results.append('<div> \
-		<div class="results-page-link"> <a href="search.html"> 1 </a> </div>\
-		<div class="results-page-link"> <a href="search.html?start=10"> 2 </a> </div>\
-		<div class="results-page-link"> <a href="search.html?start=20"> 3 </a> </div>\
-		</div>')
+	var pagination = $('<div></div>');
+	for (var i = 0; i*10 < result_indeces.length; i++) {
+		var extraclass = "";
+		if (start == i*10) {
+			extraclass = " results-page-link-active";
+		}
+		pagination.append('<div class="results-page-link'+extraclass+'"> <a href="search.html?start='
+							 + (i * 10) + '"> '+(i+1)+' </a> </div>');
+	}
+	search_results.append(pagination);
 }
 
 function loadDetailsPage(pageIndex) {

@@ -19,8 +19,6 @@
 
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
     <link href="css/donatio.css" rel="stylesheet">
-    <script src="js/donatio.js"></script>
-    <script src="js/search.js"></script>
 
 
   </head>
@@ -53,7 +51,7 @@
                 <div class="form-group">
                     <input type="search" class="form-control" id="searchBar" placeholder="I would like to donate to...">
                 
-                <button type="submit" class="btn btn-default" onclick="onSearchClick()">Search</button>
+                <button type="submit" class="btn btn-default" id="searchButton" onclick="onSearchClick()">Search</button>
                 </div>
             <!--/form-->
             <p> Displaying results 1-10 of 1024 </p>
@@ -63,18 +61,18 @@
         </div>
       </div>
 
-
-    <!--Load menu bar separately-->
-    <script>
-      loadMenu("search");
-    </script>
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!--Load menu bar separately-->
+
+    
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/donatio.js"></script>
+    <script src="js/search.js"></script>
 
     <script>
+        loadMenu();
         checkGETforQuery();
         loadSidebar();
         updateSearch();

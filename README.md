@@ -42,11 +42,10 @@ direct page to /clear.html to clear session data for development
  * [x] Limit size of description for search results - .2h
  * [x] Add link to "more details" page - .2h 
  * [ ] Add visual cue to drop down for search results - .2h - is the current setup OK?
+ * [x] Dynamically generate the links to other pages of results - .3h
+ * [x] User can also click enter for search - .2h
  * ---- the rest of this is unordered ---
- * [ ] Dynamically generate the links to other pages of results - .3h
  * [ ] Save search state across tabs - .3h
- * [ ] User can also click enter for search - .2h
- * [ ] Format such that box extends to the bottom of the window - .3h
  * [ ] Stars filter should work - .5h
  * [ ] Generated details table data should be somewhat sensible - .5h
  * ---- nice to have ----
