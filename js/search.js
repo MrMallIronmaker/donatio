@@ -4,6 +4,17 @@ function getSubstringCount(needle, haystack) {
     return m ? m.length:0;
 }
 
+function wordLimit(string, wordCount) {
+	return string.split(/\s+/).slice(0,wordCount).join(" ");
+}
+
+// give the search bar a submit on enter functionality
+$("#searchBar").keyup(function(event){
+    if(event.keyCode == 13){ // enter key
+        $("#searchButton").click();
+    }
+});
+
 // Given a string, search all the charity data for particular results.
 function getPointsMap(charityDetails){
 	// ensure we have the charity data
@@ -55,12 +66,6 @@ function addSubstringFilter(filterText) {
 	var sessionObject = getSessionObject();
 	sessionObject["searchStrings"].push(filterText);
 	setSessionObject(sessionObject);
-
-	$("#filters").append(
-		'<div class="filter-option filter-substring">' +
-			'<div class="filter-substring-x" onclick="removeSubstringFilter(this)">&#10006;</div>' +
-			'<div class="filter-substring-text">' + filterText + '</div>' + 
-		'</div>');
 }
 
 function removeSubstringFilter(element) {
@@ -73,7 +78,6 @@ function removeSubstringFilter(element) {
 	sessionObject["searchStrings"] = currentSearchStrings;
 	setSessionObject(sessionObject);
 
-	$(element).parent().remove();
 	updateSearch();
 }
 
@@ -107,7 +111,9 @@ function updateSearch() {
 				<h3 class="search-result-title" onclick="loadDetailsPage(' + result_indeces[i] + ')">'
 					+ charityDetails[result_indeces[i]].name + 
 				'</h3>\
-				<p class="search-result-body" onclick="toggleDetailsTable(this)">' 
+				<p class="search-result-body details-table-visible" onclick="toggleDetailsTable(this)">' 
+					+ wordLimit(charityDetails[result_indeces[i]].mission, 20) + '... </p>\
+					<p class="search-result-body details-table-hidden" onclick="toggleDetailsTable(this)">' 
 					+ charityDetails[result_indeces[i]].mission + ' </p>\
 				<table class="details-table-hidden" class="details-table">\
 					<tr>\
@@ -118,6 +124,7 @@ function updateSearch() {
 						<td class="details-table-label">Cause:</td> \
 						<td class="details-table-data">'
 						+ charityDetails[result_indeces[i]].cause + '</td>\
+						<td rowspan=3> <a onclick="loadDetailsPage(' + result_indeces[i] + ')"> Learn More...</a> </td> \
 					</tr>\
 					<tr>\
 						<td class="details-table-label">Org. Type:</td> \
@@ -136,11 +143,16 @@ function updateSearch() {
 	}
 
 	// add links to other pages of results
-	search_results.append('<div> \
-		<div class="results-page-link"> <a href="search.html"> 1 </a> </div>\
-		<div class="results-page-link"> <a href="search.html?start=10"> 2 </a> </div>\
-		<div class="results-page-link"> <a href="search.html?start=20"> 3 </a> </div>\
-		</div>')
+	var pagination = $('<div></div>');
+	for (var i = 0; i*10 < result_indeces.length; i++) {
+		var extraclass = "";
+		if (start == i*10) {
+			extraclass = " results-page-link-active";
+		}
+		pagination.append('<div class="results-page-link'+extraclass+'"> <a href="search.html?start='
+							 + (i * 10) + '"> '+(i+1)+' </a> </div>');
+	}
+	search_results.append(pagination);
 }
 
 function loadDetailsPage(pageIndex) {
@@ -152,9 +164,10 @@ function loadDetailsPage(pageIndex) {
 }
 
 function toggleDetailsTable(detailsP) {
-	$(detailsP).siblings().filter(".details-table-visible").removeClass("details-table-visible").addClass("details-table-temp");
-	$(detailsP).siblings().filter(".details-table-hidden").removeClass("details-table-hidden").addClass("details-table-visible");
-	$(detailsP).siblings().filter(".details-table-temp").removeClass("details-table-temp").addClass("details-table-hidden");
+	var relevantObjects = $(detailsP).siblings().add($(detailsP));
+	relevantObjects.filter(".details-table-visible").removeClass("details-table-visible").addClass("details-table-temp");
+	relevantObjects.filter(".details-table-hidden").removeClass("details-table-hidden").addClass("details-table-visible");
+	relevantObjects.filter(".details-table-temp").removeClass("details-table-temp").addClass("details-table-hidden");
 }
 
 function checkGETfor(name){
@@ -229,7 +242,7 @@ function loadSidebar() {
 			categoryDiv = $('<div class="filter-option"> \
 	            				<input type="checkbox" onchange="toggleFilter(this, this.checked, \'category\',\'' + currentCategory + '\')">\
 	            				<p class="filter-name">' + currentCategory + '</p>\
-	            				<p class="filter-results-count" id="' + currentCategory + '">(--)</p>\
+	            				<p class="filter-results-count" id="' + escapeSpaces(currentCategory) + '">(--)</p>\
 	            			</div>');
 			allCategoriesDiv.append(categoryDiv);
 		}
@@ -237,19 +250,29 @@ function loadSidebar() {
 		categoryDiv.append('<div class="filter-option filter-cause-hidden"> \
 	            				<input type="checkbox" onchange="toggleFilter(this, this.checked, \'cause\',\'' + allCauses[i][0] + '\')">\
 	            				<p class="filter-name">' + allCauses[i][0] + '</p>\
-	            				<p class="filter-results-count" id="' + allCauses[i][0] + '">(--)</p>\
+	            				<p class="filter-results-count" id="' + escapeSpaces(allCauses[i][0]) + '">(--)</p>\
 	            			</div>')
 	}
-	
+	// for each scope: [#scopes]
+	// make a checkbox for the scope
 	var scopesDiv = $("#scopes");
 	for (i in allScopes) {
 		scopesDiv.append('<div class="filter-option filter-scope"> \
 	            				<input type="checkbox" onchange="toggleFilter(this, this.checked, \'Scope of Impact\',\'' + allScopes[i] + '\')">\
 	            				<p class="filter-name">' + allScopes[i] + '</p>\
-	            				<p class="filter-results-count" id="' + allScopes[i] + '">(--)</p>\
+	            				<p class="filter-results-count" id="' + escapeSpaces(allScopes[i]) + '">(--)</p>\
 	            			</div>')
 		
 	}
-	// for each scope: [#scopes]
-	// make a checkbox for the scope
+	
+	// for each active filter:
+	var sessionObject = getSessionObject();
+	var searchFilters = sessionObject["searchFilters"];
+	for (i in searchFilters) {
+		for (j in searchFilters[i]) {
+			var el = $("#" + escapeSpaces(searchFilters[i][j])).siblings("input")[0];
+		    el.checked = true;
+		    el.onchange();
+		}
+	}
 }

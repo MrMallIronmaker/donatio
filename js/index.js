@@ -26,3 +26,13 @@ function query_search(){
 	search=document.getElementById('searchBar').value.toLowerCase()
 	searchCharities(search, {})
 }
+
+function searchFromDiscover(element) {
+	var searchCause = $(element).find(".cause-subcategory").html();
+	var searchCategory = $(element).closest(":has(h2)").find("h2").html();
+	var sessionObject = getSessionObject();
+	sessionObject["searchFilters"]["cause"] = [searchCause];
+	sessionObject["searchFilters"]["category"] = [searchCategory];
+	sessionObject["searchStrings"] = [""];
+	setSessionObject(sessionObject);
+}
