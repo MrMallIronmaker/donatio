@@ -40,8 +40,8 @@ direct page to /clear.html to clear session data for development
  * [x] make sure the filters launch correctly from causes page - .5h
  * [x] remove the filters section - .2h
  * [x] Limit size of description for search results - .2h
- * [ ] Add link to "more details" page - .2h
- * [ ] Add visual cue to drop down for search results - .2h
+ * [x] Add link to "more details" page - .2h 
+ * [ ] Add visual cue to drop down for search results - .2h - is the current setup OK?
  * ---- the rest of this is unordered ---
  * [ ] Dynamically generate the links to other pages of results - .3h
  * [ ] Save search state across tabs - .3h

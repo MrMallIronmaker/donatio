@@ -107,7 +107,7 @@ function updateSearch() {
 				<p class="search-result-body details-table-visible" onclick="toggleDetailsTable(this)">' 
 					+ wordLimit(charityDetails[result_indeces[i]].mission, 20) + '... </p>\
 					<p class="search-result-body details-table-hidden" onclick="toggleDetailsTable(this)">' 
-					+ charityDetails[result_indeces[i]].mission + '... </p>\
+					+ charityDetails[result_indeces[i]].mission + ' </p>\
 				<table class="details-table-hidden" class="details-table">\
 					<tr>\
 						<td class="details-table-label">Rating:</td> \
@@ -117,6 +117,7 @@ function updateSearch() {
 						<td class="details-table-label">Cause:</td> \
 						<td class="details-table-data">'
 						+ charityDetails[result_indeces[i]].cause + '</td>\
+						<td rowspan=3> <a onclick="loadDetailsPage(' + result_indeces[i] + ')"> Learn More...</a> </td> \
 					</tr>\
 					<tr>\
 						<td class="details-table-label">Org. Type:</td> \
