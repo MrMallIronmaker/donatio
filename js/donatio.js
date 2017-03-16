@@ -201,7 +201,7 @@ function generateRandomCharities(numCharities){
 }
 
 function generateRandomCharityDetails(charityDetail){
-  if charityDetail.name == "Girl Scouts of the USA"{
+  if (charityDetail.name == "Girl Scouts of the USA"){
     charityDetail = fillIn(charityDetail, "website", "http://www.girlscouts.org");
     charityDetail = fillIn(charityDetail, "rating", 5);
     charityDetail = fillIn(charityDetail, "headquarters", "New York, New York");
