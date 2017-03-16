@@ -4,6 +4,10 @@ function getSubstringCount(needle, haystack) {
     return m ? m.length:0;
 }
 
+function wordLimit(string, wordCount) {
+	return string.split(/\s+/).slice(0,wordCount).join(" ");
+}
+
 // Given a string, search all the charity data for particular results.
 function getPointsMap(charityDetails){
 	// ensure we have the charity data
@@ -55,12 +59,6 @@ function addSubstringFilter(filterText) {
 	var sessionObject = getSessionObject();
 	sessionObject["searchStrings"].push(filterText);
 	setSessionObject(sessionObject);
-
-	$("#filters").append(
-		'<div class="filter-option filter-substring">' +
-			'<div class="filter-substring-x" onclick="removeSubstringFilter(this)">&#10006;</div>' +
-			'<div class="filter-substring-text">' + filterText + '</div>' + 
-		'</div>');
 }
 
 function removeSubstringFilter(element) {
@@ -73,7 +71,6 @@ function removeSubstringFilter(element) {
 	sessionObject["searchStrings"] = currentSearchStrings;
 	setSessionObject(sessionObject);
 
-	$(element).parent().remove();
 	updateSearch();
 }
 
@@ -107,8 +104,10 @@ function updateSearch() {
 				<h3 class="search-result-title" onclick="loadDetailsPage(' + result_indeces[i] + ')">'
 					+ charityDetails[result_indeces[i]].name + 
 				'</h3>\
-				<p class="search-result-body" onclick="toggleDetailsTable(this)">' 
-					+ charityDetails[result_indeces[i]].mission + ' </p>\
+				<p class="search-result-body details-table-visible" onclick="toggleDetailsTable(this)">' 
+					+ wordLimit(charityDetails[result_indeces[i]].mission, 20) + '... </p>\
+					<p class="search-result-body details-table-hidden" onclick="toggleDetailsTable(this)">' 
+					+ charityDetails[result_indeces[i]].mission + '... </p>\
 				<table class="details-table-hidden" class="details-table">\
 					<tr>\
 						<td class="details-table-label">Rating:</td> \
@@ -152,9 +151,10 @@ function loadDetailsPage(pageIndex) {
 }
 
 function toggleDetailsTable(detailsP) {
-	$(detailsP).siblings().filter(".details-table-visible").removeClass("details-table-visible").addClass("details-table-temp");
-	$(detailsP).siblings().filter(".details-table-hidden").removeClass("details-table-hidden").addClass("details-table-visible");
-	$(detailsP).siblings().filter(".details-table-temp").removeClass("details-table-temp").addClass("details-table-hidden");
+	var relevantObjects = $(detailsP).siblings().add($(detailsP));
+	relevantObjects.filter(".details-table-visible").removeClass("details-table-visible").addClass("details-table-temp");
+	relevantObjects.filter(".details-table-hidden").removeClass("details-table-hidden").addClass("details-table-visible");
+	relevantObjects.filter(".details-table-temp").removeClass("details-table-temp").addClass("details-table-hidden");
 }
 
 function checkGETfor(name){
