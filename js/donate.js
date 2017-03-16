@@ -110,11 +110,12 @@ function submit(){
   }
 }
 
+var idx_name_map = {}
+
 function makeCharList() {
   var obj = getSessionObject();
   var savedCharities = obj["savedCharities"];
   var charityDetails = getCharityDetails();
-  var idx_name_map = {}
   var new_list = {}
 
   for (var sc = 0; sc < savedCharities.length; sc++){
