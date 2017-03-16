@@ -49,13 +49,14 @@ function getPointsMap(charityDetails){
 			// if it's in the mission, give it one credit.
 			points += getSubstringCount(inputString, charityDetails[i].mission.toLowerCase()) * 1;
 
-			if (points > 0) {
-				if (pointsMap[points]) {
-					pointsMap[points] = pointsMap[points].concat(i);
-				}
-				else {
-					pointsMap[points] = [i];
-				}
+		}
+
+		if (points > 0) {
+			if (pointsMap[points]) {
+				pointsMap[points] = pointsMap[points].concat(i);
+			}
+			else {
+				pointsMap[points] = [i];
 			}
 		}
 	}
@@ -112,7 +113,7 @@ function updateSearch() {
 					+ charityDetails[result_indeces[i]].name + 
 				'</h3>\
 				<p class="search-result-body details-table-visible" onclick="toggleDetailsTable(this)">' 
-					+ wordLimit(charityDetails[result_indeces[i]].mission, 20) + '... </p>\
+					+ wordLimit(charityDetails[result_indeces[i]].mission, 18) + '... <a>continue</a> </p>\
 					<p class="search-result-body details-table-hidden" onclick="toggleDetailsTable(this)">' 
 					+ charityDetails[result_indeces[i]].mission + ' </p>\
 				<table class="details-table-hidden" class="details-table">\
