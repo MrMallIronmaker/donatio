@@ -155,7 +155,7 @@ function makeCharList() {
 
     var char_num_chars = document.createElement('span');
     char_num_chars.className ='num_chars'
-    var no_char_msg = document.createTextNode('You Have Not Selected Any Charities Yet');
+    var no_char_msg = document.createTextNode('You have not selected any charities');
     char_num_chars.appendChild(no_char_msg);
     if (charities.length == 0){
         char_num_chars.style.display = 'block'
@@ -253,11 +253,7 @@ function makeCharList() {
             obj_del = getSessionObject()
             obj_del['percentAllocated'] -= my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
             delete my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
-            console.log(idx_name_map)
-            console.log(this.parentNode.childNodes[0].childNodes[0].nodeValue)
-            console.log(obj_del['savedCharities'])
             var index = obj_del['savedCharities'].indexOf(idx_name_map[this.parentNode.childNodes[0].childNodes[0].nodeValue])
-            console.log(index)
             if (index > -1) {
                 obj_del['savedCharities'].splice(index, 1);
             }
