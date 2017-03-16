@@ -33,7 +33,7 @@
   {
     "id":5,
     "name": "Juliette Gordon",
-    "photoUrl":"data/imgs/people/5.jpg",
+    "photoUrl":"data/imgs/people/5.jpg"
   },
   {
     "id":6,
@@ -59,7 +59,7 @@
   {
     "id":9,
     "name": "Dr. Jane Goodall",
-    "photoUrl":"data/imgs/people/9.jpg",
+    "photoUrl":"data/imgs/people/9.jpg"
   },
   {
     "id":10,
