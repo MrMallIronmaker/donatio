@@ -42,6 +42,7 @@ hr{
 .charity-element:hover{
   color: white;
   background-color: #CD6F43;
+  cursor: pointer;
 }
 
 .charity-element-selected,
@@ -82,9 +83,15 @@ hr{
   color: white;
   background-color:#00C4B1;
   padding-left:10px;
+  padding-right:10px;
   padding-top:5px;
   padding-bottom:5px;
   border-radius:10px;
+}
+
+.edit-button:hover{
+  background-color: #6FCF97;
+  cursor: pointer;
 }
 
 /* The Modal (background) */
@@ -132,6 +139,12 @@ hr{
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
+  padding-right: 10px
+}
+
+#updateMetricsButton:hover{
+  background-color: #6FCF97;
+  cursor: pointer;
 }
 
 .metric-elem{
@@ -144,6 +157,7 @@ hr{
 .metric-elem:hover{
   color: white;
   background-color: #CD6F43;
+  cursor:pointer;
 }
 
 .metric-elem-selected,
