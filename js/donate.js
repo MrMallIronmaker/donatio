@@ -248,6 +248,7 @@ function makeCharList() {
             obj_del['percentAllocated'] -= my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
             delete my_charities[this.parentNode.childNodes[0].childNodes[0].nodeValue]
             var index = obj_del['savedCharities'].indexOf(idx_name_map[this.parentNode.childNodes[0].childNodes[0].nodeValue])
+            console.log(index)
             if (index > -1) {
                 obj_del['savedCharities'].splice(index, 1);
             }
