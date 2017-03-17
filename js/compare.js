@@ -72,6 +72,10 @@ function loadSelectionMenu(){
             updateComparison(sessObj["comparisonCharities"]);
             var del_char_header = document.getElementById("my_char_header");
             del_char_header.innerHTML = "My Charities ("+sessObj["savedCharities"].length+')';
+            var no_char_msg_del = document.getElementById("no_char_msg");
+            if (sessObj["savedCharities"].length == 0){
+              no_char_msg.style.display='inline-block';
+            }
         };
     }(elemList, elem, savedCharities[i]);
     deleteButton.addEventListener("click", deleteHandler);
