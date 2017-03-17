@@ -137,7 +137,6 @@ function updateSearch() {
 						<td class="details-table-label">Cause:</td> \
 						<td class="details-table-data">'
 						+ charityDetails[result_indeces[i]].cause + '</td>\
-						<td rowspan=3> <a onclick="loadDetailsPage(' + result_indeces[i] + ')"> Learn More...</a> </td> \
 					</tr>\
 					<tr>\
 						<td class="details-table-label">Org. Type:</td> \
