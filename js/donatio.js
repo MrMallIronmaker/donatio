@@ -233,6 +233,31 @@ function generateRandomCharityDetails(charityDetail){
             randomChoice(allScopes));
     charityDetail = fillIn(charityDetail, "Fundraising Efficiency",
             Math.floor(Math.random()*100) + "%");
+
+    charityDetail = fillIn(charityDetail, "Impact Score",
+            Math.floor(Math.random()*10));
+    charityDetail = fillIn(charityDetail, "Corporate Headquarters",
+            "Palo Alto, CA");
+    charityDetail = fillIn(charityDetail, "Outreach Offices",
+            "Palo Alto, CA");
+    charityDetail = fillIn(charityDetail, "Number of Donors",
+            Math.floor(Math.random()*100));
+    charityDetail = fillIn(charityDetail, "Organization Type",
+            randomChoice(["Public", "Private"]));
+    charityDetail = fillIn(charityDetail, "Type of Work",
+            randomChoice(["Funding"]));
+    charityDetail = fillIn(charityDetail, "Administrative Overhead",
+            Math.floor(Math.random()*100) + "%");
+    charityDetail = fillIn(charityDetail, "Charitable Commitment",
+            Math.floor(Math.random()*100) + " M");
+    charityDetail = fillIn(charityDetail, "Donor Dependency",
+            Math.floor(Math.random()*100) + "%");
+    charityDetail = fillIn(charityDetail, "Primary Support",
+            "Govt Grants", "Private Donations");
+    charityDetail = fillIn(charityDetail, "Tax Status",
+            "501(c)(3)");
+    charityDetail = fillIn(charityDetail, "Total Expenses",
+            Math.floor(Math.random()*10) + "M");
     return charityDetail; 
 }
 
