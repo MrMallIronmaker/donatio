@@ -202,8 +202,8 @@
         "Fundraising Efficiency": "44%",
         "Scope of Impact": "State",
         "Years of Operation": 2,
-        "category": "Health",
         "cause": "Diseases, Disorders, and Disciplines",
+        "category": "Health",
         "charitableCommitment": "$2.19B",
         "founded": "Jan 1, 1997",
         "founders": [
@@ -268,6 +268,8 @@
     {
         "mission": "The British Heart Foundation (BHF) is a charity organisation in the United Kingdom. It is the single biggest funder of cardiovascular research in the UK.\n\n",
         "name": "British Heart Foundation",
+        "cause": "Medical Research",
+        "category": "Health",
         "photoUrl": "https://upload.wikimedia.org/wikipedia/en/6/64/British_Heart_Foundation_logo.svg",
         "website": "en.wikipedia.org/wiki/British Heart Foundation"
     },
@@ -310,6 +312,8 @@
     {
         "mission": "CanTeen, The Australian Organisation for Young People Living with cancer, is the national support organisation for young people (aged 12\u201324) living with cancer; including cancer patients, their brothers and sisters and young people with parents or primary carers with cancer.\nCanTeen was created by young cancer patients back in 1985 and its policies are guided by young people living with cancer. Also present in New Zealand.\nOn the last Friday of October, CanTeen hold National Bandanna Day (NBD) where Bandannas are sold to fundraise. National Bandanna Day is CanTeen\u2019s largest fundraiser and this year (2016) it will be held on Friday 28 October. They're aiming to raise $1.25 million to support young people living with cancer. Every year, another 23,000 young people (63 a day) have to deal with the challenge of cancer. Bandannas play a significant role as a symbol of hope and empowerment for people who are affected by cancer and are worn during their cancer journey.\nCanTeen helps young people cope with cancer in their family. Through CanTeen, they learn to explore and deal with their feelings about cancer, connect with other young people in the same boat and if they\u2019ve been diagnosed themselves, CanTeen also provides specialist, youth-specific treatment teams. By feeling understood and supported, young people develop resilience and can rebuild the foundations that crumbled beneath them when cancer turned their life upside down. CanTeen works by having young people at the centre of everything they do. They were set up by a group of young cancer patients in 1985 and still have young people affected by cancer guiding the organisation at every level.\nCombined with their leading edge research into the emotional and social impacts of cancer, it ensures that they truly understand how cancer is different in a young person\u2019s world.\nPeer support\nThrough CanTeen, young people affected by cancer can meet and be supported by others their age who truly understand what they\u2019re going through. They can share experiences through the online community or attend CanTeen Camps or Recreation Days, where they can make new friends, develop coping skills and have a lot of fun too.\nCounselling\nCanTeen\u2019s specially trained counsellors give young people a safe space to talk about difficult thoughts and feelings and help them develop coping strategies. Sadness, anxiety and grief don\u2019t stick to business hours so neither do CanTeen. Online and phone counselling is available seven days a week. Or you can also meet a counsellor face to face.\nInformation and advice\nCanTeen has information and advice about the challenges young people face, from how to talk to friends about cancer to what all the medical jargon means. They can find answers at canteen.org.au where they can also download or order books tailored to their specific cancer experience.\nYouth Cancer Services\nFunded by CanTeen as well as Federal, State and Territory health departments, the Youth Cancer Services provide specialist, age-appropriate medical treatment and psychological support for young people with cancer.\nOnline support\nCanTeen provides world-leading online support for young people living with cancer. At canteen.org.au, they have 24/7 access to a secure online community just for young people like them and can chat to a counsellor using instant messaging or email.\nLeadership development\nCanTeen is passionate about empowerment and is proud to have young people providing direction and advice at all levels of the organisation, including the Board of Directors. Being a Member-led organisation ensures that every aspect of CanTeen\u2019s work is informed by young people so that they get the services, programs and information right. Any young person that receives support from CanTeen can put themselves forward to participate in the organisation\u2019s governance structure. Each local CanTeen Division has a committee that meets regularly to oversee the planning of programs and activities within the Division. Young people hold the majority of positions on those committees. Each Division also elects one Member to sit on the Member Advisory Council and advise the Board.\nCanTeen\u2019s Board of Directors consists of five Member Directors and four Associate Directors, volunteers who bring relevant experience to the Board. CanTeen's Constitution requires that the President and Vice-President are CanTeen Members, and that all votes of the Board include a majority of Member Votes.",
         "name": "CanTeen",
+        "cause": "Medical Research",
+        "category": "Health",
         "photoUrl": "https://upload.wikimedia.org/wikipedia/en/archive/9/99/20160612140736%21Question_book-new.svg",
         "website": "en.wikipedia.org/wiki/CanTeen"
     },
@@ -448,6 +452,8 @@
     {
         "mission": "Children's Miracle Network Hospitals (CMN Hospitals) (French: R\u00e9seau Enfants-Sant\u00e9 (RES)) is a North American non-profit organization that raises funds for children's hospitals, medical research, and community awareness of children's health issues. The organization, founded in 1983 by the Osmond family, John Schneider, Mick Shannon, and Joe Lake, is headquartered in Salt Lake City, Utah. The current President and CEO of Children's Miracle Network Hospitals is John Lauck. To date, Children's Miracle Network Hospitals claims to have raised more than $4.7 billion USD which is distributed directly to a network of 170 hospitals.",
         "name": "Children's Miracle Network Hospitals",
+        "cause": "Medical Research",
+        "category": "Health",
         "photoUrl": "https://upload.wikimedia.org/wikipedia/en/e/e9/CMN_logojpg.jpg",
         "website": "en.wikipedia.org/wiki/Children's Miracle Network Hospitals"
     },
@@ -950,8 +956,8 @@
         "Fundraising Efficiency": "36%",
         "Scope of Impact": "Global",
         "Years of Operation": 40,
-        "category": "Animals",
         "cause": "Zoos and Aquariums",
+        "category": "Animals",
         "charitableCommitment": "$8.66M",
         "founded": "1977",
         "founders": [
@@ -1273,6 +1279,8 @@
     {
         "mission": "Opportunity International is a 501(c)(3) nonprofit organization that is working to end global poverty by creating and sustaining jobs. Through a network of 47 program and support partners, Opportunity provides small business loans, savings, insurance and training to more than 14 million people working their way out of poverty in the developing world. It serves clients in more than 20 countries and works with fundraising partners in the United States, Australia, Canada, Germany, Switzerland, Singapore, Hong Kong and the United Kingdom. Opportunity International has 501(c)(3) status as a tax-exempt charitable organization in the United States of America under the US Internal Revenue Code (Employer Identification Number: 54-0907624).",
         "name": "Opportunity International",
+        "cause": "Medical Research",
+        "category": "Health",
         "photoUrl": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Opportunity_International_Deutschland.jpg",
         "website": "en.wikipedia.org/wiki/Opportunity International"
     },

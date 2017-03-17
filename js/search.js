@@ -77,7 +77,7 @@ function getPointsMap(charityDetails){
 
 function addSubstringFilter(filterText) {
 	var sessionObject = getSessionObject();
-	sessionObject["searchStrings"].push(filterText);
+	sessionObject["searchStrings"] = [filterText];
 	setSessionObject(sessionObject);
 }
 
@@ -102,6 +102,7 @@ function onSearchClick() {
 }
 
 function updateSearch() {
+  var sessObj = getSessionObject();
 	var charityDetails = getCharityDetails();
 	var pointsMap = getPointsMap(charityDetails);
 
@@ -130,6 +131,12 @@ function updateSearch() {
 	var start = checkGETfor('start') || 0;
 	var end = +start + 10; // the limit is ten per page
 
+  var searchDescription = 'Searching ' + '"' + sessObj["searchStrings"].join(" ") + '"';
+  for (var filterName in sessObj["searchFilters"]){
+    searchDescription += ' , "' + sessObj["searchFilters"][filterName] + '"';
+  }
+  search_results.append('<h4 class="search-description">'+searchDescription+'</h4>');
+
 	for (var i = start; i < result_indeces.length && i < end; i++) {
 		search_results.append(
 			'<div class="search-result"> \
@@ -143,11 +150,11 @@ function updateSearch() {
 				<table class="details-table-hidden" class="details-table">\
 					<tr>\
 						<td class="details-table-label">Rating:</td> \
-						<td class="details-table-data">' + buildRating(charityDetails[result_indeces[i]].rating) + '</td>\
+						<td class="details-table-data" id="starz">' + buildRating(charityDetails[result_indeces[i]].rating) + '</td>\
 						<td class="details-table-label">Headquarters:</td> \
 						<td class="details-table-data">Seattle, Washington</td>\
 						<td class="details-table-label">Cause:</td> \
-						<td class="details-table-data">'
+						<td class="details-table-data" id="cause">'
 						+ charityDetails[result_indeces[i]].cause + '</td>\
 					</tr>\
 					<tr>\
@@ -156,15 +163,22 @@ function updateSearch() {
 						<td class="details-table-label">Regions of Operation:</td> \
 						<td class="details-table-data">Worldwide</td>\
 						<td class="details-table-label">Charitable Commitment:</td>\
-						<td class="details-table-data">$2.19B</td>\
+						<td class="details-table-data" id="char">$2.19B</td>\
 					<tr>\
-						<td class="details-table-label">Founded:</td>\
-						<td class="details-table-data">Jan 1, 1997</td>\
+						<td class="details-table-label last-tab-lab">Founded:</td>\
+						<td class="details-table-data last-tab-dat">Jan 1, 1997</td>\
+					</tr>\
+					<tr onclick = "trclick(event)">\
+						<td class="less-tab"><a onclick="closeDetailsTable(this)">see less</a></td>\
 					</tr>\
 				</table>\
 			</div>'
 		)
 	}
+
+  if (result_indeces.length == 0){
+    search_results.append('<h2>No Results Found</h2>');
+  }
 
 	// add links to other pages of results
 	var pagination = $('<div></div>');
@@ -179,8 +193,21 @@ function updateSearch() {
 	search_results.append(pagination);
 }
 
+function trclick(e){
+	e.stopPropagation();
+}
+
 function toggleDetailsTable(detailsP) {
 	var relevantObjects = $(detailsP).siblings().add($(detailsP));
+	console.log(detailsP)
+	relevantObjects.filter(".details-table-visible").removeClass("details-table-visible").addClass("details-table-temp");
+	relevantObjects.filter(".details-table-hidden").removeClass("details-table-hidden").addClass("details-table-visible");
+	relevantObjects.filter(".details-table-temp").removeClass("details-table-temp").addClass("details-table-hidden");
+}
+
+function closeDetailsTable(detailsP) {
+	console.log($(detailsP.parentNode.parentNode.parentNode).siblings())
+	var relevantObjects = detailsP.parentNode.parentNode.parentNode.previousSibling
 	relevantObjects.filter(".details-table-visible").removeClass("details-table-visible").addClass("details-table-temp");
 	relevantObjects.filter(".details-table-hidden").removeClass("details-table-hidden").addClass("details-table-visible");
 	relevantObjects.filter(".details-table-temp").removeClass("details-table-temp").addClass("details-table-hidden");

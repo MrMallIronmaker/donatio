@@ -61,7 +61,34 @@ html, body {
 
 .details-table-label {
 	font-weight: bold;
-	text-align: right;
+	text-align: left;
+  vertical-align: top;
+  
+}
+
+.details-table-data {
+  text-align: left;
+  padding-right: 20px;
+  vertical-align: bottom;
+}
+
+#starz, #cause, #char {
+  vertical-align: top;
+}
+
+.last-tab-lab, .last-tab-dat{
+  padding-top: 10px;
+}
+
+.less-tab{
+  text-align: left;
+  vertical-align: top;
+  padding-top: 10px;
+}
+
+.less-tab:hover{
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .filter-name, .filter-results-count {
@@ -315,4 +342,8 @@ a:hover{
 .cart-number-invert {
   background-color: #C43E00;
   border-color: #fff;
+}
+
+.search-description{
+  color: grey;
 }
