@@ -69,7 +69,7 @@ function loadSelectionMenu(){
                 setSessionObject(sessObj);
             }
             elemList.removeChild(elem);
-            updateComparison(sessObj["comparisonCharities"]);
+            updateComparison();
             var del_char_header = document.getElementById("my_char_header");
             del_char_header.innerHTML = "My Charities ("+sessObj["savedCharities"].length+')';
             var no_char_msg_del = document.getElementById("no_char_msg");
@@ -82,37 +82,49 @@ function loadSelectionMenu(){
 
     var clickHandler = function(elem, charityId){
       return function(){
+        var sessObj = getSessionObject();
         if (elem.className.split(" ").length == 2){
-          // Charity is not currently selected
-          elem.className = "row charity-element charity-element-selected";
-          var sessObj = getSessionObject();
-          sessObj["comparisonCharities"].push(charityId);
-          setSessionObject(sessObj);
-          console.log(sessObj["comparisonCharities"]);
-          updateComparison(sessObj["comparisonCharities"]);
 
+          // Charity is not currently selected
+          if (sessObj['comparisonCharities'].length < 4){
+              elem.className = "row charity-element charity-element-selected";
+              var sessObj = getSessionObject();
+              sessObj["comparisonCharities"].push(charityId);
+              setSessionObject(sessObj);
+              console.log(sessObj["comparisonCharities"]);
+              updateComparison();
+          }
         } else{
           // Charity is already selected
           elem.className = "row charity-element";
-          var sessObj = getSessionObject();
           var removeIndex = sessObj["comparisonCharities"].indexOf(charityId);
           if (removeIndex > -1){
             sessObj["comparisonCharities"].splice(removeIndex, 1);
           }
           setSessionObject(sessObj);
-          updateComparison(sessObj["comparisonCharities"]);
+          updateComparison();
         }
       }}(elem, savedCharities[i]);
     leftSide.addEventListener("click", clickHandler);
   }
 }
 
-function updateComparison(charityIds){
+function updateComparison(){
+  var obj = getSessionObject();
+  var charityIds = obj["comparisonCharities"]
+  // Remove charities from comparison set if they have been removed from saved charities
+  for (var i=0; i<charityIds.length; i++){
+    if (obj["savedCharities"].indexOf(charityIds[i]) == -1){
+        charityIds.splice(i,1);
+    }
+  }
+  obj["comparisonCharities"] = charityIds;
+  setSessionObject(obj);
+
   // Display up to a maxiumum of 4 charities for comparison
   var numComparisons = Math.min(charityIds.length, 4);
   // Out of 12 column grid - 2 columns reserved for metric name - 10 remaining
   var bootstrapColumnSize = Math.floor(10 / numComparisons);
-  var obj = getSessionObject();
   var comparisonMetrics = obj["comparisonMetrics"];
   var charityDetails = getCharityDetails();
   var comparisonView = document.getElementById("comparisonList");
@@ -231,7 +243,7 @@ function editMetricsHandler(){
     sessObj["comparisonMetrics"] = selectedMetricNames;
     setSessionObject(sessObj);
     modal.style.display = "none";
-    updateComparison(sessObj["comparisonCharities"]);
+    updateComparison();
   }; 
 
 }
