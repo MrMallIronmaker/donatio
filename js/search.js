@@ -110,7 +110,7 @@ function updateSearch() {
 
 	var keys = Object.keys(pointsMap);
 	keys.sort(function (a, b) {return b-a;});
-	'''
+	/*
 	var none_found_msg = document.createElement('div')
 	var text_msg = document.createTextNode('No results found')
 	none_found_msg.append(text_msg)
@@ -123,7 +123,7 @@ function updateSearch() {
 	}else{
 		document.getElementById('none_found').style.display = 'hidden'
 	}
-	'''
+	*/
 	// flatten the results.
 	result_indeces = [].concat.apply([], result_indeces);
 
