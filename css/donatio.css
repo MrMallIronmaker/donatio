@@ -62,12 +62,12 @@ html, body {
 .details-table-label {
 	font-weight: bold;
 	text-align: left;
-
+  
 }
 
-.details-table-label {
-  font-weight: bold;
+.details-table-data {
   text-align: left;
+  margin-right: 15px;
 
 }
 
