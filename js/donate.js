@@ -155,8 +155,9 @@ function makeCharList() {
 
     var char_num_chars = document.createElement('span');
     char_num_chars.className ='num_chars'
-    var no_char_msg = document.createTextNode('You have not selected any charities');
+    var no_char_msg = document.createTextNode('No charities selected');
     char_num_chars.appendChild(no_char_msg);
+    no_char_msg.setAttribute('id', 'no_chars_msg');
     if (charities.length == 0){
         char_num_chars.style.display = 'block'
     }else{
@@ -263,6 +264,10 @@ function makeCharList() {
             update_pie(this.parentNode.childNodes[0].childNodes[0].nodeValue, 0);
             this.parentNode.parentNode.removeChild(this.parentNode);
             document.getElementById("My_Charities").childNodes[0].nodeValue = 'My Charities (' + Object.keys(my_charities).length + ')'
+            if(Object.keys(my_charities).length == 0){
+                no_chars = document.getElementById('no_chars_msg');
+                no.style.display = 'block';
+            }
             total_alloc = Object.values(my_charities).reduce(function(a,b){return a+b;},0);
                 
             prog_bar = document.getElementsByClassName('progress-bar')[0]
