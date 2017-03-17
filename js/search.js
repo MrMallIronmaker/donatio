@@ -77,7 +77,7 @@ function getPointsMap(charityDetails){
 
 function addSubstringFilter(filterText) {
 	var sessionObject = getSessionObject();
-	sessionObject["searchStrings"].push(filterText);
+	sessionObject["searchStrings"] = [filterText];
 	setSessionObject(sessionObject);
 }
 
@@ -157,7 +157,7 @@ function updateSearch() {
 						<td class="details-table-data">Worldwide</td>\
 						<td class="details-table-label">Charitable Commitment:</td>\
 						<td class="details-table-data">$2.19B</td>\
-					<tr>\
+					<tr class="last-tab-row">\
 						<td class="details-table-label">Founded:</td>\
 						<td class="details-table-data">Jan 1, 1997</td>\
 					</tr>\
