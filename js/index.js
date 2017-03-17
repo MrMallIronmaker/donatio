@@ -20,7 +20,6 @@ $(document).ready(function(event) {
 			sessionObject["searchStrings"] = [search];
 			setSessionObject(sessionObject);
 			window.location.href = "./search.html";
-            //searchCharities(search, {})
             return;
          }
     });
@@ -33,7 +32,6 @@ function query_search(){
 	sessionObject["searchStrings"] = [search];
 	setSessionObject(sessionObject);
 	window.location.href = "./search.html";
-	//searchCharities(search, {})
 
 }
 
