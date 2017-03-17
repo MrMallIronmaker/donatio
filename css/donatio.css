@@ -82,11 +82,9 @@ html, body {
 
 .less-tab{
   padding-top: 10px;
-  color: blue;
 }
 
 .less-tab:hover{
-  text-decoration: underline;
   cursor: pointer
 }
 

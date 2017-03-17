@@ -162,7 +162,7 @@ function updateSearch() {
 						<td class="details-table-data last-tab-dat">Jan 1, 1997</td>\
 					</tr>\
 					<tr>\
-						<td class="details-table-label less-tab onclick="closeDetailsTable(this)"">See less</td>\
+						<td class="details-table-label less-tab""><a onclick="closeDetailsTable(this)>see less</a></td>\
 					</tr>\
 				</table>\
 			</div>'
