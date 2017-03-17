@@ -55,7 +55,7 @@ function initializePage(currentNavItem){
 }
 
 function escapeSpaces(str) {
-  return str.replace(" ", "_");
+  return str.replace(/ /g, "_");
 }
 
 
