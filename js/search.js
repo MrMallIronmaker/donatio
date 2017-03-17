@@ -111,7 +111,18 @@ function updateSearch() {
 	var keys = Object.keys(pointsMap);
 	keys.sort(function (a, b) {return b-a;});
 
+	var none_found_msg = createElement('div')
+	var text_msg = createTextNode('No results found')
+	none_found_msg.append(text_msg)
+	none_found_msg.style.display = 'none'
+	search_results.append(none_found_msg)
+
 	var result_indeces = keys.map(function (i) {return pointsMap[i];});
+	if (result_indeces.length == 0 && getSessionObject['searchStrings'].length != 0){
+		document.getElementById('none_found').style.display = 'block'
+	}else{
+		document.getElementById('none_found').style.display = 'hidden'
+	}
 	// flatten the results.
 	result_indeces = [].concat.apply([], result_indeces);
 
