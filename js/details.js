@@ -1,3 +1,14 @@
+function buildRating(val) {
+  var htmlBuilder = "";
+  for (var i = 1; i <= 5; i++) {
+    var img_src = "imgs/star_empty.png";
+    if (val >= i) {
+      img_src = "imgs/star_fill.png";
+    }
+    htmlBuilder += "<img class='filter-rating-star' src='" + img_src + "'>";
+  }
+  return htmlBuilder;
+}
 function initializeDetails(){
     var sessObj = getSessionObject();
     var charityDetails = getCharityDetails(); 
@@ -100,7 +111,7 @@ function showAboutView(){
   contentView.appendChild(glanceRow);
   var leftSide = document.createElement("div");
   leftSide.className = "col-md-6";
-  leftSide.innerHTML += "<h4>Rating: " + charityDetail["rating"] + "</h4>";
+  leftSide.innerHTML += "<h4>Rating: </h4>" + buildRating(charityDetail["rating"]);
   leftSide.innerHTML += "<h4>Org Type: " + charityDetail["orgType"] + "</h4>";
   leftSide.innerHTML += "<h4>Founded: " + charityDetail["founded"] + "</h4>";
   leftSide.innerHTML += "<h4>Headquarters: " + charityDetail["headquarters"] + "</h4>";

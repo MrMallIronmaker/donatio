@@ -110,8 +110,20 @@ function updateSearch() {
 
 	var keys = Object.keys(pointsMap);
 	keys.sort(function (a, b) {return b-a;});
+	/*
+	var none_found_msg = document.createElement('div')
+	var text_msg = document.createTextNode('No results found')
+	none_found_msg.append(text_msg)
+	none_found_msg.style.display = 'none'
+	search_results.append(none_found_msg)*/
 
 	var result_indeces = keys.map(function (i) {return pointsMap[i];});
+	/*if (result_indeces.length == 0 && getSessionObject['searchStrings'].length != 0){
+		document.getElementById('none_found').style.display = 'block'
+	}else{
+		document.getElementById('none_found').style.display = 'hidden'
+	}
+	*/
 	// flatten the results.
 	result_indeces = [].concat.apply([], result_indeces);
 
@@ -125,9 +137,9 @@ function updateSearch() {
 					+ charityDetails[result_indeces[i]].name + 
 				'</h3>\
 				<p class="search-result-body details-table-visible" onclick="toggleDetailsTable(this)">' 
-					+ wordLimit(charityDetails[result_indeces[i]].mission, 18) + '... <a>continue</a> </p>\
+					+ wordLimit(charityDetails[result_indeces[i]].mission, 18) + '... <a>(see more)</a> </p>\
 					<p class="search-result-body details-table-hidden" onclick="toggleDetailsTable(this)">' 
-					+ charityDetails[result_indeces[i]].mission + ' </p>\
+					+ charityDetails[result_indeces[i]].mission + ' <a onclick="loadDetailsPage(' + result_indeces[i] + ')"> Learn More...</a> </p>\
 				<table class="details-table-hidden" class="details-table">\
 					<tr>\
 						<td class="details-table-label">Rating:</td> \
@@ -137,7 +149,6 @@ function updateSearch() {
 						<td class="details-table-label">Cause:</td> \
 						<td class="details-table-data">'
 						+ charityDetails[result_indeces[i]].cause + '</td>\
-						<td rowspan=3> <a onclick="loadDetailsPage(' + result_indeces[i] + ')"> Learn More...</a> </td> \
 					</tr>\
 					<tr>\
 						<td class="details-table-label">Org. Type:</td> \
