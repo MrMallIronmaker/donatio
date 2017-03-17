@@ -81,13 +81,14 @@ html, body {
 }
 
 .less-tab{
+  text-align: left;
+  vertical-align: top;
   padding-top: 10px;
-  color: blue;
-  text-decoration: underline;
 }
 
 .less-tab:hover{
-  cursor: pointer
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .filter-name, .filter-results-count {
