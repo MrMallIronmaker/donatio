@@ -116,6 +116,11 @@ html, body {
 .vertical-align {
   display: flex;
   align-items: center;
+  margin-right:15px
+}
+
+.compare-nav{
+margin-left:-15px;
 }
 
 .cause-category {
