@@ -18,6 +18,9 @@ function loadSelectionMenu(){
   var char_header = document.getElementById("my_char_header");
   char_header.innerHTML = "My Charities ("+savedCharities.length+')';
 
+  var no_char_msg = document.getElementById("no_char_msg");
+  no_char_msg.style.display='inline-block';
+
   // prepopulate selected charities if comparison basket is empty
   if (initialSelectedCharities.length == 0){
     for (var i=0; i < Math.min(savedCharities.length, 4); i++){
