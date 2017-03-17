@@ -235,13 +235,56 @@ function makeCharList() {
 
                 $( "#"+this.getAttribute('id') +" .ui-state-default, .ui-widget-content .ui-state-default" ).css( "background-color", '#C43E00' );
             }
+
         });
 
-        var char_content_value = document.createElement('span');
-        char_content_value.className ='alloc_val'
-        var char_value = document.createTextNode(my_charities[charities[i]]+'%');
-        char_content_value.appendChild(char_value);
+        var char_content_value = document.createElement('input');
+        char_content_value.className ='alloc_val';
+        char_content_value.setAttribute('type', 'text');
+        char_content_value.setAttribute('id', 'slider_amount_'+i);
+        char_content_value.setAttribute('size', "4");
+        char_content_value.value = my_charities[charities[i]]+'%';
         char_band.appendChild(char_content_value);
+
+
+        $('#slider_amount_'+i).change(function () {
+            var in_char_error = document.getElementsByClassName('error_msg')[0]
+            var value = parseInt(this.value)
+            console.log(in_char_error)
+            in_slider_obj = getSessionObject()
+            
+            var c_name = this.parentNode.childNodes[0].innerHTML;
+            console.log(in_slider_obj['percentAllocated'])
+            console.log(in_slider_obj['allocationAmounts'])
+            console.log(value)
+            var remaining = 100 - (in_slider_obj['percentAllocated']-in_slider_obj['allocationAmounts'][c_name])
+            console.log(remaining)
+            if (value>remaining){
+                this.value = remaining+'%'
+                value = remaining
+                in_slider_obj['percentAllocated'] = 100
+                in_char_error.style.visibility = 'visible'
+            }else{
+                in_char_error.style.visibility = 'hidden'
+                in_slider_obj['percentAllocated'] = in_slider_obj['percentAllocated']-in_slider_obj['allocationAmounts'][c_name] + value
+                this.value = value+'%'
+            }
+            /*selector = this.previousSibling;
+            console.log(selector)
+            selector.slider('value', value);*/
+            in_slider = this.parentNode.childNodes[1]
+            $(in_slider).slider('value', value) 
+                   
+            my_charities[c_name] = value
+            in_slider_obj['allocationAmounts'] = my_charities;
+            setSessionObject(in_slider_obj)
+            prog_bar = document.getElementsByClassName('progress-bar')[0]
+            prog_bar.setAttribute('aria-valuenow', in_slider_obj['percentAllocated'])
+            prog_bar.setAttribute('style', "width:"+in_slider_obj['percentAllocated']+"%")
+            prog_bar.innerHTML = in_slider_obj['percentAllocated']+'%'
+            update_pie(c_name, my_charities[c_name])
+
+        })
 
         //creates trash can remove buttons
         var button = document.createElement("button");
@@ -258,7 +301,6 @@ function makeCharList() {
             if (index > -1) {
                 obj_del['savedCharities'].splice(index, 1);
             }
-            console.log(obj_del['savedCharities'])
             obj_del['allocationAmounts'] = my_charities;
             setSessionObject(obj_del);
             update_pie(this.parentNode.childNodes[0].childNodes[0].nodeValue, 0);
