@@ -73,6 +73,10 @@ html, body {
 
 }
 
+#starz {
+  vertical-align: top;
+}
+
 .filter-name, .filter-results-count {
 	display: inline;
 }
