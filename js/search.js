@@ -208,7 +208,7 @@ function toggleDetailsTable(detailsP) {
 function closeDetailsTable(detailsP) {
 	p_elem = $(detailsP).closest('div').find('.search-result-body')
 	console.log(p_elem)
-	var relevantObjects = $(p_elem).siblings().add($p_elem)
+	var relevantObjects = $(p_elem).siblings().add($(p_elem))
 	relevantObjects.filter(".details-table-visible").removeClass("details-table-visible").addClass("details-table-temp");
 	relevantObjects.filter(".details-table-hidden").removeClass("details-table-hidden").addClass("details-table-visible");
 	relevantObjects.filter(".details-table-temp").removeClass("details-table-temp").addClass("details-table-hidden");
