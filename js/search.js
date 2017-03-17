@@ -77,7 +77,7 @@ function getPointsMap(charityDetails){
 
 function addSubstringFilter(filterText) {
 	var sessionObject = getSessionObject();
-	sessionObject["searchStrings"].push(filterText);
+	sessionObject["searchStrings"] = [filterText];
 	setSessionObject(sessionObject);
 }
 
