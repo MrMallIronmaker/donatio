@@ -179,14 +179,6 @@ function updateSearch() {
 	search_results.append(pagination);
 }
 
-function loadDetailsPage(pageIndex) {
-	var q = getSessionObject();
-	q.detailsCharity = pageIndex;
-	setSessionObject(q);
-
-	window.location.href = 'details.html';
-}
-
 function toggleDetailsTable(detailsP) {
 	var relevantObjects = $(detailsP).siblings().add($(detailsP));
 	relevantObjects.filter(".details-table-visible").removeClass("details-table-visible").addClass("details-table-temp");
@@ -218,7 +210,7 @@ function toggleFilter(element, isChecked, filterType, filterValue) {
 	var currentFilterList = sessionObject["searchFilters"][filterType];
 	// if it's checked, add the filter to the current filter list
 	if (isChecked) {
-		if (currentFilterList) {
+		if (currentFilterList && (currentFilterList.indexOf(filterValue) === -1)) {
 			currentFilterList.push(filterValue);
 		} else {
 			currentFilterList = [filterValue];

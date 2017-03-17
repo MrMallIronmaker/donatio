@@ -35,7 +35,11 @@
     </div>
     <div class="col-md-6" style="text-align: right">
         <p id = "funds" style="display: inline;"> $0/$60 allocated </p>
-        <img src="imgs/cart.png">
+        <div class="dropdown">
+          <img src="imgs/cart.png" onclick="openCart()" class="dropbtn" onmouseenter="this.src='imgs/cart_white.png'" onmouseleave="this.src='imgs/cart.png'">
+          <div id="cartDropdown" class="dropdown-content">
+          </div>
+        </div>
     </div>
 </div>
 <div class="row titlebar">

@@ -52,6 +52,7 @@ function initializeDetails(){
                 elem.className = "unadded"
             }
             setSessionObject(sessObj);
+            loadCart();
         };
     }(addCharityButton));
 }
