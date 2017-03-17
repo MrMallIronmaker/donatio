@@ -21,6 +21,8 @@ function loadSelectionMenu(){
   var no_char_msg = document.getElementById("no_char_msg");
   if (savedCharities.length == 0){
     no_char_msg.style.display='inline-block';
+  }else{
+    no_char_msg.style.display='hidden';
   }
 
   // prepopulate selected charities if comparison basket is empty
