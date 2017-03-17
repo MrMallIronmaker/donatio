@@ -77,6 +77,10 @@ html, body {
   vertical-align: top;
 }
 
+.last-tab-row{
+  padding-top: 10px;
+}
+
 .filter-name, .filter-results-count {
 	display: inline;
 }
