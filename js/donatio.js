@@ -28,12 +28,11 @@ var allCauses = [
   ["Multipurpose Human Service Organizations", "Human Services"],
   ["Homeless Services", "Human Services"],
   ["Social Services", "Human Services"],
-  ["Advocacy and Education", "Huamn and Civil Rights"],
+  ["Advocacy", "Human and Civil Rights"],
+  ["Voter Education and Reform", "Human and Civil Rights"],
   ["Development and Relief Services", "International"],
   ["International Peace, Security, and Affairs", "International"],
   ["Humanitarian Relief Supplies", "International"],
-  ["Religious Activities", "Religion"],
-  ["Religious Media and Broadcasting", "Religion"],
   ["Non-Medical Science & Technology Research", "Research and Public Policy"],
   ["Social and Public Policy Research", "Research and Public Policy"]
 ];

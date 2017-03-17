@@ -61,7 +61,14 @@ html, body {
 
 .details-table-label {
 	font-weight: bold;
-	text-align: right;
+	text-align: left;
+
+}
+
+.details-table-label {
+  font-weight: bold;
+  text-align: left;
+
 }
 
 .filter-name, .filter-results-count {
