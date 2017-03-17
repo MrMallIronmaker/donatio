@@ -8,12 +8,20 @@ function wordLimit(string, wordCount) {
 	return string.split(/\s+/).slice(0,wordCount).join(" ");
 }
 
-// give the search bar a submit on enter functionality
-$("#searchBar").keyup(function(event){
-    if(event.keyCode == 13){ // enter key
-        $("#searchButton").click();
-    }
-});
+
+function initializeSearchButton(){
+    // Attach onclick handler to submit button
+    var button = document.getElementById("search-button");
+    button.addEventListener("click", onSearchClick);
+
+
+    // give the search bar a submit on enter functionality
+    $("#searchBar").keyup(function(event){
+        if(event.keyCode == 13){ // enter key
+            onSearchClick();
+        }
+    });
+}
 
 // Given a string, search all the charity data for particular results.
 function getPointsMap(charityDetails){
