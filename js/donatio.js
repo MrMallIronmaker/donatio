@@ -126,6 +126,7 @@ function loadMenu(currentNavItem){
       highlightNavItem(currentNavItem)
       obj = getSessionObject()
       document.getElementById('funds').innerHTML = '$'+(obj['percentAllocated']/100.0*obj['totalFunds']).toFixed(2)+'/$'+obj['totalFunds']+' allocated';
+      loadCart();
   };
   xhr.send();
 
@@ -355,4 +356,50 @@ function createText(text, class_name){
   var textNode = document.createTextNode(text);
   elem.appendChild(textNode);
   return elem;
+}
+
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function openCart() {
+    document.getElementById("cartDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+
+function loadCart() {
+  var sessionObject = getSessionObject();
+  var allDetailsData = JSON.parse(sessionStorage.getItem("charityData"));
+  for (i in sessionObject["savedCharities"]) {
+    var charityIndex = sessionObject["savedCharities"][i];
+    //var charityHTML = "<div><div class='cart-img-div'><img class='cart-img' src='" + allDetailsData[charityIndex].photoUrl
+    //  + "'></div><p>" + allDetailsData[charityIndex].name + "</p> </div>";
+
+    var charityHTML = "<tr>\
+      <td class='cart-img-td'><img class='cart-img' src='" + allDetailsData[charityIndex].photoUrl
+      + "'></td><td class='cart-name-td'><h3 class='search-result-title' onclick='loadDetailsPage(" + charityIndex + ")'>"
+         + allDetailsData[charityIndex].name + "</h3></td><td class='cart-delete-td'> <span class='glyphicon glyphicon-trash'> </span></td></tr>";
+    $("#cartDropdown").append(charityHTML);
+  }
+  
+}
+
+function loadDetailsPage(pageIndex) {
+  var q = getSessionObject();
+  q.detailsCharity = pageIndex;
+  setSessionObject(q);
+
+  window.location.href = 'details.html';
 }
