@@ -1,105 +1,83 @@
 <!DOCTYPE html>
-
 <html lang="en">
-<head>
-  <meta name="generator" content=
-  "HTML Tidy for Linux (vers 25 March 2009), see www.w3.org">
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content=
-  "width=device-width, initial-scale=1">
-  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Donatio</title>
 
-  <title>Donatio</title><!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet" type=
-  "text/css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js" type=
-  "text/javascript">
-</script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"
-  type="text/javascript">
-</script>
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel=
-  "stylesheet" type="text/css">
-  <link href="css/donatio.css" rel="stylesheet" type="text/css">
-  <link href="css/comparison.css" rel="stylesheet" type="text/css">
-  <script src="js/donatio.js" type="text/javascript">
-</script>
-  <script src="js/compare.js" type="text/javascript">
-</script>
-</head>
 
-<body>
-  <div class="container-fluid">
-    <div id='menu'></div><!-- The Modal -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="css/donatio.css" rel="stylesheet">
+    <link href="css/comparison.css" rel="stylesheet">
+    <script src="js/donatio.js"></script>
+    <script src="js/compare.js"></script>
 
+  </head>
+  <body>
+    <div class="container-fluid">
+
+    <div id='menu'></div>
+
+    <!-- The Modal -->
     <div id="metricSelectionModal" class="modal">
       <div class="modal-content">
         <div class="row">
           <div class="col-md-10">
             <h2>Comparison Metrics</h2>
           </div>
-
           <div class="col-md-2">
-            <div id="modalCloseButton" class="close">
-              &#215;
-            </div>
+            <div id="modalCloseButton" class="close">&times;</div>
           </div>
         </div>
-
         <div id="allMetricsView"></div>
-
         <div class="row">
           <div class="col-md-10"></div>
-
           <div class="col-md-2">
-            <div id="updateMetricsButton">
-              Update Metrics
-            </div>
+            <div id="updateMetricsButton">Update Metrics</div>
           </div>
         </div>
       </div>
     </div>
 
     <div class="row" style="padding-top:10px">
-      <div class="col-md-3">
-        <h3 id="my_char_header">My Charities</h3>
-        <hr>
+        <div class="col-md-3">
+          <h3 id="my_char_header">My Charities</h3>
+          <hr>
+          <div id="no_char_msg" display:'none'>No charities selected.</div>
+          <div id="myCharitiesList"></div>
 
-        <div id="no_char_msg">
-          No charities selected.
         </div>
-
-        <div id="myCharitiesList"></div>
+        <div class="col-md-8 comparison-content">
+          <h3>Comparison Chart</h3>
+          <div id="comparisonList"></div>
+        </div>
       </div>
 
-      <div class="col-md-8 comparison-content">
-        <h3>Comparison Chart</h3>
 
-        <div id="comparisonList"></div>
-      </div>
-    </div><!--Load menu bar separately-->
-    <script type="text/javascript">
-    //sessionStorage.clear();
+    <!--Load menu bar separately-->
+    <script>
+        //sessionStorage.clear();
         initializePage("compare");
         loadSelectionMenu();
         var sessObj = getSessionObject();
         updateComparison(sessObj["comparisonCharities"]);
-    </script> 
+    </script>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-     <script src=
-    "https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"
-    type="text/javascript">
-</script> 
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-     <script src="js/bootstrap.min.js" type="text/javascript">
-</script>
-  </div>
-</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
 </html>
