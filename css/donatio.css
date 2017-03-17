@@ -82,6 +82,8 @@ html, body {
 
 .less-tab{
   padding-top: 10px;
+  color: blue;
+  text-decoration: underline;
 }
 
 .less-tab:hover{
