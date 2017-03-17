@@ -59,6 +59,7 @@ hr{
 .comparison-name-row{
   margin-bottom:20px;
   margin-top:40px;
+  font-weight: bold;
 }
 
 .comparison-row-even{
@@ -139,7 +140,8 @@ hr{
   padding-left: 10px;
   padding-top: 5px;
   padding-bottom: 5px;
-  padding-right: 10px
+  padding-right: 10px;
+  border-radius:10px;
 }
 
 #updateMetricsButton:hover{

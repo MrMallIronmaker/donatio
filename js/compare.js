@@ -15,6 +15,9 @@ function loadSelectionMenu(){
 
   var elemList = document.getElementById("myCharitiesList");
 
+  var char_header = document.getElementById("my_char_header");
+  char_header.innerHTML = "My Charities ("+savedCharities.length+')';
+
   // prepopulate selected charities if comparison basket is empty
   if (initialSelectedCharities.length == 0){
     for (var i=0; i < Math.min(savedCharities.length, 4); i++){
@@ -59,6 +62,8 @@ function loadSelectionMenu(){
             }
             elemList.removeChild(elem);
             updateComparison(sessObj["comparisonCharities"]);
+            var del_char_header = document.getElementById("my_char_header");
+            del_char_header.innerHTML = "My Charities ("+savedCharities.length+')';
         };
     }(elemList, elem, savedCharities[i]);
     deleteButton.addEventListener("click", deleteHandler);
