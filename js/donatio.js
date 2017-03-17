@@ -135,6 +135,7 @@ function loadStaticData(){
   if (sessionStorage.getItem("charityData") == null){
     loadJSON("data/charityData.json",function(response){
       var allDetailsData = JSON.parse(response);
+      console.log(allDetailsData);
       for (var i = 0; i < allDetailsData.length; i++){
         allDetailsData[i] = generateRandomCharityDetails(allDetailsData[i]);
       }
@@ -202,94 +203,6 @@ function generateRandomCharities(numCharities){
 }
 
 function generateRandomCharityDetails(charityDetail){
-  if (charityDetail.name == "Girl Scouts of the USA"){
-    charityDetail = fillIn(charityDetail, "website", "http://www.girlscouts.org");
-    charityDetail = fillIn(charityDetail, "rating", 5);
-    charityDetail = fillIn(charityDetail, "headquarters", "New York, New York");
-    charityDetail = fillIn(charityDetail, "regionOfOperation", "USA");
-    charityDetail = fillIn(charityDetail, "typeOfWork", "Direct Service");
-    charityDetail = fillIn(charityDetail, "charitableCommitment", "$81.1M");
-    charityDetail = fillIn(charityDetail, "mission", "Fillter mission text");
-    charityDetail = fillIn(charityDetail, "impact", [3, 4, 5]);
-    charityDetail = fillIn(charityDetail, "leadershipTeam", [6, 7, 8]);
-    charityDetail = fillIn(charityDetail, "founders", [5]);
-    charityDetail = fillIn(charityDetail, "news", [3, 4, 5]);
-    charityDetail = fillIn(charityDetail, "cause", allCauses[24][0]);
-    charityDetail = fillIn(charityDetail, "category", allCauses[24][1]);
-
-    // For details page
-    charityDetail = fillIn(charityDetail, "orgType", "Nonprofit Organization");
-    charityDetail = fillIn(charityDetail, "founded", "1912");
-
-    // Comparison metrics
-    charityDetail = fillIn(charityDetail, "BBB Rating",
-        "A");
-    charityDetail = fillIn(charityDetail, "Years of Operation",
-        105);
-    charityDetail = fillIn(charityDetail, "Scope of Impact",
-       "National");
-    charityDetail = fillIn(charityDetail, "Fundraising Efficiency",
-        "36%");
-  }else if (charityDetail.name== "Jane Goodall Institute"){
-    charityDetail = fillIn(charityDetail, "website", "http://www.janegoodall.org/");
-    charityDetail = fillIn(charityDetail, "rating", 4);
-    charityDetail = fillIn(charityDetail, "headquarters", "Vienna, Virginia");
-    charityDetail = fillIn(charityDetail, "regionOfOperation", "Worldwide");
-    charityDetail = fillIn(charityDetail, "typeOfWork", "Philanthropy");
-    charityDetail = fillIn(charityDetail, "charitableCommitment", "$8.66M");
-    charityDetail = fillIn(charityDetail, "mission", "Fillter mission text");
-    charityDetail = fillIn(charityDetail, "impact", [6, 7, 8]);
-    charityDetail = fillIn(charityDetail, "leadershipTeam", [10,11,12]);
-    charityDetail = fillIn(charityDetail, "founders", [9]);
-    charityDetail = fillIn(charityDetail, "news", [6, 7, 8]);
-
-    charityDetail = fillIn(charityDetail, "cause", allCauses[2][0]);
-    charityDetail = fillIn(charityDetail, "category", allCauses[2][1]);
-
-    // For details page
-    charityDetail = fillIn(charityDetail, "orgType", "NGO");
-    charityDetail = fillIn(charityDetail, "founded", "1977");
-
-    // Comparison metrics
-    charityDetail = fillIn(charityDetail, "BBB Rating",
-        "A");
-    charityDetail = fillIn(charityDetail, "Years of Operation",
-        40);
-    charityDetail = fillIn(charityDetail, "Scope of Impact",
-       "Global");
-    charityDetail = fillIn(charityDetail, "Fundraising Efficiency",
-        "36%");
-  }else if (charityDetail.name== "Bill & Melinda Gates Foundation"){
-    charityDetail = fillIn(charityDetail, "website", "www.google.com");
-    charityDetail = fillIn(charityDetail, "rating", 5);
-    charityDetail = fillIn(charityDetail, "headquarters", "Seattle, Washington");
-    charityDetail = fillIn(charityDetail, "regionOfOperation", "Worldwide");
-    charityDetail = fillIn(charityDetail, "typeOfWork", "Philanthropy");
-    charityDetail = fillIn(charityDetail, "charitableCommitment", "$2.19B");
-    charityDetail = fillIn(charityDetail, "mission", "Fillter mission text");
-    charityDetail = fillIn(charityDetail, "impact", [0,1,2]);
-    charityDetail = fillIn(charityDetail, "leadershipTeam", [2,3,4]);
-    charityDetail = fillIn(charityDetail, "founders", [0,1]);
-    charityDetail = fillIn(charityDetail, "news", [0,1,2]);
-
-       // For filtering
-    charityDetail = fillIn(charityDetail, "cause", allCauses[19][0]);
-    charityDetail = fillIn(charityDetail, "category", allCauses[19][1]);
-
-    // For details page
-    charityDetail = fillIn(charityDetail, "orgType", "Private Foundation");
-    charityDetail = fillIn(charityDetail, "founded", "Jan 1, 1997");
-
-    // Comparison metrics
-    charityDetail = fillIn(charityDetail, "BBB Rating",
-        "A");
-    charityDetail = fillIn(charityDetail, "Years of Operation",
-        Math.floor(Math.random()*100));
-    charityDetail = fillIn(charityDetail, "Scope of Impact",
-        randomChoice(allScopes));
-    charityDetail = fillIn(charityDetail, "Fundraising Efficiency",
-        Math.floor(Math.random()*100) + "%");
-  }else{
     charityDetail = fillIn(charityDetail, "website", "www.google.com");
     charityDetail = fillIn(charityDetail, "rating", Math.floor((Math.random()*6)));
     charityDetail = fillIn(charityDetail, "headquarters", "Seattle, Washington");
@@ -302,7 +215,7 @@ function generateRandomCharityDetails(charityDetail){
     charityDetail = fillIn(charityDetail, "founders", [0,1]);
     charityDetail = fillIn(charityDetail, "news", [0,1,2]);
 
-       // For filtering
+    // For filtering
     var cause = randomChoice(allCauses);
     charityDetail = fillIn(charityDetail, "cause", cause[0]);
     charityDetail = fillIn(charityDetail, "category", cause[1]);
@@ -313,15 +226,14 @@ function generateRandomCharityDetails(charityDetail){
 
     // Comparison metrics
     charityDetail = fillIn(charityDetail, "BBB Rating",
-        randomChoice(["A","B","C"]) + randomChoice(["+","","-"]));
+            randomChoice(["A","B","C"]) + randomChoice(["+","","-"]));
     charityDetail = fillIn(charityDetail, "Years of Operation",
-        Math.floor(Math.random()*100));
+            Math.floor(Math.random()*100));
     charityDetail = fillIn(charityDetail, "Scope of Impact",
-        randomChoice(allScopes));
+            randomChoice(allScopes));
     charityDetail = fillIn(charityDetail, "Fundraising Efficiency",
-        Math.floor(Math.random()*100) + "%");
-  }
-  return charityDetail; 
+            Math.floor(Math.random()*100) + "%");
+    return charityDetail; 
 }
 
 function fillIn(obj, key, value){
