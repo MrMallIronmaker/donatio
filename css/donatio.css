@@ -62,14 +62,14 @@ html, body {
 .details-table-label {
 	font-weight: bold;
 	text-align: left;
-  vertical-align: top;
+  vertical-align: bottom;
   
 }
 
 .details-table-data {
   text-align: left;
   padding-right: 20px;
-  vertical-align: top;
+  vertical-align: bottom;
 
 }
 
