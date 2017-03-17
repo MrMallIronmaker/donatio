@@ -125,6 +125,7 @@ function loadMenu(currentNavItem){
       if (this.status!==200) return; // or whatever error handling you want
       document.getElementById('menu').innerHTML= this.responseText;
       // Highlight current page nav text after menu bar is loaded
+      console.log(currentNavItem)
       highlightNavItem(currentNavItem)
       obj = getSessionObject()
       document.getElementById('funds').innerHTML = '$'+(obj['percentAllocated']/100.0*obj['totalFunds']).toFixed(2)+'/$'+obj['totalFunds']+' allocated';
