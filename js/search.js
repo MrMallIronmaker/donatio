@@ -166,6 +166,10 @@ function updateSearch() {
 		)
 	}
 
+  if (result_indeces.length == 0){
+    search_results.append('<h2>No Results Found</h2>');
+  }
+
 	// add links to other pages of results
 	var pagination = $('<div></div>');
 	for (var i = 0; i*10 < result_indeces.length; i++) {
