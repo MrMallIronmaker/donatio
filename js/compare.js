@@ -19,10 +19,11 @@ function loadSelectionMenu(){
   char_header.innerHTML = "My Charities ("+savedCharities.length+')';
 
   var no_char_msg = document.getElementById("no_char_msg");
+  console.log(savedCharities.length)
   if (savedCharities.length == 0){
     no_char_msg.style.display='inline-block';
   }else{
-    no_char_msg.style.display='hidden';
+    no_char_msg.style.display='none';
   }
 
   // prepopulate selected charities if comparison basket is empty
