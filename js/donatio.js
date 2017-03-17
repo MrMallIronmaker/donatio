@@ -92,11 +92,8 @@ function getCharityDetails(){
    * Returns a flattened version of all charities details as a list
    */
   //var allDetailsData = generateRandomCharityDetails(100);
-  var allDetailsData = JSON.parse(sessionStorage.getItem("charityData"));
-  for (var i = 0; i < allDetailsData.length; i++){
-    allDetailsData[i] = generateRandomCharityDetails(allDetailsData[i]);
-  }
 
+  var allDetailsData = JSON.parse(sessionStorage.getItem("charityData"));
   for (var i = 0; i < allDetailsData.length; i++){
     var detail = allDetailsData[i];
     detail["impact"] = getImpactDetail(detail["impact"]);
@@ -137,8 +134,11 @@ function loadMenu(currentNavItem){
 function loadStaticData(){
   if (sessionStorage.getItem("charityData") == null){
     loadJSON("data/charityData.json",function(response){
-      //var jsonData = JSON.parse(response);
-      sessionStorage.setItem("charityData", response);
+      var allDetailsData = JSON.parse(response);
+      for (var i = 0; i < allDetailsData.length; i++){
+        allDetailsData[i] = generateRandomCharityDetails(allDetailsData[i]);
+      }
+      sessionStorage.setItem("charityData", JSON.stringify(allDetailsData));
     });
   }
   if (sessionStorage.getItem("peopleData") == null){
