@@ -143,7 +143,7 @@ function updateSearch() {
 				<table class="details-table-hidden" class="details-table">\
 					<tr>\
 						<td class="details-table-label">Rating:</td> \
-						<td class="details-table-data">' + buildRating(charityDetails[result_indeces[i]].rating) + '</td>\
+						<td class="details-table-data" id="starz">' + buildRating(charityDetails[result_indeces[i]].rating) + '</td>\
 						<td class="details-table-label">Headquarters:</td> \
 						<td class="details-table-data">Seattle, Washington</td>\
 						<td class="details-table-label">Cause:</td> \
@@ -165,6 +165,10 @@ function updateSearch() {
 			</div>'
 		)
 	}
+
+  if (result_indeces.length == 0){
+    search_results.append('<h2>No Results Found</h2>');
+  }
 
 	// add links to other pages of results
 	var pagination = $('<div></div>');
