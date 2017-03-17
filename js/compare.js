@@ -19,7 +19,9 @@ function loadSelectionMenu(){
   char_header.innerHTML = "My Charities ("+savedCharities.length+')';
 
   var no_char_msg = document.getElementById("no_char_msg");
-  no_char_msg.style.display='inline-block';
+  if (savedCharities.length == 0){
+    no_char_msg.style.display='inline-block';
+  }
 
   // prepopulate selected charities if comparison basket is empty
   if (initialSelectedCharities.length == 0){
