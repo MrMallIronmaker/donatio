@@ -206,7 +206,7 @@ function toggleDetailsTable(detailsP) {
 }
 
 function closeDetailsTable(detailsP) {
-	console.log(detailsP.parentNode.parentNode.parentNode)
+	console.log(detailsP.parentNode.parentNode.parentNode.siblings())
 	var relevantObjects = detailsP.parentNode.parentNode.parentNode.previousSibling
 	relevantObjects.filter(".details-table-visible").removeClass("details-table-visible").addClass("details-table-temp");
 	relevantObjects.filter(".details-table-hidden").removeClass("details-table-hidden").addClass("details-table-visible");
