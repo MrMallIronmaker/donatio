@@ -111,7 +111,6 @@ function showAboutView(){
   contentView.appendChild(glanceRow);
   var leftSide = document.createElement("div");
   leftSide.className = "col-md-6";
-  //leftSide.innerHTML += "<h4>Rating: " + charityDetail["rating"] + "</h4>";
   leftSide.innerHTML += "<h4>Rating: </h4>" + buildRating(charityDetail["rating"]);
   leftSide.innerHTML += "<h4>Org Type: " + charityDetail["orgType"] + "</h4>";
   leftSide.innerHTML += "<h4>Founded: " + charityDetail["founded"] + "</h4>";
