@@ -317,7 +317,7 @@ function loadSidebar() {
 			categoryDiv = $('<div class="filter-option"> \
 	            				<input type="checkbox" onchange="toggleFilter(this, this.checked, \'category\',\'' + currentCategory + '\')">\
 	            				<p class="filter-name">' + currentCategory + '</p>\
-	            				<p class="filter-results-count" id="' + escapeSpaces(currentCategory) + '">(--)</p>\
+	            				<p class="filter-results-count" id="' + escapeSpaces(currentCategory) + '"></p>\
 	            			</div>');
 			allCategoriesDiv.append(categoryDiv);
 		}
@@ -325,7 +325,7 @@ function loadSidebar() {
 		categoryDiv.append('<div class="filter-option filter-cause-hidden"> \
 	            				<input type="checkbox" onchange="toggleFilter(this, this.checked, \'cause\',\'' + allCauses[i][0] + '\')">\
 	            				<p class="filter-name">' + allCauses[i][0] + '</p>\
-	            				<p class="filter-results-count" id="' + escapeSpaces(allCauses[i][0]) + '">(--)</p>\
+	            				<p class="filter-results-count" id="' + escapeSpaces(allCauses[i][0]) + '"></p>\
 	            			</div>')
 	}
 	// for each scope: [#scopes]
@@ -335,7 +335,7 @@ function loadSidebar() {
 		scopesDiv.append('<div class="filter-option filter-scope"> \
 	            				<input type="checkbox" onchange="toggleFilter(this, this.checked, \'Scope of Impact\',\'' + allScopes[i] + '\')">\
 	            				<p class="filter-name">' + allScopes[i] + '</p>\
-	            				<p class="filter-results-count" id="' + escapeSpaces(allScopes[i]) + '">(--)</p>\
+	            				<p class="filter-results-count" id="' + escapeSpaces(allScopes[i]) + '"></p>\
 	            			</div>')
 		
 	}
