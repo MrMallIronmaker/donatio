@@ -157,9 +157,9 @@ function updateSearch() {
 						<td class="details-table-data">Worldwide</td>\
 						<td class="details-table-label">Charitable Commitment:</td>\
 						<td class="details-table-data">$2.19B</td>\
-					<tr class="last-tab-row">\
-						<td class="details-table-label">Founded:</td>\
-						<td class="details-table-data">Jan 1, 1997</td>\
+					<tr>\
+						<td class="details-table-label last-tab-lab">Founded:</td>\
+						<td class="details-table-data last-tab-dat">Jan 1, 1997</td>\
 					</tr>\
 				</table>\
 			</div>'
