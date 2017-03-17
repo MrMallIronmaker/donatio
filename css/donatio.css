@@ -242,6 +242,10 @@ margin-left:-15px;
     display: inline-block;
 }
 
+#cartDropdown {
+  padding: 10px 20px;
+}
+
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
     display: none;
@@ -280,4 +284,35 @@ margin-left:-15px;
 
 a:hover{
   cursor: pointer
+}
+
+.cart-number-div {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events:none
+}
+
+.cart-number {
+  font-weight: bold;
+  border-radius: 50%;
+  border-width: 0px;
+  border-style: solid;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 26px;
+  margin: 14px 8px 0px 19px;
+  color: #fff;
+}
+
+.cart-number-normal {
+  background-color: #C43E00;
+  border-color: #000;
+}
+
+.cart-number-invert {
+  background-color: #C43E00;
+  border-color: #fff;
 }

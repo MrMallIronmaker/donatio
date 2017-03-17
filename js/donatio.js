@@ -402,6 +402,10 @@ function loadCart() {
       </tr>";
     $("#cartDropdown").append(charityHTML);
   }
+
+  //alert($("#cart-count").html());
+  $("#cart-count").html(sessionObject.savedCharities.length);
+  //alert(sessionObject.savedCharities.length);
   
 }
 
@@ -420,4 +424,14 @@ function loadDetailsPage(pageIndex) {
   setSessionObject(q);
 
   window.location.href = 'details.html';
+}
+
+function mouseEnterCart(el) {
+  el.src='imgs/cart_white.png';
+  $(el).siblings(".cart-number-div").children().addClass("cart-number-invert").removeClass("cart-number-normal");
+}
+
+function mouseLeaveCart(el) {
+  el.src='imgs/cart.png';
+  $(el).siblings(".cart-number-div").children().addClass("cart-number-normal").removeClass("cart-number-invert");
 }
