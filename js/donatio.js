@@ -366,7 +366,7 @@ function openCart() {
 
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
+  if (!event.target.matches('.dropbtn') && !event.target.matches('.glyphicon-trash')) {
 
     var dropdowns = document.getElementsByClassName("dropdown-content");
     var i;
@@ -382,18 +382,36 @@ window.onclick = function(event) {
 function loadCart() {
   var sessionObject = getSessionObject();
   var allDetailsData = JSON.parse(sessionStorage.getItem("charityData"));
+  $("#cartDropdown").empty();
   for (i in sessionObject["savedCharities"]) {
     var charityIndex = sessionObject["savedCharities"][i];
     //var charityHTML = "<div><div class='cart-img-div'><img class='cart-img' src='" + allDetailsData[charityIndex].photoUrl
     //  + "'></div><p>" + allDetailsData[charityIndex].name + "</p> </div>";
 
     var charityHTML = "<tr>\
-      <td class='cart-img-td'><img class='cart-img' src='" + allDetailsData[charityIndex].photoUrl
-      + "'></td><td class='cart-name-td'><h3 class='search-result-title' onclick='loadDetailsPage(" + charityIndex + ")'>"
-         + allDetailsData[charityIndex].name + "</h3></td><td class='cart-delete-td'> <span class='glyphicon glyphicon-trash'> </span></td></tr>";
+        <td class='cart-img-td'>\
+          <img class='cart-img' src='" + allDetailsData[charityIndex].photoUrl + "'>\
+        </td>\
+        <td class='cart-name-td'>\
+          <h3 class='search-result-title' onclick='loadDetailsPage(" 
+            + charityIndex + ")'>" + allDetailsData[charityIndex].name + "</h3>\
+        </td>\
+        <td class='cart-delete-td'> \
+          <span class='glyphicon glyphicon-trash' onclick='deleteCharity(this," + charityIndex + ")'> </span>\
+        </td>\
+      </tr>";
     $("#cartDropdown").append(charityHTML);
   }
   
+}
+
+function deleteCharity(el, charityIndex) {
+  $(el).closest("tr").remove();
+  var sessionObject = getSessionObject();
+  var savedCharities = sessionObject.savedCharities;
+  savedCharities = savedCharities.filter(item => item !== charityIndex);
+  sessionObject.savedCharities = savedCharities;
+  setSessionObject(sessionObject);
 }
 
 function loadDetailsPage(pageIndex) {
