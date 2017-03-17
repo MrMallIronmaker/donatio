@@ -23,6 +23,7 @@
 }
 
 #addCharityButton{
+  box-shadow: 4px 4px 4px #888888;
   padding-top:10px;
   padding-bottom:10px;
   padding-left:20px;
@@ -148,6 +149,7 @@
 }
 
 .tog-button{
+  box-shadow: 4px 4px 4px #888888;
   padding-top:2px;
   padding-bottom:2px;
   padding-left:0px;
