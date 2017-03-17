@@ -16,7 +16,11 @@ $(document).ready(function(event) {
     $('#searchBar').keyup(function(event) {
         if (event.keyCode == 13) {
             search=document.getElementById('searchBar').value.toLowerCase()
-            searchCharities(search, {})
+            var sessionObject = getSessionObject();
+			sessionObject["searchStrings"] = [search];
+			setSessionObject(sessionObject);
+			window.location.href = "./search.html";
+            //searchCharities(search, {})
             return;
          }
     });
@@ -24,7 +28,13 @@ $(document).ready(function(event) {
 
 function query_search(){
 	search=document.getElementById('searchBar').value.toLowerCase()
-	searchCharities(search, {})
+
+	var sessionObject = getSessionObject();
+	sessionObject["searchStrings"] = [search];
+	setSessionObject(sessionObject);
+	window.location.href = "./search.html";
+	//searchCharities(search, {})
+
 }
 
 function searchFromDiscover(element) {
