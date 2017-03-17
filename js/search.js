@@ -154,7 +154,7 @@ function updateSearch() {
 						<td class="details-table-label">Headquarters:</td> \
 						<td class="details-table-data">Seattle, Washington</td>\
 						<td class="details-table-label">Cause:</td> \
-						<td class="details-table-data">'
+						<td class="details-table-data" id="cause">'
 						+ charityDetails[result_indeces[i]].cause + '</td>\
 					</tr>\
 					<tr>\
@@ -163,7 +163,7 @@ function updateSearch() {
 						<td class="details-table-label">Regions of Operation:</td> \
 						<td class="details-table-data">Worldwide</td>\
 						<td class="details-table-label">Charitable Commitment:</td>\
-						<td class="details-table-data">$2.19B</td>\
+						<td class="details-table-data" id="char">$2.19B</td>\
 					<tr>\
 						<td class="details-table-label last-tab-lab">Founded:</td>\
 						<td class="details-table-data last-tab-dat">Jan 1, 1997</td>\
