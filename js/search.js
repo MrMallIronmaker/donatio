@@ -168,7 +168,7 @@ function updateSearch() {
 						<td class="details-table-label last-tab-lab">Founded:</td>\
 						<td class="details-table-data last-tab-dat">Jan 1, 1997</td>\
 					</tr>\
-					<tr onclick = "trclick()">\
+					<tr onclick = "trclick(event)">\
 						<td class="less-tab"><a onclick="closeDetailsTable(this)">see less</a></td>\
 					</tr>\
 				</table>\
@@ -191,6 +191,10 @@ function updateSearch() {
 							 + (i * 10) + '"> '+(i+1)+' </a> </div>');
 	}
 	search_results.append(pagination);
+}
+
+function trclick(e){
+	e.stopPropagation();
 }
 
 function toggleDetailsTable(detailsP) {
