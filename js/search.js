@@ -102,6 +102,7 @@ function onSearchClick() {
 }
 
 function updateSearch() {
+  var sessObj = getSessionObject();
 	var charityDetails = getCharityDetails();
 	var pointsMap = getPointsMap(charityDetails);
 
@@ -129,6 +130,12 @@ function updateSearch() {
 
 	var start = checkGETfor('start') || 0;
 	var end = +start + 10; // the limit is ten per page
+
+  var searchDescription = 'Searching ' + '"' + sessObj["searchStrings"].join(" ") + '"';
+  for (var filterName in sessObj["searchFilters"]){
+    searchDescription += ' , "' + sessObj["searchFilters"][filterName] + '"';
+  }
+  search_results.append('<h4 class="search-description">'+searchDescription+'</h4>');
 
 	for (var i = start; i < result_indeces.length && i < end; i++) {
 		search_results.append(

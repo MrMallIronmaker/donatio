@@ -305,3 +305,7 @@ margin-left:-15px;
 a:hover{
   cursor: pointer
 }
+
+.search-description{
+  color: grey;
+}
