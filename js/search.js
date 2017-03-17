@@ -111,8 +111,8 @@ function updateSearch() {
 	var keys = Object.keys(pointsMap);
 	keys.sort(function (a, b) {return b-a;});
 
-	var none_found_msg = createElement('div')
-	var text_msg = createTextNode('No results found')
+	var none_found_msg = document.createElement('div')
+	var text_msg = document.createTextNode('No results found')
 	none_found_msg.append(text_msg)
 	none_found_msg.style.display = 'none'
 	search_results.append(none_found_msg)
