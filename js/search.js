@@ -168,10 +168,8 @@ function updateSearch() {
 						<td class="details-table-label last-tab-lab">Founded:</td>\
 						<td class="details-table-data last-tab-dat">Jan 1, 1997</td>\
 					</tr>\
-					<tr onclick = "trclick(event)">\
-						<td class="less-tab"><a onclick="closeDetailsTable(this)">see less</a></td>\
-					</tr>\
 				</table>\
+				<p><a onclick="closeDetailsTable(this)">see less</a></p>\
 			</div>'
 		)
 	}
