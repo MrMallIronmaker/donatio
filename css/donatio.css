@@ -70,7 +70,6 @@ html, body {
   text-align: left;
   padding-right: 20px;
   vertical-align: bottom;
-
 }
 
 #starz {
@@ -79,6 +78,16 @@ html, body {
 
 .last-tab-lab, .last-tab-dat{
   padding-top: 10px;
+}
+
+.less-tab{
+  padding-top: 10px;
+  color: blue;
+}
+
+.less-tab:hover{
+  text-decoration: underline;
+  cursor: pointer
 }
 
 .filter-name, .filter-results-count {

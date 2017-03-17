@@ -161,6 +161,9 @@ function updateSearch() {
 						<td class="details-table-label last-tab-lab">Founded:</td>\
 						<td class="details-table-data last-tab-dat">Jan 1, 1997</td>\
 					</tr>\
+					<tr>\
+						<td class="details-table-label less-tab onclick="closeDetailsTable(this)"">See less</td>\
+					</tr>\
 				</table>\
 			</div>'
 		)
@@ -185,6 +188,14 @@ function updateSearch() {
 
 function toggleDetailsTable(detailsP) {
 	var relevantObjects = $(detailsP).siblings().add($(detailsP));
+	relevantObjects.filter(".details-table-visible").removeClass("details-table-visible").addClass("details-table-temp");
+	relevantObjects.filter(".details-table-hidden").removeClass("details-table-hidden").addClass("details-table-visible");
+	relevantObjects.filter(".details-table-temp").removeClass("details-table-temp").addClass("details-table-hidden");
+}
+
+function closeDetailsTable(detailsP) {
+	var relevantObjects = $(detailsP).parentNode.parentNode.previousSibling
+	console.log(relevantObjects)
 	relevantObjects.filter(".details-table-visible").removeClass("details-table-visible").addClass("details-table-temp");
 	relevantObjects.filter(".details-table-hidden").removeClass("details-table-hidden").addClass("details-table-visible");
 	relevantObjects.filter(".details-table-temp").removeClass("details-table-temp").addClass("details-table-hidden");
