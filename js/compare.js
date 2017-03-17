@@ -63,7 +63,7 @@ function loadSelectionMenu(){
             elemList.removeChild(elem);
             updateComparison(sessObj["comparisonCharities"]);
             var del_char_header = document.getElementById("my_char_header");
-            del_char_header.innerHTML = "My Charities ("+savedCharities.length+')';
+            del_char_header.innerHTML = "My Charities ("+sessObj["savedCharities"].length+')';
         };
     }(elemList, elem, savedCharities[i]);
     deleteButton.addEventListener("click", deleteHandler);
