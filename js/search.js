@@ -125,7 +125,7 @@ function updateSearch() {
 					+ charityDetails[result_indeces[i]].name + 
 				'</h3>\
 				<p class="search-result-body details-table-visible" onclick="toggleDetailsTable(this)">' 
-					+ wordLimit(charityDetails[result_indeces[i]].mission, 18) + '... <a>continue</a> </p>\
+					+ wordLimit(charityDetails[result_indeces[i]].mission, 18) + '... <a>(see more)</a> </p>\
 					<p class="search-result-body details-table-hidden" onclick="toggleDetailsTable(this)">' 
 					+ charityDetails[result_indeces[i]].mission + ' </p>\
 				<table class="details-table-hidden" class="details-table">\

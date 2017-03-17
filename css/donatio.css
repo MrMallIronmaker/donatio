@@ -47,6 +47,10 @@ html, body {
   cursor: pointer;
 }
 
+.search-result-title:hover{
+  text-decoration: underline;
+}
+
 .details-table-hidden {
   display: none;
 }
@@ -225,4 +229,8 @@ margin-left:-15px;
 
 .see-all:hover {
   cursor: pointer;
+}
+
+a:hover{
+  cursor: pointer
 }
